@@ -1,10 +1,10 @@
-import { Bot, Layers, Database, Cloud, Workflow, GitBranch } from 'lucide-react'
+import { Bot, Layers, Database, Cloud, Code, GitBranch } from 'lucide-react'
 import { SectionHeading } from '../ui/SectionHeading'
 import { ScrollReveal } from '../ui/ScrollReveal'
 import { whatIDo } from '../../data/skills'
 
 const iconMap: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
-  Bot, Layers, Database, Cloud, Workflow, GitBranch,
+  Bot, Layers, Database, Cloud, Code, GitBranch,
 }
 
 export function WhatIDo() {

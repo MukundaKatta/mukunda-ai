@@ -22,7 +22,7 @@ export function Contact() {
           </h2>
 
           <p className="text-lg text-slate-600 dark:text-slate-300 mb-3 max-w-xl mx-auto">
-            Looking for a remote role where I can build production-ready AI systems and ship real impact.
+            Senior AI/ML Engineer seeking remote roles building production AI infrastructure, data platforms, and developer tools. Open to full-time opportunities.
           </p>
 
           <p className="flex items-center justify-center gap-1.5 text-slate-400 dark:text-slate-500 mb-10">
