@@ -1,8 +1,47 @@
+import { GithubIcon, LinkedinIcon, TwitterIcon } from '../ui/SocialIcons'
+import { personal } from '../../data/personal'
+
+const navLinks = [
+  { label: 'About', href: '#about' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Contact', href: '#contact' },
+]
+
 export function Footer() {
   return (
-    <footer className="py-8 px-6 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900">
-      <div className="max-w-5xl mx-auto text-center text-sm text-slate-400">
-        <p>&copy; {new Date().getFullYear()} Mukunda Rao Katta</p>
+    <footer className="py-12 px-6 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+      <div className="max-w-5xl mx-auto">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+          {/* Nav links */}
+          <nav className="flex flex-wrap gap-6 justify-center">
+            {navLinks.map(link => (
+              <a key={link.href} href={link.href} className="text-sm text-slate-500 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          {/* Social icons */}
+          <div className="flex gap-3">
+            {[
+              { href: personal.github, icon: <GithubIcon size={18} />, label: 'GitHub' },
+              { href: personal.linkedin, icon: <LinkedinIcon size={18} />, label: 'LinkedIn' },
+              { href: personal.twitter, icon: <TwitterIcon size={18} />, label: 'X' },
+            ].map(({ href, icon, label }) => (
+              <a key={label} href={href} target="_blank" rel="noopener" className="p-2 rounded-full text-slate-400 dark:text-slate-500 hover:text-teal-600 dark:hover:text-teal-400 transition-colors" aria-label={label}>
+                {icon}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800/50 text-center">
+          <p className="text-sm text-slate-400 dark:text-slate-500">
+            &copy; {new Date().getFullYear()} {personal.name} &middot; Built with React + Tailwind
+          </p>
+        </div>
       </div>
     </footer>
   )

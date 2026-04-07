@@ -15,4 +15,11 @@ export const personal = {
   linkedin: 'https://linkedin.com/in/mukunda-k-728155220',
   twitter: 'https://x.com/katta_mukunda',
   availableFor: ['GenAI Engineer', 'Data Engineer', 'ML Engineer', 'Full Stack Developer'],
+  about: 'I build AI-powered products and platforms — from multi-agent systems to full-stack applications. Passionate about agentic workflows, LLM orchestration, and shipping production-ready AI solutions. Previously at AWS building Bedrock and SageMaker features serving thousands of enterprise customers. Now focused on pushing the boundaries of what AI agents can do.',
+  stats: [
+    { label: 'Repositories', value: 669, suffix: '+' },
+    { label: 'Years Experience', value: 7, suffix: '+' },
+    { label: 'Certifications', value: 40, suffix: '+' },
+    { label: 'Projects Shipped', value: 10, suffix: '+' },
+  ],
 }

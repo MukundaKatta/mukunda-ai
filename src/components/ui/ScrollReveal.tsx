@@ -15,7 +15,6 @@ export function ScrollReveal({
   useEffect(() => {
     const el = ref.current
     if (!el) return
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -23,7 +22,7 @@ export function ScrollReveal({
           observer.disconnect()
         }
       },
-      { threshold: 0.1, rootMargin: '-30px' }
+      { threshold: 0.08, rootMargin: '-20px' }
     )
     observer.observe(el)
     return () => observer.disconnect()
@@ -35,8 +34,8 @@ export function ScrollReveal({
       className={className}
       style={{
         opacity: visible ? 1 : 0,
-        transform: visible ? 'translateY(0)' : 'translateY(24px)',
-        transition: `opacity 0.5s ease ${delay}s, transform 0.5s ease ${delay}s`,
+        transform: visible ? 'translateY(0)' : 'translateY(20px)',
+        transition: `opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s`,
       }}
     >
       {children}
