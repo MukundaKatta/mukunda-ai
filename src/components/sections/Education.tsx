@@ -1,0 +1,40 @@
+import { GraduationCap } from 'lucide-react'
+import { SectionHeading } from '../ui/SectionHeading'
+import { ScrollReveal } from '../ui/ScrollReveal'
+
+const education = [
+  {
+    school: 'University of Central Missouri',
+    degree: 'M.S. in Big Data Analytics and Information Technology',
+    period: '2021 — 2022',
+  },
+  {
+    school: 'SRM University',
+    degree: 'B.Tech in Mechanical Engineering',
+    period: '2012 — 2016',
+  },
+]
+
+export function Education() {
+  return (
+    <section id="education" className="py-24 px-6 bg-white dark:bg-slate-950">
+      <div className="max-w-5xl mx-auto">
+        <SectionHeading icon="🎓" title="Education" />
+        <div className="space-y-6">
+          {education.map((edu, i) => (
+            <ScrollReveal key={edu.school} delay={i * 0.1}>
+              <div className="p-6 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50 flex items-start gap-4">
+                <GraduationCap size={24} className="text-teal-600 dark:text-teal-400 mt-1 shrink-0" />
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white">{edu.school}</h3>
+                  <p className="text-sm text-slate-600 dark:text-slate-300">{edu.degree}</p>
+                  <p className="text-sm text-slate-400 mt-1">{edu.period}</p>
+                </div>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
