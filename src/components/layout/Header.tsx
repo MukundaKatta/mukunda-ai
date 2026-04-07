@@ -45,7 +45,7 @@ export function Header() {
               href={item.href}
               className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
                 active === item.href.slice(1)
-                  ? 'text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-900/30'
+                  ? 'text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/30'
                   : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
@@ -71,7 +71,7 @@ export function Header() {
                 onClick={() => setMobileOpen(false)}
                 className={`block px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                   active === item.href.slice(1)
-                    ? 'text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-900/30'
+                    ? 'text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/30'
                     : 'text-slate-600 dark:text-slate-400'
                 }`}
               >

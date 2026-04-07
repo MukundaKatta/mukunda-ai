@@ -18,8 +18,8 @@ export function WhatIDo() {
             return (
               <ScrollReveal key={item.title} delay={i * 0.08}>
                 <div className="group p-6 rounded-2xl border border-slate-200 dark:border-slate-700/50 bg-white/80 dark:bg-slate-800/40 backdrop-blur-sm card-hover h-full">
-                  <div className="w-12 h-12 rounded-xl bg-teal-50 dark:bg-teal-900/30 flex items-center justify-center mb-4 group-hover:bg-teal-100 dark:group-hover:bg-teal-900/50 transition-colors">
-                    {Icon && <Icon size={24} className="text-teal-600 dark:text-teal-400" />}
+                  <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-900/30 flex items-center justify-center mb-4 group-hover:bg-emerald-100 dark:group-hover:bg-emerald-900/50 transition-colors">
+                    {Icon && <Icon size={24} className="text-emerald-600 dark:text-emerald-400" />}
                   </div>
                   <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">{item.title}</h3>
                   <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">{item.description}</p>

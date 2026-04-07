@@ -17,7 +17,7 @@ export function Footer() {
           {/* Nav links */}
           <nav className="flex flex-wrap gap-6 justify-center">
             {navLinks.map(link => (
-              <a key={link.href} href={link.href} className="text-sm text-slate-500 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
+              <a key={link.href} href={link.href} className="text-sm text-slate-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
                 {link.label}
               </a>
             ))}
@@ -30,7 +30,7 @@ export function Footer() {
               { href: personal.linkedin, icon: <LinkedinIcon size={18} />, label: 'LinkedIn' },
               { href: personal.twitter, icon: <TwitterIcon size={18} />, label: 'X' },
             ].map(({ href, icon, label }) => (
-              <a key={label} href={href} target="_blank" rel="noopener" className="p-2 rounded-full text-slate-400 dark:text-slate-500 hover:text-teal-600 dark:hover:text-teal-400 transition-colors" aria-label={label}>
+              <a key={label} href={href} target="_blank" rel="noopener" className="p-2 rounded-full text-slate-400 dark:text-slate-500 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors" aria-label={label}>
                 {icon}
               </a>
             ))}

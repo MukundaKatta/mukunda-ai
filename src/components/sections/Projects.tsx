@@ -29,8 +29,8 @@ export function Projects() {
               <div className="group p-6 rounded-2xl border border-slate-200 dark:border-slate-700/50 bg-white/80 dark:bg-slate-800/40 backdrop-blur-sm card-hover h-full flex flex-col">
                 <div className="flex items-start justify-between mb-3">
                   <div>
-                    <h3 className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">{project.name}</h3>
-                    <p className="text-sm text-teal-600 dark:text-teal-400 font-medium">{project.tagline}</p>
+                    <h3 className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">{project.name}</h3>
+                    <p className="text-sm text-emerald-600 dark:text-emerald-400 font-medium">{project.tagline}</p>
                   </div>
                   <span className={`text-xs px-3 py-1 rounded-full font-medium whitespace-nowrap ml-3 ${statusStyles[project.status]}`}>
                     {statusLabels[project.status]}
@@ -49,12 +49,12 @@ export function Projects() {
 
                 <div className="flex gap-4 pt-2 border-t border-slate-100 dark:border-slate-700/50">
                   {project.github && (
-                    <a href={project.github} target="_blank" rel="noopener" className="flex items-center gap-1.5 text-sm text-slate-500 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors font-medium">
+                    <a href={project.github} target="_blank" rel="noopener" className="flex items-center gap-1.5 text-sm text-slate-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors font-medium">
                       <GithubIcon size={16} /> View Code
                     </a>
                   )}
                   {project.live && (
-                    <a href={project.live} target="_blank" rel="noopener" className="flex items-center gap-1.5 text-sm text-slate-500 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors font-medium">
+                    <a href={project.live} target="_blank" rel="noopener" className="flex items-center gap-1.5 text-sm text-slate-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors font-medium">
                       <ExternalLink size={16} /> Live Demo
                     </a>
                   )}

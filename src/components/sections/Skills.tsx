@@ -18,7 +18,7 @@ export function Skills() {
         <SectionHeading icon="⚡" title="Tech Stack" />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillCategories.map((cat, i) => {
-            const colors = categoryColors[cat.title] || { text: 'text-teal-600', bg: 'bg-teal-50', border: 'border-teal-200' }
+            const colors = categoryColors[cat.title] || { text: 'text-emerald-600', bg: 'bg-emerald-50', border: 'border-emerald-200' }
             return (
               <ScrollReveal key={cat.title} delay={i * 0.08}>
                 <div className={`p-6 rounded-2xl border bg-white/80 dark:bg-slate-800/40 backdrop-blur-sm card-hover ${colors.border}`}>

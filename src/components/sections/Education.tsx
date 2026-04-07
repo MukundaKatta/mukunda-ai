@@ -24,8 +24,8 @@ export function Education() {
           {education.map((edu, i) => (
             <ScrollReveal key={edu.school} delay={i * 0.1}>
               <div className="p-6 rounded-2xl border border-slate-200 dark:border-slate-700/50 bg-white/80 dark:bg-slate-800/40 backdrop-blur-sm card-hover flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-teal-50 dark:bg-teal-900/30 flex items-center justify-center shrink-0">
-                  <GraduationCap size={24} className="text-teal-600 dark:text-teal-400" />
+                <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-900/30 flex items-center justify-center shrink-0">
+                  <GraduationCap size={24} className="text-emerald-600 dark:text-emerald-400" />
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white">{edu.school}</h3>
