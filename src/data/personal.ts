@@ -1,7 +1,7 @@
 export const personal = {
   name: 'Mukunda Rao Katta',
   handle: '@MukundaKatta',
-  tagline: 'who builds production AI systems at scale.',
+  tagline: 'who builds AI/ML systems for Fortune 100 enterprises.',
   roles: [
     'Senior AI/ML Engineer',
     'GenAI Platform Engineer',
@@ -15,7 +15,7 @@ export const personal = {
   linkedin: 'https://linkedin.com/in/mukunda-katta-728155220',
   twitter: 'https://x.com/katta_mukunda',
   availableFor: ['Senior AI/ML Engineer', 'GenAI Engineer', 'Data Engineer', 'Platform Engineer'],
-  about: 'Senior AI/ML Engineer with 8+ years shipping production systems at AWS, Fortune 100 enterprises, and high-growth startups. I built inference APIs for AWS Bedrock (Claude, Llama, Titan) serving millions of daily calls, architected RAG pipelines over 500K+ enterprise documents, and created Karna — an open-source AI agent platform with 7 messaging channels. I specialize in LLM orchestration, data pipelines, and turning AI research into reliable, scalable products.',
+  about: 'Senior AI/ML Engineer with 8+ years shipping production systems at Fortune 100 enterprises. At Southwest Airlines, I built ML-powered aircraft maintenance fault prediction using SageMaker and Bedrock, and an agentic RAG chatbot serving 30,000+ knowledge base entries with a 9-stage retrieval pipeline. At AWS, I was a full-stack developer on Application Manager (part of AWS Systems Manager), building React/TypeScript and Java/Python services inside the AWS Management Console. At American Express, I built a GPT-4 + RAG marketing content generator and an AI model risk governance framework with 23 automated compliance tests. I also created Karna — an open-source AI agent platform with 7 messaging channels.',
   stats: [
     { label: 'Years Experience', value: 8, suffix: '+' },
     { label: 'Projects Shipped', value: 15, suffix: '+' },
