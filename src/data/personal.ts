@@ -15,7 +15,7 @@ export const personal = {
   linkedin: 'https://linkedin.com/in/mukunda-katta-728155220',
   twitter: 'https://x.com/katta_mukunda',
   availableFor: ['Senior AI/ML Engineer', 'GenAI Engineer', 'Data Engineer', 'Platform Engineer'],
-  about: 'Senior AI/ML Engineer with 8+ years shipping production systems at Fortune 100 enterprises. At Southwest Airlines, I built ML-powered aircraft maintenance fault prediction using SageMaker and Bedrock, and an agentic RAG chatbot serving 30,000+ knowledge base entries with a 9-stage retrieval pipeline. At AWS, I was a full-stack developer on Application Manager (part of AWS Systems Manager), building React/TypeScript and Java/Python services inside the AWS Management Console. At American Express, I built a GPT-4 + RAG marketing content generator and an AI model risk governance framework with 23 automated compliance tests. I also created Karna — an open-source AI agent platform with 7 messaging channels.',
+  about: 'Senior AI/ML Engineer with 8+ years building and operating production systems at Fortune 100 scale. Former SDE at Amazon Web Services, shipping features for AWS Systems Manager used by enterprise customers globally. At Southwest Airlines, I architected ML prediction systems and agentic RAG pipelines, driving 78% cost reduction and 600x retrieval speedup. Previously built GPT-4 + RAG platforms with automated compliance validation and AI model risk governance frameworks. Deep expertise in distributed systems, cloud-native architectures, and full-stack engineering across React/TypeScript, Python, and Java.',
   stats: [
     { label: 'Years Experience', value: 8, suffix: '+' },
     { label: 'Projects Shipped', value: 15, suffix: '+' },
