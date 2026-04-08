@@ -10,6 +10,7 @@ import { Projects } from './components/sections/Projects'
 import { Certifications } from './components/sections/Certifications'
 import { Education } from './components/sections/Education'
 import { Skills } from './components/sections/Skills'
+import { Blog } from './components/sections/Blog'
 import { Contact } from './components/sections/Contact'
 import { Footer } from './components/layout/Footer'
 
@@ -35,6 +36,8 @@ export default function App() {
         <Education />
         <div className="section-divider" />
         <Skills />
+        <div className="section-divider" />
+        <Blog />
         <div className="section-divider" />
         <Contact />
       </main>
