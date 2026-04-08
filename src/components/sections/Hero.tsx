@@ -49,7 +49,7 @@ export function Hero() {
               <img
                 src="/avatar.jpg"
                 alt={personal.name}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover" style={{ objectPosition: '50% 20%' }}
                 onError={(e) => {
                   const target = e.target as HTMLImageElement
                   target.style.display = 'none'
