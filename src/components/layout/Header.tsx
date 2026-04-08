@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 
 const navItems = [
@@ -13,10 +14,15 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [active, setActive] = useState('')
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [scrollProgress, setScrollProgress] = useState(0)
 
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 50)
+
+      // Scroll progress
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight
+      setScrollProgress(totalHeight > 0 ? (window.scrollY / totalHeight) * 100 : 0)
 
       const sections = navItems.map(n => n.href.slice(1))
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -33,9 +39,22 @@ export function Header() {
   }, [])
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'glass shadow-sm' : 'bg-transparent'}`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'glass shadow-sm' : 'bg-transparent'}`}>
+      {/* Scroll progress bar */}
+      <motion.div
+        className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-emerald-500 to-emerald-400"
+        style={{ width: `${scrollProgress}%` }}
+      />
+
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#" className="text-lg font-bold gradient-text">MK</a>
+        <motion.a
+          href="#"
+          className="text-lg font-extrabold gradient-text-premium tracking-tight"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          MK
+        </motion.a>
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-1">
@@ -43,13 +62,20 @@ export function Header() {
             <a
               key={item.href}
               href={item.href}
-              className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
+              className={`relative px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${
                 active === item.href.slice(1)
-                  ? 'text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/30'
+                  ? 'text-emerald-600 dark:text-emerald-400'
                   : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
-              {item.label}
+              {active === item.href.slice(1) && (
+                <motion.span
+                  layoutId="nav-pill"
+                  className="absolute inset-0 bg-emerald-50 dark:bg-emerald-900/30 rounded-full"
+                  transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                />
+              )}
+              <span className="relative z-10">{item.label}</span>
             </a>
           ))}
         </div>
@@ -61,26 +87,34 @@ export function Header() {
       </nav>
 
       {/* Mobile menu */}
-      {mobileOpen && (
-        <div className="md:hidden glass border-t border-slate-200/50 dark:border-slate-700/50">
-          <div className="px-6 py-4 space-y-2">
-            {navItems.map(item => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={() => setMobileOpen(false)}
-                className={`block px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                  active === item.href.slice(1)
-                    ? 'text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/30'
-                    : 'text-slate-600 dark:text-slate-400'
-                }`}
-              >
-                {item.label}
-              </a>
-            ))}
-          </div>
-        </div>
-      )}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden glass border-t border-slate-200/50 dark:border-slate-700/50"
+          >
+            <div className="px-6 py-4 space-y-2">
+              {navItems.map(item => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setMobileOpen(false)}
+                  className={`block px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                    active === item.href.slice(1)
+                      ? 'text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/30'
+                      : 'text-slate-600 dark:text-slate-400'
+                  }`}
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   )
 }

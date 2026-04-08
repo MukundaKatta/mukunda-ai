@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import { GithubIcon, LinkedinIcon, TwitterIcon } from '../ui/SocialIcons'
 import { personal } from '../../data/personal'
 
@@ -11,13 +12,13 @@ const navLinks = [
 
 export function Footer() {
   return (
-    <footer className="py-12 px-6 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+    <footer className="relative py-14 px-6 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
       <div className="max-w-5xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Nav links */}
           <nav className="flex flex-wrap gap-6 justify-center">
             {navLinks.map(link => (
-              <a key={link.href} href={link.href} className="text-sm text-slate-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+              <a key={link.href} href={link.href} className="text-sm text-slate-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors font-medium">
                 {link.label}
               </a>
             ))}
@@ -30,16 +31,24 @@ export function Footer() {
               { href: personal.linkedin, icon: <LinkedinIcon size={18} />, label: 'LinkedIn' },
               { href: personal.twitter, icon: <TwitterIcon size={18} />, label: 'X' },
             ].map(({ href, icon, label }) => (
-              <a key={label} href={href} target="_blank" rel="noopener" className="p-2 rounded-full text-slate-400 dark:text-slate-500 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors" aria-label={label}>
+              <motion.a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener"
+                whileHover={{ scale: 1.15, y: -2 }}
+                className="p-2.5 rounded-full text-slate-400 dark:text-slate-500 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+                aria-label={label}
+              >
                 {icon}
-              </a>
+              </motion.a>
             ))}
           </div>
         </div>
 
         <div className="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800/50 text-center">
           <p className="text-sm text-slate-400 dark:text-slate-500">
-            &copy; {new Date().getFullYear()} {personal.name} &middot; Built with React + Tailwind
+            &copy; {new Date().getFullYear()} {personal.name}
           </p>
         </div>
       </div>

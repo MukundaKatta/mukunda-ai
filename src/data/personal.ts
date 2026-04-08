@@ -10,7 +10,7 @@ export const personal = {
   ],
   badges: ['Ex-AWS', 'AI/ML Engineer', 'Open Source', 'TypeScript & Python'],
   location: 'Las Vegas, NV',
-  email: 'katta.mukunda@gmail.com',
+  email: 'mukunda.vjcs6@gmail.com',
   github: 'https://github.com/MukundaKatta',
   linkedin: 'https://linkedin.com/in/mukunda-katta-728155220',
   twitter: 'https://x.com/katta_mukunda',
