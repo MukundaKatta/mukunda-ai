@@ -7,7 +7,7 @@ const education = [
   {
     school: 'University of Central Missouri',
     degree: 'M.S. in Big Data Analytics and Information Technology',
-    period: '2021 — 2022',
+    period: 'Jan 2021 — May 2022',
     focus: 'Machine Learning, Data Mining, Big Data Processing',
   },
   {
