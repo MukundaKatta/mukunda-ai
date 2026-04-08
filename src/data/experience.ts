@@ -9,15 +9,27 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
-    company: 'GPS IT Solutions',
+    company: 'Southwest Airlines (via GPS IT Solutions)',
     role: 'AI/ML Engineer',
-    period: 'Jun 2024 — Present',
+    period: 'Aug 2025 — Present',
     type: 'AI & Automation',
     highlights: [
       'Built AI-powered aircraft maintenance fault prediction system (SWA Sidebar) with 5 ML prediction types — ATA codes, failure types, parts, tools, and repair references — trained on 10,000+ historical maintenance records',
       'Migrated prediction pipeline from SageMaker (3 endpoints, ml.m5.2xlarge) to Bedrock Titan Embeddings + OpenSearch Serverless, achieving 78% cost reduction ($1,740 to $371/mo) and 600x faster retrieval vs. manual search',
       'Architected production agentic RAG chatbot with 9-stage pipeline — query routing, semantic caching, hybrid retrieval (FAISS + BM25), cross-encoder re-ranking, self-RAG retry, hallucination grounding, and smart escalation — using Bedrock Nova Pro/Micro and LangGraph',
       'Ingested 30,000+ KB entries from 7 enterprise sources (Excel, Confluence, Jira, PDFs, Teams, ServiceNow, IFS Cloud) with 370+ unit tests and RAGAS evaluation framework',
+    ],
+    featured: true,
+  },
+  {
+    company: 'GPS IT Solutions',
+    role: 'AI/ML Engineer',
+    period: 'Jun 2024 — Aug 2025',
+    type: 'AI & Automation',
+    highlights: [
+      'Built GPT-4 + RAG content generation platform with automated compliance validation, producing multi-variant personalized content (10-15 versions per campaign) and reducing content creation time by 40%',
+      'Designed AI model risk governance framework with 23 automated evaluation tests — PII detection, bias/stereotype detection, hallucination grounding, toxicity analysis — achieving regulatory compliance and 30% reduction in review cycles',
+      'Implemented FastAPI microservices with FAISS/Pinecone vector search, deployed on Kubernetes with PostgreSQL, AI Firewall, Splunk, and Dynatrace for continuous monitoring',
     ],
     featured: true,
   },
@@ -34,24 +46,24 @@ export const experiences: Experience[] = [
     featured: true,
   },
   {
-    company: 'Infosys',
-    role: 'System Engineer',
-    period: 'Feb 2020 — Aug 2022',
-    type: 'AI & Data Engineering',
-    highlights: [
-      'Built GPT-4 + RAG marketing content generator (MCG) at American Express, automating compliant marketing copy with multi-variant creation (10-15 personalized versions per campaign) and 40% faster campaign development',
-      'Designed AI model risk governance framework (MRMG) with 23 automated risk evaluation tests — PII detection, bias, hallucination, and toxicity — achieving SR 11-7 regulatory compliance and 30% reduction in AI compliance review time',
-      'Implemented FastAPI microservices with FAISS/Pinecone vector search, deployed on Kubernetes (HYDRA) with PostgreSQL, AI Firewall (EAG), Splunk, and Dynatrace for continuous monitoring',
-    ],
-  },
-  {
     company: 'GPS IT Solutions',
     role: 'Data Engineer',
-    period: 'Feb 2017 — Jan 2020',
+    period: 'Jan 2022 — Aug 2022',
     type: 'Data Engineering',
     highlights: [
       'Led ETL migration from on-prem to AWS cloud for Cigna healthcare data pipelines using AWS Glue and PySpark',
       'Developed Python-based data extraction and transformation frameworks processing large-scale healthcare datasets',
+    ],
+  },
+  {
+    company: 'Infosys',
+    role: 'System Engineer',
+    period: 'Feb 2017 — Dec 2020',
+    type: 'Software Development',
+    highlights: [
+      'Developed Python-based backend services and automation tools for American Express marketing and compliance platforms',
+      'Built RESTful APIs and data processing pipelines handling high-volume transaction data with PostgreSQL and Oracle databases',
+      'Implemented automated testing frameworks and CI/CD workflows, improving deployment reliability across multiple application services',
     ],
   },
 ]
