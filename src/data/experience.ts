@@ -35,7 +35,7 @@ export const experiences: Experience[] = [
   },
   {
     company: 'Infosys',
-    role: 'AI/ML Engineer',
+    role: 'System Engineer',
     period: 'Feb 2020 — Aug 2022',
     type: 'AI & Data Engineering',
     highlights: [
