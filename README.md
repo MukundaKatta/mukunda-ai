@@ -2,7 +2,7 @@
 
 **Live:** <https://mukunda-ai.vercel.app>
 
-Personal portfolio — mukunda.dev | AI/ML Engineer. mukunda-ai gives you a focused, inspectable implementation of that idea.
+Personal portfolio — mukunda.dev | AI/ML Engineer.
 
 ## Why mukunda-ai
 
