@@ -5,7 +5,7 @@ import { certGroups } from '../../data/certifications'
 
 export function Certifications() {
   return (
-    <section id="certifications" className="relative py-28 px-6 bg-white dark:bg-slate-950">
+    <section id="certifications" className="relative py-28 px-6 bg-white dark:bg-black">
       <div className="max-w-5xl mx-auto">
         <SectionHeading icon="🏅" title="Certifications" />
 

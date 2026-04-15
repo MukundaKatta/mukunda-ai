@@ -22,7 +22,7 @@ const companyColors: Record<string, string> = {
 
 export function Experience() {
   return (
-    <section id="experience" className="relative py-28 px-6 bg-white dark:bg-slate-950 overflow-hidden">
+    <section id="experience" className="relative py-28 px-6 bg-white dark:bg-black overflow-hidden">
       <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-indigo-500/[0.03] rounded-full blur-[80px] -translate-y-1/2 -translate-x-1/2 pointer-events-none" />
 
       <div className="relative max-w-5xl mx-auto">
