@@ -31,15 +31,16 @@ export function MatrixRain({
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     if (reduceMotion) return
 
-    // Intensity presets
+    // Wallpaper, not content. Presets tuned so text stays dominant.
     const cfg = {
-      subtle: { head: 0.75, tail: 0.45, trail: 0.30, fade: 0.10, fps: 16 },
-      normal: { head: 0.92, tail: 0.65, trail: 0.42, fade: 0.08, fps: 18 },
-      strong: { head: 1.00, tail: 0.80, trail: 0.55, fade: 0.06, fps: 22 },
+      subtle: { head: 0.22, tail: 0.12, trail: 0.07, fade: 0.12, fps: 14, step: 2 },
+      normal: { head: 0.32, tail: 0.18, trail: 0.10, fade: 0.10, fps: 16, step: 2 },
+      strong: { head: 0.45, tail: 0.26, trail: 0.14, fade: 0.08, fps: 18, step: 2 },
     }[intensity]
 
-    const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&@*+=<>/[]{}()!?;:'
-    const FONT_SIZE = 15
+    const CHARS = '01'
+    const FONT_SIZE = 16
+    const COL_GAP = FONT_SIZE * cfg.step // wider breathing room between streams
 
     let columns = 0
     let drops: number[] = []
@@ -54,11 +55,10 @@ export function MatrixRain({
       canvas.width = Math.floor(rect.width * dpr)
       canvas.height = Math.floor(rect.height * dpr)
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
-      columns = Math.floor(rect.width / FONT_SIZE)
+      columns = Math.floor(rect.width / COL_GAP)
       drops = Array.from({ length: columns }, () => Math.random() * -rect.height / 2)
       trailLengths = Array.from({ length: columns }, () => 6 + Math.floor(Math.random() * 14))
-      hueMix = Array.from({ length: columns }, () => (Math.random() < 0.18 ? 1 : 0))
-      // Clear once
+      hueMix = Array.from({ length: columns }, () => (Math.random() < 0.15 ? 1 : 0))
       ctx.clearRect(0, 0, rect.width, rect.height)
     }
 
@@ -79,24 +79,21 @@ export function MatrixRain({
       ctx.textBaseline = 'top'
 
       for (let i = 0; i < columns; i++) {
-        const x = i * FONT_SIZE
+        const x = i * COL_GAP
         const y = drops[i]
         const isViolet = hueMix[i] === 1
-        // indigo-300 / violet-300
-        const tailR = isViolet ? 196 : 165
-        const tailG = isViolet ? 181 : 180
-        const tailB = isViolet ? 253 : 252
+        // indigo-400 / violet-400 (slightly dimmer than 300 for wallpaper feel)
+        const tailR = isViolet ? 167 : 129
+        const tailG = isViolet ? 139 : 140
+        const tailB = isViolet ? 250 : 248
 
         const char = CHARS.charAt(Math.floor(Math.random() * CHARS.length))
 
-        // Head glyph — bright near-white, faint palette tint
-        ctx.fillStyle = `rgba(235, 232, 255, ${cfg.head})`
-        ctx.shadowColor = `rgba(${tailR}, ${tailG}, ${tailB}, 0.8)`
-        ctx.shadowBlur = 8
+        // Head glyph — restrained, no shadowBlur (shadow made it read as foreground)
+        ctx.fillStyle = `rgba(${tailR + 60}, ${tailG + 60}, 255, ${cfg.head})`
         ctx.fillText(char, x, y)
-        ctx.shadowBlur = 0
 
-        // Secondary (one step up) — bright tail
+        // Secondary tail
         ctx.fillStyle = `rgba(${tailR}, ${tailG}, ${tailB}, ${cfg.tail})`
         ctx.fillText(char, x, y - FONT_SIZE)
 

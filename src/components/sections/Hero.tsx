@@ -24,7 +24,7 @@ export function Hero() {
     <section className="relative min-h-screen flex items-center justify-center px-5 sm:px-6 pt-24 pb-20 overflow-hidden bg-[#faf9f6] dark:bg-black">
       {/* Matrix rain (dark mode only — hidden in light) */}
       <div className="absolute inset-0 hidden dark:block">
-        <MatrixRain intensity="strong" />
+        <MatrixRain intensity="normal" />
       </div>
 
       {/* Aurora (dark only, CSS-gated) */}
@@ -34,8 +34,8 @@ export function Hero() {
       <div className="orb w-[420px] h-[420px] sm:w-[520px] sm:h-[520px] bg-indigo-500 top-[-10%] left-[-25%] sm:left-[-8%]" style={{ animation: 'float-slow 22s ease-in-out infinite' }} />
       <div className="orb w-[360px] h-[360px] sm:w-[440px] sm:h-[440px] bg-violet-500 bottom-[-10%] right-[-25%] sm:right-[-5%]" style={{ animation: 'float-slower 28s ease-in-out infinite' }} />
 
-      {/* Radial vignette — dark only */}
-      <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(0,0,0,0.7)_100%)] pointer-events-none" />
+      {/* Radial vignette — darker so hero content pools in the center */}
+      <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(ellipse_at_center,transparent_20%,rgba(0,0,0,0.55)_60%,rgba(0,0,0,0.85)_100%)] pointer-events-none" />
 
       <motion.div
         className="relative z-10 w-full max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-14"

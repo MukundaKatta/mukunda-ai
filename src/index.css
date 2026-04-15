@@ -237,16 +237,15 @@
       conic-gradient(
         from 0deg at 50% 50%,
         transparent 0deg,
-        rgba(99, 102, 241, 0.22) 60deg,
-        rgba(167, 139, 250, 0.18) 120deg,
+        rgba(99, 102, 241, 0.15) 60deg,
+        rgba(167, 139, 250, 0.10) 120deg,
         transparent 180deg,
-        rgba(129, 140, 248, 0.20) 240deg,
-        rgba(34, 211, 238, 0.10) 300deg,
+        rgba(129, 140, 248, 0.12) 240deg,
         transparent 360deg
       );
-    filter: blur(80px);
-    opacity: 0.7;
-    animation: aurora-drift 28s linear infinite;
+    filter: blur(90px);
+    opacity: 0.35;
+    animation: aurora-drift 35s linear infinite;
   }
   @keyframes aurora-drift {
     to { transform: rotate(360deg); }
