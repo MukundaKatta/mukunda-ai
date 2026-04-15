@@ -1,77 +1,78 @@
-import { useState } from 'react'
+import type { ComponentType } from 'react'
 import { motion } from 'framer-motion'
+import {
+  SiTypescript, SiPython, SiJavascript, SiGo, SiOpenjdk,
+  SiAnthropic, SiOpenai, SiLangchain,
+  SiReact, SiNextdotjs, SiExpo, SiTailwindcss,
+  SiNodedotjs, SiFastapi, SiFastify,
+  SiSnowflake, SiGooglebigquery,
+  SiApacheairflow, SiDbt, SiApachespark,
+  SiGooglecloud, SiDocker, SiKubernetes, SiTerraform,
+  SiPostgresql, SiSupabase, SiRedis, SiFirebase,
+  SiOpentelemetry,
+} from 'react-icons/si'
+import { FaAws } from 'react-icons/fa6'
+import { VscAzure } from 'react-icons/vsc'
 import { SectionHeading } from '../ui/SectionHeading'
 import { ScrollReveal } from '../ui/ScrollReveal'
 import { skillCategories } from '../../data/skills'
 
-// Verified simple-icons slugs (https://simpleicons.org).
-// Items without a brand icon (generic concepts like RAG/MCP/Agents)
-// render as text only — no forced placeholder.
-const iconSlug: Record<string, string> = {
+type IconT = ComponentType<{ size?: number; className?: string; style?: React.CSSProperties }>
+
+const iconFor: Record<string, IconT> = {
   // Languages
-  TypeScript: 'typescript',
-  Python: 'python',
-  JavaScript: 'javascript',
-  Go: 'go',
-  Java: 'openjdk',
+  TypeScript: SiTypescript,
+  Python: SiPython,
+  JavaScript: SiJavascript,
+  Go: SiGo,
+  Java: SiOpenjdk,
   // AI / LLM
-  Claude: 'anthropic',
-  OpenAI: 'openai',
-  LangChain: 'langchain',
+  Claude: SiAnthropic,
+  OpenAI: SiOpenai,
+  LangChain: SiLangchain,
   // Frontend
-  React: 'react',
-  'Next.js': 'nextdotjs',
-  'React Native': 'react',
-  Expo: 'expo',
-  'Tailwind CSS': 'tailwindcss',
+  React: SiReact,
+  'Next.js': SiNextdotjs,
+  'React Native': SiReact,
+  Expo: SiExpo,
+  'Tailwind CSS': SiTailwindcss,
   // Backend & APIs
-  'Node.js': 'nodedotjs',
-  FastAPI: 'fastapi',
-  Fastify: 'fastify',
+  'Node.js': SiNodedotjs,
+  FastAPI: SiFastapi,
+  Fastify: SiFastify,
   // Data & ML
-  Snowflake: 'snowflake',
-  Redshift: 'amazonredshift',
-  BigQuery: 'googlebigquery',
-  SageMaker: 'amazonwebservices',
-  Bedrock: 'amazonwebservices',
-  Airflow: 'apacheairflow',
-  dbt: 'dbt',
-  Spark: 'apachespark',
-  PySpark: 'apachespark',
+  Snowflake: SiSnowflake,
+  Redshift: FaAws,
+  BigQuery: SiGooglebigquery,
+  SageMaker: FaAws,
+  Bedrock: FaAws,
+  Airflow: SiApacheairflow,
+  dbt: SiDbt,
+  Spark: SiApachespark,
+  PySpark: SiApachespark,
   // Cloud & DevOps
-  AWS: 'amazonwebservices',
-  GCP: 'googlecloud',
-  Azure: 'microsoftazure',
-  Docker: 'docker',
-  Kubernetes: 'kubernetes',
-  Terraform: 'terraform',
+  AWS: FaAws,
+  GCP: SiGooglecloud,
+  Azure: VscAzure,
+  Docker: SiDocker,
+  Kubernetes: SiKubernetes,
+  Terraform: SiTerraform,
   // Databases
-  PostgreSQL: 'postgresql',
-  Supabase: 'supabase',
-  Redis: 'redis',
-  Firebase: 'firebase',
-  pgvector: 'postgresql',
-  DynamoDB: 'amazondynamodb',
+  PostgreSQL: SiPostgresql,
+  Supabase: SiSupabase,
+  Redis: SiRedis,
+  Firebase: SiFirebase,
+  pgvector: SiPostgresql,
+  DynamoDB: FaAws,
   // Observability
-  OpenTelemetry: 'opentelemetry',
-  CloudWatch: 'amazonwebservices',
+  OpenTelemetry: SiOpentelemetry,
+  CloudWatch: FaAws,
 }
 
 function BrandIcon({ label }: { label: string }) {
-  const slug = iconSlug[label]
-  const [failed, setFailed] = useState(false)
-  if (!slug || failed) return null
-  return (
-    <img
-      src={`https://cdn.simpleicons.org/${slug}`}
-      alt=""
-      aria-hidden
-      loading="lazy"
-      decoding="async"
-      onError={() => setFailed(true)}
-      className="w-3.5 h-3.5 shrink-0 opacity-95 group-hover:opacity-100 transition-opacity"
-    />
-  )
+  const Icon = iconFor[label]
+  if (!Icon) return null
+  return <Icon size={14} className="shrink-0 opacity-95 text-slate-700 dark:text-slate-200" />
 }
 
 export function Skills() {
