@@ -33,16 +33,17 @@ export function Hero() {
           src="/avatar.jpg"
           alt=""
           aria-hidden
-          className="w-full h-full object-cover object-left opacity-70 dark:opacity-55"
+          className="w-full h-full object-cover opacity-75 dark:opacity-60"
           style={{
+            objectPosition: '50% 22%',
             maskImage:
-              'linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 35%, rgba(0,0,0,0.25) 70%, transparent 100%)',
+              'linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 30%, rgba(0,0,0,0.3) 70%, transparent 100%)',
             WebkitMaskImage:
-              'linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 35%, rgba(0,0,0,0.25) 70%, transparent 100%)',
+              'linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 30%, rgba(0,0,0,0.3) 70%, transparent 100%)',
           }}
         />
         {/* Darkening overlay on top of portrait in dark mode so it recedes further */}
-        <div className="absolute inset-0 hidden dark:block bg-gradient-to-l from-black/35 via-black/20 to-transparent" />
+        <div className="absolute inset-0 hidden dark:block bg-gradient-to-l from-black/40 via-black/20 to-transparent" />
       </div>
 
       {/* Soft vignette to pool readability on the left where text lives */}
