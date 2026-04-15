@@ -18,7 +18,7 @@ export default function App() {
   const { dark, toggle } = useTheme()
 
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors">
+    <div className="min-h-screen bg-white dark:bg-[#0a0a16] text-slate-900 dark:text-slate-100 transition-colors">
       <Header />
       <ThemeToggle dark={dark} toggle={toggle} />
       <main>

@@ -30,7 +30,7 @@ export function TypeWriter({ words, className = '' }: { words: string[]; classNa
   return (
     <span className={className}>
       {text}
-      <span className="cursor-blink text-emerald-600">|</span>
+      <span className="cursor-blink text-indigo-600">|</span>
     </span>
   )
 }

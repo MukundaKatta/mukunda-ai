@@ -9,12 +9,12 @@ const iconMap: Record<string, React.ComponentType<{ size?: number; className?: s
 }
 
 const cardColors = [
-  'from-emerald-500/10 to-emerald-500/5',
+  'from-indigo-500/10 to-indigo-500/5',
+  'from-violet-500/10 to-violet-500/5',
+  'from-fuchsia-500/10 to-fuchsia-500/5',
   'from-blue-500/10 to-blue-500/5',
-  'from-amber-500/10 to-amber-500/5',
   'from-purple-500/10 to-purple-500/5',
-  'from-cyan-500/10 to-cyan-500/5',
-  'from-rose-500/10 to-rose-500/5',
+  'from-sky-500/10 to-sky-500/5',
 ]
 
 export function WhatIDo() {
@@ -38,8 +38,8 @@ export function WhatIDo() {
                   <div className={`absolute inset-0 bg-gradient-to-br ${cardColors[i]} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
 
                   <div className="relative">
-                    <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-900/30 flex items-center justify-center mb-4 group-hover:bg-emerald-100 dark:group-hover:bg-emerald-900/50 transition-all duration-300 group-hover:scale-110">
-                      {Icon && <Icon size={24} className="text-emerald-600 dark:text-emerald-400" />}
+                    <div className="w-12 h-12 rounded-xl bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center mb-4 group-hover:bg-indigo-100 dark:group-hover:bg-indigo-900/50 transition-all duration-300 group-hover:scale-110">
+                      {Icon && <Icon size={24} className="text-indigo-600 dark:text-indigo-400" />}
                     </div>
                     <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">{item.title}</h3>
                     <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">{item.description}</p>
