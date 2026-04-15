@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Mail, ArrowRight, Sparkles } from 'lucide-react'
+import { Mail, ArrowRight } from 'lucide-react'
 import { GithubIcon, LinkedinIcon, TwitterIcon } from '../ui/SocialIcons'
 import { MatrixRain } from '../ui/MatrixRain'
 import { personal } from '../../data/personal'
@@ -140,15 +140,6 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Floating sparkle badge near portrait — signal "available" cherry on top */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 1.1, type: 'spring', stiffness: 400 }}
-          className="absolute top-4 right-4 sm:top-8 sm:right-8 w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center neon-btn-primary pointer-events-none"
-        >
-          <Sparkles size={14} className="text-white" />
-        </motion.div>
       </motion.div>
     </section>
   )
