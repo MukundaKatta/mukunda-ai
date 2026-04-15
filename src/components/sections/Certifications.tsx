@@ -1,7 +1,54 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { GraduationCap } from 'lucide-react'
 import { SectionHeading } from '../ui/SectionHeading'
 import { ScrollReveal } from '../ui/ScrollReveal'
 import { certGroups } from '../../data/certifications'
+
+// Provider -> simple-icons slug (verified)
+const providerSlug: Record<string, string> = {
+  Anthropic: 'anthropic',
+  AWS: 'amazonwebservices',
+  Microsoft: 'microsoft',
+  Azure: 'microsoftazure',
+  GCP: 'googlecloud',
+  IBM: 'ibm',
+  'LinkedIn Learning': 'linkedin',
+}
+
+function ProviderLogo({ provider, color }: { provider: string; color: string }) {
+  const slug = providerSlug[provider]
+  const [failed, setFailed] = useState(false)
+
+  // Academic providers / fallback: GraduationCap icon in brand color
+  if (!slug || failed) {
+    return (
+      <div
+        className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
+        style={{ backgroundColor: `${color}18`, border: `1px solid ${color}35` }}
+      >
+        <GraduationCap size={16} style={{ color }} />
+      </div>
+    )
+  }
+
+  return (
+    <div
+      className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 bg-white dark:bg-white/95 p-1.5"
+      style={{ boxShadow: `0 0 0 1px ${color}30, 0 4px 12px -4px ${color}40` }}
+    >
+      <img
+        src={`https://cdn.simpleicons.org/${slug}`}
+        alt=""
+        aria-hidden
+        loading="lazy"
+        decoding="async"
+        onError={() => setFailed(true)}
+        className="w-full h-full object-contain"
+      />
+    </div>
+  )
+}
 
 export function Certifications() {
   return (
@@ -22,13 +69,10 @@ export function Certifications() {
               <motion.div
                 whileHover={{ y: -3 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                className="p-6 md:p-7 rounded-2xl border border-slate-200 dark:border-slate-700/50 bg-white/90 dark:bg-slate-800/50 backdrop-blur-sm group"
+                className="p-6 md:p-7 rounded-2xl border border-slate-200 dark:border-indigo-400/15 bg-white dark:bg-[#0a0a14]/70 backdrop-blur-sm group"
               >
                 <div className="flex items-center gap-3 mb-5">
-                  <div
-                    className="w-4 h-4 rounded-full shrink-0 shadow-sm"
-                    style={{ backgroundColor: group.color, boxShadow: `0 0 0 4px ${group.color}20` }}
-                  />
+                  <ProviderLogo provider={group.provider} color={group.color} />
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white">
                     {group.provider}
                     <span className="ml-2 text-sm font-normal text-slate-400 dark:text-slate-500">({group.certs.length})</span>
