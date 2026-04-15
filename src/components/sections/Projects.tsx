@@ -23,10 +23,10 @@ const statusLabels: Record<string, string> = {
 export function Projects() {
   return (
     <section id="projects" className="relative py-28 px-6 bg-[#f5f3ec] dark:bg-[#030308] overflow-hidden">
-      <div className="absolute inset-0 hidden dark:block opacity-45">
-        <MatrixRain density={0.5} opacity={0.1} />
+      <div className="absolute inset-0 hidden dark:block">
+        <MatrixRain intensity="normal" />
       </div>
-      <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(0,0,0,0.75)_100%)] pointer-events-none" />
+      <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(ellipse_at_center,transparent_55%,rgba(0,0,0,0.55)_100%)] pointer-events-none" />
       <div className="absolute inset-0 dot-grid opacity-40 dark:opacity-0" />
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/[0.03] rounded-full blur-[100px] -translate-y-1/4 translate-x-1/4 pointer-events-none" />
 

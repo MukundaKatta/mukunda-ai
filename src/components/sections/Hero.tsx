@@ -23,8 +23,8 @@ export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center px-5 sm:px-6 pt-24 pb-20 overflow-hidden bg-[#faf9f6] dark:bg-black">
       {/* Matrix rain (dark mode only — hidden in light) */}
-      <div className="absolute inset-0 hidden dark:block opacity-60">
-        <MatrixRain density={0.55} opacity={0.14} />
+      <div className="absolute inset-0 hidden dark:block">
+        <MatrixRain intensity="strong" />
       </div>
 
       {/* Aurora (dark only, CSS-gated) */}
