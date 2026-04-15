@@ -99,7 +99,7 @@ export function Hero() {
             variants={fadeUp}
             className="text-lg sm:text-xl md:text-2xl font-semibold text-slate-700 dark:text-slate-200 mb-3"
           >
-            Senior AI/ML Engineer & Platform Builder
+            Senior AI/ML Engineer & AI Builder
           </motion.p>
 
           {/* Tagline */}
