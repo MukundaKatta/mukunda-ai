@@ -22,11 +22,11 @@ export function WhatIDo() {
   return (
     <section id="what-i-do" className="relative py-28 px-6 bg-[#f5f3ec] dark:bg-[#030308] overflow-hidden">
       {/* Matrix rain — dark mode only, behind content */}
-      <div className="absolute inset-0 hidden dark:block opacity-50">
-        <MatrixRain density={0.55} opacity={0.11} />
+      <div className="absolute inset-0 hidden dark:block">
+        <MatrixRain intensity="normal" />
       </div>
-      {/* Radial vignette deepens edges so cards pop against matrix */}
-      <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(0,0,0,0.75)_100%)] pointer-events-none" />
+      {/* Lighter vignette — cards already have dark bg, just soften the edges */}
+      <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(ellipse_at_center,transparent_55%,rgba(0,0,0,0.55)_100%)] pointer-events-none" />
       <div className="absolute inset-0 dot-grid opacity-40 dark:opacity-0" />
 
       <div className="relative max-w-6xl mx-auto">
