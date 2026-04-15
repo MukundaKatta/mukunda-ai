@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { Mail, ArrowRight } from 'lucide-react'
 import { GithubIcon, LinkedinIcon, TwitterIcon } from '../ui/SocialIcons'
-import { MatrixRain } from '../ui/MatrixRain'
+import { NeuralPulse } from '../ui/NeuralPulse'
 import { personal } from '../../data/personal'
 
 const stagger = {
@@ -17,9 +17,9 @@ const fadeUp = {
 export function Hero() {
   return (
     <section className="relative flex items-center justify-start px-5 sm:px-6 pt-28 pb-10 overflow-hidden bg-[#faf9f6] dark:bg-black min-h-screen">
-      {/* Matrix rain — dark only */}
+      {/* Neural pulse — dark mode only, strong intensity for hero */}
       <div className="absolute inset-0 hidden dark:block">
-        <MatrixRain intensity="strong" />
+        <NeuralPulse intensity="strong" />
       </div>
 
       {/* Aurora + orbs — dark only, CSS-gated */}
