@@ -1,51 +1,69 @@
-import { useState } from 'react'
+import type { ComponentType } from 'react'
 import { motion } from 'framer-motion'
 import { GraduationCap } from 'lucide-react'
+import { SiAnthropic, SiGooglecloud } from 'react-icons/si'
+import { FaAws, FaLinkedin, FaMicrosoft } from 'react-icons/fa6'
+import { VscAzure } from 'react-icons/vsc'
 import { SectionHeading } from '../ui/SectionHeading'
 import { ScrollReveal } from '../ui/ScrollReveal'
 import { certGroups } from '../../data/certifications'
 
-// Provider -> simple-icons slug (verified)
-const providerSlug: Record<string, string> = {
-  Anthropic: 'anthropic',
-  AWS: 'amazonwebservices',
-  Microsoft: 'microsoft',
-  Azure: 'microsoftazure',
-  GCP: 'googlecloud',
-  IBM: 'ibm',
-  'LinkedIn Learning': 'linkedin',
+type IconT = ComponentType<{ size?: number; className?: string; style?: React.CSSProperties }>
+
+const providerIcon: Record<string, IconT> = {
+  Anthropic: SiAnthropic,
+  AWS: FaAws,
+  Microsoft: FaMicrosoft,
+  Azure: VscAzure,
+  GCP: SiGooglecloud,
+  'LinkedIn Learning': FaLinkedin,
+}
+
+// IBM has no brand icon in any react-icons pack; use its distinctive
+// striped-text wordmark inline.
+function IBMMark({ color }: { color: string }) {
+  return (
+    <span
+      className="font-black tracking-[-0.05em] text-[11px] leading-none"
+      style={{ color }}
+    >
+      IBM
+    </span>
+  )
 }
 
 function ProviderLogo({ provider, color }: { provider: string; color: string }) {
-  const slug = providerSlug[provider]
-  const [failed, setFailed] = useState(false)
+  const Icon = providerIcon[provider]
 
-  // Academic providers / fallback: GraduationCap icon in brand color
-  if (!slug || failed) {
+  if (provider === 'IBM') {
     return (
       <div
-        className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
+        className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 bg-white dark:bg-white"
+        style={{ boxShadow: `0 0 0 1px ${color}30, 0 4px 12px -4px ${color}40` }}
+      >
+        <IBMMark color={color} />
+      </div>
+    )
+  }
+
+  if (!Icon) {
+    // Academic providers (Stanford / Wharton)
+    return (
+      <div
+        className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0"
         style={{ backgroundColor: `${color}18`, border: `1px solid ${color}35` }}
       >
-        <GraduationCap size={16} style={{ color }} />
+        <GraduationCap size={18} style={{ color }} />
       </div>
     )
   }
 
   return (
     <div
-      className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 bg-white dark:bg-white/95 p-1.5"
+      className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 bg-white dark:bg-white"
       style={{ boxShadow: `0 0 0 1px ${color}30, 0 4px 12px -4px ${color}40` }}
     >
-      <img
-        src={`https://cdn.simpleicons.org/${slug}`}
-        alt=""
-        aria-hidden
-        loading="lazy"
-        decoding="async"
-        onError={() => setFailed(true)}
-        className="w-full h-full object-contain"
-      />
+      <Icon size={20} style={{ color }} />
     </div>
   )
 }
