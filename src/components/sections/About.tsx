@@ -8,7 +8,7 @@ const statIcons = [TrendingUp, Rocket, Award, GitBranch]
 
 export function About() {
   return (
-    <section id="about" className="relative py-28 px-6 bg-[#faf9f6] dark:bg-black overflow-hidden">
+    <section id="about" className="relative pt-16 pb-24 px-6 bg-[#faf9f6] dark:bg-black overflow-hidden">
       {/* Background accent */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/[0.03] rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
 
