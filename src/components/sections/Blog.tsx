@@ -2,12 +2,17 @@ import { motion } from 'framer-motion'
 import { Clock, ArrowUpRight, Calendar } from 'lucide-react'
 import { SectionHeading } from '../ui/SectionHeading'
 import { ScrollReveal } from '../ui/ScrollReveal'
+import { MatrixRain } from '../ui/MatrixRain'
 import { blogPosts } from '../../data/blog'
 
 export function Blog() {
   return (
-    <section id="blog" className="relative py-28 px-6 bg-[#f5f3ec] dark:bg-[#08070f] overflow-hidden">
-      <div className="absolute inset-0 dot-grid opacity-40" />
+    <section id="blog" className="relative py-28 px-6 bg-[#f5f3ec] dark:bg-[#030308] overflow-hidden">
+      <div className="absolute inset-0 hidden dark:block opacity-45">
+        <MatrixRain density={0.5} opacity={0.1} />
+      </div>
+      <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(0,0,0,0.75)_100%)] pointer-events-none" />
+      <div className="absolute inset-0 dot-grid opacity-40 dark:opacity-0" />
 
       <div className="relative max-w-5xl mx-auto">
         <SectionHeading kicker="07" title="Writing & Insights" />
@@ -24,7 +29,7 @@ export function Blog() {
               <motion.article
                 whileHover={{ x: 6 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                className="group p-6 md:p-7 rounded-2xl border border-slate-200 dark:border-slate-700/50 bg-white/90 dark:bg-slate-800/50 backdrop-blur-sm cursor-pointer relative overflow-hidden"
+                className="group p-6 md:p-7 rounded-2xl border border-slate-200 dark:border-indigo-400/15 bg-white/90 dark:bg-[#0a0a14]/70 backdrop-blur-xl cursor-pointer relative overflow-hidden dark:shadow-[0_8px_40px_-12px_rgba(99,102,241,0.15)]"
               >
                 {/* Hover glow */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">

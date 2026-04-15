@@ -26,7 +26,7 @@ export function MatrixRain({
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     if (reduceMotion) return
 
-    const CHARS = '01{}<>/=+*#アイウエオカキクケコサシスセソタチツテトナニヌネノ'
+    const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&@*+=<>/[]{}()!?'
     let fontSize = 14
     let columns = 0
     let drops: number[] = []

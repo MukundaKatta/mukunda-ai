@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { GraduationCap } from 'lucide-react'
 import { SectionHeading } from '../ui/SectionHeading'
 import { ScrollReveal } from '../ui/ScrollReveal'
+import { MatrixRain } from '../ui/MatrixRain'
 
 const education = [
   {
@@ -20,8 +21,12 @@ const education = [
 
 export function Education() {
   return (
-    <section id="education" className="relative py-28 px-6 bg-[#f5f3ec] dark:bg-[#08070f] overflow-hidden">
-      <div className="absolute inset-0 dot-grid opacity-40" />
+    <section id="education" className="relative py-28 px-6 bg-[#f5f3ec] dark:bg-[#030308] overflow-hidden">
+      <div className="absolute inset-0 hidden dark:block opacity-40">
+        <MatrixRain density={0.45} opacity={0.09} />
+      </div>
+      <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(0,0,0,0.75)_100%)] pointer-events-none" />
+      <div className="absolute inset-0 dot-grid opacity-40 dark:opacity-0" />
 
       <div className="relative max-w-5xl mx-auto">
         <SectionHeading kicker="05" title="Education" />
@@ -31,7 +36,7 @@ export function Education() {
               <motion.div
                 whileHover={{ y: -4 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                className="p-6 md:p-7 rounded-2xl border border-slate-200 dark:border-slate-700/50 bg-white/90 dark:bg-slate-800/50 backdrop-blur-sm flex items-start gap-4 h-full group"
+                className="p-6 md:p-7 rounded-2xl border border-slate-200 dark:border-indigo-400/15 bg-white/90 dark:bg-[#0a0a14]/70 backdrop-blur-xl flex items-start gap-4 h-full group dark:shadow-[0_8px_40px_-12px_rgba(99,102,241,0.15)]"
               >
                 <div className="icon-tile w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110">
                   <GraduationCap size={24} className="text-indigo-600 dark:text-indigo-300" />
