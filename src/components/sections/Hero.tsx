@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Mail, ArrowRight, Sparkles } from 'lucide-react'
+import { Mail, ArrowRight } from 'lucide-react'
 import { GithubIcon, LinkedinIcon, TwitterIcon } from '../ui/SocialIcons'
 import { MatrixRain } from '../ui/MatrixRain'
 import { personal } from '../../data/personal'
@@ -33,16 +33,17 @@ export function Hero() {
           src="/avatar.jpg"
           alt=""
           aria-hidden
-          className="w-full h-full object-cover object-left opacity-70 dark:opacity-55"
+          className="w-full h-full object-cover opacity-75 dark:opacity-60"
           style={{
+            objectPosition: '50% 22%',
             maskImage:
-              'linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 35%, rgba(0,0,0,0.25) 70%, transparent 100%)',
+              'linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 30%, rgba(0,0,0,0.3) 70%, transparent 100%)',
             WebkitMaskImage:
-              'linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 35%, rgba(0,0,0,0.25) 70%, transparent 100%)',
+              'linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 30%, rgba(0,0,0,0.3) 70%, transparent 100%)',
           }}
         />
         {/* Darkening overlay on top of portrait in dark mode so it recedes further */}
-        <div className="absolute inset-0 hidden dark:block bg-gradient-to-l from-black/35 via-black/20 to-transparent" />
+        <div className="absolute inset-0 hidden dark:block bg-gradient-to-l from-black/40 via-black/20 to-transparent" />
       </div>
 
       {/* Soft vignette to pool readability on the left where text lives */}
@@ -139,15 +140,6 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Floating sparkle badge near portrait — signal "available" cherry on top */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 1.1, type: 'spring', stiffness: 400 }}
-          className="absolute top-4 right-4 sm:top-8 sm:right-8 w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center neon-btn-primary pointer-events-none"
-        >
-          <Sparkles size={14} className="text-white" />
-        </motion.div>
       </motion.div>
     </section>
   )

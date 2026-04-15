@@ -6,14 +6,16 @@ import { personal } from '../../data/personal'
 
 export function Contact() {
   return (
-    <section id="contact" className="relative py-32 px-6 overflow-hidden">
-      {/* Warm background */}
-      <div className="absolute inset-0 bg-[#f5f3ec] dark:bg-gradient-to-br dark:from-black dark:via-indigo-950/30 dark:to-black" />
-      <div className="absolute inset-0 dot-grid opacity-30 dark:opacity-20" />
-
-      {/* Floating orbs */}
-      <div className="orb w-[400px] h-[400px] bg-indigo-400 top-[-10%] right-[-5%]" style={{ animation: 'float-slow 20s ease-in-out infinite' }} />
-      <div className="orb w-[300px] h-[300px] bg-violet-300 bottom-[-10%] left-[-5%]" style={{ animation: 'float-slower 22s ease-in-out infinite' }} />
+    <section id="contact" className="relative py-32 px-6 overflow-hidden bg-[#f5f3ec] dark:bg-black">
+      {/* Subtle single violet glow — replaces the silver orb wash */}
+      <div
+        className="absolute inset-0 hidden dark:block pointer-events-none opacity-40"
+        style={{
+          background:
+            'radial-gradient(ellipse 60% 50% at 50% 40%, rgba(99, 102, 241, 0.22) 0%, transparent 65%)',
+        }}
+      />
+      <div className="absolute inset-0 dot-grid opacity-30 dark:opacity-10" />
 
       <div className="relative max-w-3xl mx-auto text-center z-10">
         <ScrollReveal>
@@ -22,11 +24,11 @@ export function Contact() {
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-indigo-100/80 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-400 text-sm font-semibold mb-8 backdrop-blur-sm border border-indigo-200/50 dark:border-indigo-800/30"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white dark:bg-[#0a0a14] border border-slate-200 dark:border-indigo-400/25 text-indigo-700 dark:text-indigo-300 text-xs font-semibold mb-8 shadow-sm dark:shadow-[0_0_20px_-6px_rgba(99,102,241,0.3)]"
           >
-            <span className="relative flex h-2.5 w-2.5">
+            <span className="relative flex h-1.5 w-1.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-indigo-500" />
+              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-indigo-500" />
             </span>
             Available for opportunities
           </motion.div>
@@ -35,12 +37,12 @@ export function Contact() {
             Let's <span className="gradient-text-premium">talk.</span>
           </h2>
 
-          <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 mb-3 max-w-xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-700 dark:text-slate-200 mb-3 max-w-xl mx-auto leading-relaxed">
             Senior AI/ML Engineer seeking remote roles building production AI infrastructure, data platforms, and developer tools.
           </p>
 
-          <p className="flex items-center justify-center gap-1.5 text-slate-400 dark:text-slate-500 mb-12">
-            <MapPin size={16} />
+          <p className="flex items-center justify-center gap-1.5 text-slate-500 dark:text-slate-400 mb-12 text-sm">
+            <MapPin size={15} />
             {personal.location}
           </p>
 
@@ -61,7 +63,7 @@ export function Contact() {
               rel="noopener"
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.97 }}
-              className="neon-tile flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm text-slate-800 dark:text-slate-100 bg-white/60 dark:bg-black/40 backdrop-blur-md"
+              className="neon-tile flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm text-slate-800 dark:text-white"
             >
               <LinkedinIcon size={16} /> LinkedIn
             </motion.a>
@@ -71,7 +73,7 @@ export function Contact() {
               rel="noopener"
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.97 }}
-              className="neon-tile flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm text-slate-800 dark:text-slate-100 bg-white/60 dark:bg-black/40 backdrop-blur-md"
+              className="neon-tile flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm text-slate-800 dark:text-white"
             >
               <GithubIcon size={16} /> GitHub
             </motion.a>
