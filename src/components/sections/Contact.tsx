@@ -8,7 +8,7 @@ export function Contact() {
   return (
     <section id="contact" className="relative py-32 px-6 overflow-hidden">
       {/* Gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-indigo-50/50 to-white dark:from-slate-900 dark:via-indigo-950/20 dark:to-slate-950" />
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-indigo-50/50 to-white dark:from-black dark:via-indigo-950/30 dark:to-black" />
       <div className="absolute inset-0 dot-grid opacity-20" />
 
       {/* Floating orbs */}
@@ -31,8 +31,8 @@ export function Contact() {
             Available for opportunities
           </motion.div>
 
-          <h2 className="font-display text-6xl md:text-7xl lg:text-8xl text-slate-900 dark:text-white mb-6 tracking-tight leading-[1.05]">
-            Let's <span className="gradient-text-premium italic">talk</span>
+          <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight leading-[1.05]">
+            Let's <span className="gradient-text-premium">talk.</span>
           </h2>
 
           <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 mb-3 max-w-xl mx-auto leading-relaxed">
@@ -44,14 +44,14 @@ export function Contact() {
             {personal.location}
           </p>
 
-          <div className="flex flex-wrap gap-4 justify-center">
+          <div className="flex flex-wrap gap-3 justify-center">
             <motion.a
               href={`mailto:${personal.email}`}
-              whileHover={{ scale: 1.04, y: -2 }}
+              whileHover={{ y: -2 }}
               whileTap={{ scale: 0.97 }}
-              className="flex items-center gap-2 px-8 py-4 rounded-full bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition-all duration-200 shadow-xl shadow-indigo-600/25 hover:shadow-2xl hover:shadow-indigo-600/30 group"
+              className="neon-btn-primary flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm tracking-wide group"
             >
-              <Mail size={18} />
+              <Mail size={16} />
               Get in Touch
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </motion.a>
@@ -59,21 +59,21 @@ export function Contact() {
               href={personal.linkedin}
               target="_blank"
               rel="noopener"
-              whileHover={{ scale: 1.04, y: -2 }}
+              whileHover={{ y: -2 }}
               whileTap={{ scale: 0.97 }}
-              className="flex items-center gap-2 px-8 py-4 rounded-full border-2 border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 font-semibold hover:border-indigo-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-200 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm"
+              className="neon-tile flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm text-slate-800 dark:text-slate-100 bg-white/60 dark:bg-black/40 backdrop-blur-md"
             >
-              <LinkedinIcon size={18} /> LinkedIn
+              <LinkedinIcon size={16} /> LinkedIn
             </motion.a>
             <motion.a
               href={personal.github}
               target="_blank"
               rel="noopener"
-              whileHover={{ scale: 1.04, y: -2 }}
+              whileHover={{ y: -2 }}
               whileTap={{ scale: 0.97 }}
-              className="flex items-center gap-2 px-8 py-4 rounded-full border-2 border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 font-semibold hover:border-indigo-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-200 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm"
+              className="neon-tile flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm text-slate-800 dark:text-slate-100 bg-white/60 dark:bg-black/40 backdrop-blur-md"
             >
-              <GithubIcon size={18} /> GitHub
+              <GithubIcon size={16} /> GitHub
             </motion.a>
           </div>
         </ScrollReveal>

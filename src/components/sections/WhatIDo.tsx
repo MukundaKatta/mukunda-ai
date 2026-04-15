@@ -19,7 +19,7 @@ const cardColors = [
 
 export function WhatIDo() {
   return (
-    <section id="what-i-do" className="relative py-28 px-6 bg-slate-50/50 dark:bg-slate-900/50 overflow-hidden">
+    <section id="what-i-do" className="relative py-28 px-6 bg-slate-50/50 dark:bg-[#08070f] overflow-hidden">
       <div className="absolute inset-0 dot-grid opacity-40" />
 
       <div className="relative max-w-6xl mx-auto">
@@ -38,8 +38,8 @@ export function WhatIDo() {
                   <div className={`absolute inset-0 bg-gradient-to-br ${cardColors[i]} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
 
                   <div className="relative">
-                    <div className="w-12 h-12 rounded-xl bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center mb-4 group-hover:bg-indigo-100 dark:group-hover:bg-indigo-900/50 transition-all duration-300 group-hover:scale-110">
-                      {Icon && <Icon size={24} className="text-indigo-600 dark:text-indigo-400" />}
+                    <div className="icon-tile w-14 h-14 rounded-2xl flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110">
+                      {Icon && <Icon size={26} className="text-indigo-600 dark:text-indigo-300" />}
                     </div>
                     <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">{item.title}</h3>
                     <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">{item.description}</p>

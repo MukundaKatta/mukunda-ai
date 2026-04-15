@@ -6,7 +6,7 @@ import { blogPosts } from '../../data/blog'
 
 export function Blog() {
   return (
-    <section id="blog" className="relative py-28 px-6 bg-slate-50/50 dark:bg-slate-900/50 overflow-hidden">
+    <section id="blog" className="relative py-28 px-6 bg-slate-50/50 dark:bg-[#08070f] overflow-hidden">
       <div className="absolute inset-0 dot-grid opacity-40" />
 
       <div className="relative max-w-5xl mx-auto">
