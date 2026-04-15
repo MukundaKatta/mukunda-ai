@@ -40,9 +40,10 @@ export function Header() {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'glass shadow-sm' : 'bg-transparent'}`}>
-      {/* Scroll progress bar */}
+      {/* Scroll progress bar — hairline, only when scrolled */}
       <motion.div
-        className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-indigo-500 to-indigo-400"
+        aria-hidden
+        className={`absolute bottom-0 left-0 h-px bg-gradient-to-r from-indigo-500/80 to-violet-400/80 transition-opacity duration-300 ${scrolled ? 'opacity-100' : 'opacity-0'}`}
         style={{ width: `${scrollProgress}%` }}
       />
 

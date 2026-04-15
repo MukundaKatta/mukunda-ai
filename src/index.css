@@ -19,7 +19,7 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-white text-slate-900 transition-colors duration-300;
+    @apply bg-[#faf9f6] text-slate-900 transition-colors duration-300;
   }
   html.dark body {
     @apply bg-black text-slate-100;
@@ -40,21 +40,36 @@
     background-clip: text;
   }
 
-  /* Premium gradient text with shimmer */
+  /* Premium gradient text — more saturated, less pastel */
   .gradient-text-premium {
     background: linear-gradient(
       135deg,
-      var(--color-primary) 0%,
-      var(--color-accent) 40%,
-      var(--color-accent-light) 55%,
-      var(--color-accent) 70%,
-      var(--color-primary) 100%
+      #4f46e5 0%,
+      #6366f1 25%,
+      #8b5cf6 50%,
+      #6366f1 75%,
+      #4f46e5 100%
     );
     background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: shimmer 6s ease-in-out infinite;
+    animation: shimmer 8s ease-in-out infinite;
+  }
+  html.dark .gradient-text-premium {
+    background: linear-gradient(
+      135deg,
+      #818cf8 0%,
+      #a78bfa 30%,
+      #c4b5fd 50%,
+      #a78bfa 70%,
+      #818cf8 100%
+    );
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 8s ease-in-out infinite;
   }
 
   @keyframes shimmer {
@@ -62,16 +77,14 @@
     50% { background-position: 100% 50%; }
   }
 
-  /* Avatar glow — now double-color */
+  /* Avatar — subtle shadow in light, neon glow in dark */
   .glow-ring {
-    box-shadow:
-      0 0 40px rgba(99, 102, 241, 0.4),
-      0 0 80px rgba(167, 139, 250, 0.2);
+    box-shadow: 0 10px 40px -8px rgba(79, 70, 229, 0.25);
   }
   html.dark .glow-ring {
     box-shadow:
-      0 0 60px rgba(129, 140, 248, 0.5),
-      0 0 120px rgba(167, 139, 250, 0.25),
+      0 0 60px rgba(129, 140, 248, 0.45),
+      0 0 120px rgba(167, 139, 250, 0.22),
       0 0 180px rgba(34, 211, 238, 0.08);
   }
 
@@ -80,68 +93,75 @@
     @apply bg-white/70 dark:bg-black/60 backdrop-blur-xl border border-white/20 dark:border-indigo-400/15;
   }
 
-  /* ───── Neon tile / button — the techwithanant signature look ───── */
+  /* ───── Tiles / buttons ─────
+     Light mode: clean, restrained, no glow (Anthropic/Linear feel).
+     Dark mode: techwithanant neon with halo. */
   .neon-tile {
     position: relative;
-    border: 1px solid rgba(99, 102, 241, 0.35);
-    box-shadow:
-      0 0 0 1px rgba(99, 102, 241, 0.05),
-      0 0 24px -4px rgba(99, 102, 241, 0.25),
-      inset 0 0 20px rgba(99, 102, 241, 0.04);
-    transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    background: white;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.2s ease, background-color 0.25s ease;
   }
   .neon-tile:hover {
-    border-color: rgba(129, 140, 248, 0.7);
-    box-shadow:
-      0 0 0 1px rgba(129, 140, 248, 0.3),
-      0 0 32px -2px rgba(129, 140, 248, 0.45),
-      0 0 64px -8px rgba(167, 139, 250, 0.3),
-      inset 0 0 20px rgba(99, 102, 241, 0.08);
+    border-color: rgba(79, 70, 229, 0.35);
+    box-shadow: 0 4px 16px -4px rgba(79, 70, 229, 0.18);
   }
   html.dark .neon-tile {
-    border-color: rgba(129, 140, 248, 0.25);
+    background: rgba(0, 0, 0, 0.35);
+    border-color: rgba(129, 140, 248, 0.22);
     box-shadow:
       0 0 0 1px rgba(129, 140, 248, 0.04),
-      0 0 28px -4px rgba(99, 102, 241, 0.35),
-      inset 0 0 20px rgba(99, 102, 241, 0.05);
+      0 0 24px -6px rgba(99, 102, 241, 0.3),
+      inset 0 0 20px rgba(99, 102, 241, 0.04);
   }
   html.dark .neon-tile:hover {
-    border-color: rgba(167, 139, 250, 0.7);
+    border-color: rgba(167, 139, 250, 0.65);
     box-shadow:
-      0 0 0 1px rgba(167, 139, 250, 0.4),
-      0 0 36px -2px rgba(129, 140, 248, 0.6),
-      0 0 80px -8px rgba(167, 139, 250, 0.4),
-      inset 0 0 24px rgba(99, 102, 241, 0.08);
+      0 0 0 1px rgba(167, 139, 250, 0.35),
+      0 0 32px -2px rgba(129, 140, 248, 0.55),
+      0 0 72px -10px rgba(167, 139, 250, 0.35),
+      inset 0 0 22px rgba(99, 102, 241, 0.07);
   }
 
-  /* Filled neon primary button */
+  /* Primary filled button — clean in light, haloed in dark */
   .neon-btn-primary {
-    background: linear-gradient(135deg, #6366f1 0%, #a78bfa 100%);
+    background: #4f46e5;
     color: white;
-    border: 1px solid rgba(167, 139, 250, 0.7);
+    border: 1px solid transparent;
     box-shadow:
-      0 0 0 1px rgba(129, 140, 248, 0.3),
-      0 0 32px -4px rgba(99, 102, 241, 0.6),
-      0 0 64px -8px rgba(167, 139, 250, 0.4),
-      inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease;
+      0 1px 0 rgba(255, 255, 255, 0.2) inset,
+      0 4px 12px -2px rgba(79, 70, 229, 0.35);
+    transition: all 0.25s ease;
   }
   .neon-btn-primary:hover {
+    background: #4338ca;
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.25) inset,
+      0 8px 20px -4px rgba(79, 70, 229, 0.5);
+  }
+  html.dark .neon-btn-primary {
+    background: linear-gradient(135deg, #6366f1 0%, #a78bfa 100%);
+    border-color: rgba(167, 139, 250, 0.6);
+    box-shadow:
+      0 0 0 1px rgba(129, 140, 248, 0.25),
+      0 0 28px -4px rgba(99, 102, 241, 0.55),
+      0 0 64px -10px rgba(167, 139, 250, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  }
+  html.dark .neon-btn-primary:hover {
     box-shadow:
       0 0 0 1px rgba(167, 139, 250, 0.5),
-      0 0 48px -2px rgba(99, 102, 241, 0.8),
-      0 0 96px -8px rgba(167, 139, 250, 0.6),
+      0 0 44px -2px rgba(99, 102, 241, 0.75),
+      0 0 96px -10px rgba(167, 139, 250, 0.5),
       inset 0 1px 0 rgba(255, 255, 255, 0.3);
   }
 
-  /* Violet square icon tile — replaces circle icon bgs */
+  /* Icon tile — subtle in light, glowing in dark */
   .icon-tile {
-    background: linear-gradient(135deg, rgba(129, 140, 248, 0.18), rgba(167, 139, 250, 0.10));
-    border: 1px solid rgba(129, 140, 248, 0.2);
-    box-shadow:
-      0 0 0 1px rgba(129, 140, 248, 0.08),
-      0 8px 24px -8px rgba(99, 102, 241, 0.3),
-      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    background: #f0eefb;
+    border: 1px solid rgba(99, 102, 241, 0.15);
+    box-shadow: 0 1px 2px rgba(79, 70, 229, 0.06);
   }
   html.dark .icon-tile {
     background: linear-gradient(135deg, rgba(129, 140, 248, 0.22), rgba(167, 139, 250, 0.12));
@@ -192,12 +212,9 @@
       linear-gradient(to bottom, rgba(129, 140, 248, 0.06) 1px, transparent 1px);
   }
 
-  /* Hero gradient mesh — indigo/violet aurora */
+  /* Hero gradient mesh — only in dark (light mode stays clean off-white) */
   .gradient-mesh {
-    background:
-      radial-gradient(ellipse at 20% 50%, rgba(99, 102, 241, 0.12) 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 20%, rgba(167, 139, 250, 0.10) 0%, transparent 50%),
-      radial-gradient(ellipse at 50% 80%, rgba(129, 140, 248, 0.08) 0%, transparent 50%);
+    background: transparent;
   }
   html.dark .gradient-mesh {
     background:
@@ -207,9 +224,15 @@
   }
 
   /* Drifting aurora */
+  /* Aurora — dark mode only */
   .aurora {
     position: absolute;
     inset: -20%;
+    background: transparent;
+    pointer-events: none;
+    z-index: 0;
+  }
+  html.dark .aurora {
     background:
       conic-gradient(
         from 0deg at 50% 50%,
@@ -222,13 +245,8 @@
         transparent 360deg
       );
     filter: blur(80px);
-    opacity: 0.55;
+    opacity: 0.7;
     animation: aurora-drift 28s linear infinite;
-    pointer-events: none;
-    z-index: 0;
-  }
-  html.dark .aurora {
-    opacity: 0.75;
   }
   @keyframes aurora-drift {
     to { transform: rotate(360deg); }
@@ -287,12 +305,12 @@
     100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
   }
 
-  /* Floating orbs */
+  /* Floating orbs — dark only */
   .orb {
     position: absolute;
     border-radius: 50%;
     filter: blur(60px);
-    opacity: 0.22;
+    opacity: 0;
     pointer-events: none;
   }
   html.dark .orb {
