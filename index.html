@@ -1,7 +1,17 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth dark">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      // Pre-hydration theme — default dark, honour stored pref, prevents flash
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme');
+          var isDark = stored ? stored === 'dark' : true;
+          document.documentElement.classList.toggle('dark', isDark);
+        } catch (_) {}
+      })();
+    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Mukunda Rao Katta — AI/ML Engineer building agentic workflows, LLM integrations, and production-ready AI solutions. Ex-AWS, Anthropic Certified." />
