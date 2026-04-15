@@ -35,7 +35,7 @@ export function MatrixRain({
     const cfg = {
       subtle: { head: 0.22, tail: 0.12, trail: 0.07, fade: 0.12, fps: 14, step: 2 },
       normal: { head: 0.32, tail: 0.18, trail: 0.10, fade: 0.10, fps: 16, step: 2 },
-      strong: { head: 0.45, tail: 0.26, trail: 0.14, fade: 0.08, fps: 18, step: 2 },
+      strong: { head: 0.60, tail: 0.36, trail: 0.20, fade: 0.07, fps: 20, step: 1.35 },
     }[intensity]
 
     const CHARS = '01'
