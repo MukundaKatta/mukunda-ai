@@ -21,22 +21,21 @@ const scaleIn = {
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-5 sm:px-6 pt-24 pb-20 overflow-hidden bg-white dark:bg-black">
+    <section className="relative min-h-screen flex items-center justify-center px-5 sm:px-6 pt-24 pb-20 overflow-hidden bg-[#faf9f6] dark:bg-black">
       {/* Matrix rain (dark mode only — hidden in light) */}
       <div className="absolute inset-0 hidden dark:block opacity-60">
         <MatrixRain density={0.55} opacity={0.14} />
       </div>
 
-      {/* Aurora + gradient mesh */}
-      <div className="absolute inset-0 gradient-mesh" />
+      {/* Aurora (dark only, CSS-gated) */}
       <div className="aurora" />
 
-      {/* Orbs */}
+      {/* Orbs (dark only, CSS-gated) */}
       <div className="orb w-[420px] h-[420px] sm:w-[520px] sm:h-[520px] bg-indigo-500 top-[-10%] left-[-25%] sm:left-[-8%]" style={{ animation: 'float-slow 22s ease-in-out infinite' }} />
       <div className="orb w-[360px] h-[360px] sm:w-[440px] sm:h-[440px] bg-violet-500 bottom-[-10%] right-[-25%] sm:right-[-5%]" style={{ animation: 'float-slower 28s ease-in-out infinite' }} />
 
-      {/* Radial vignette to deepen edges */}
-      <div className="absolute inset-0 dark:bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(0,0,0,0.7)_100%)] pointer-events-none" />
+      {/* Radial vignette — dark only */}
+      <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(0,0,0,0.7)_100%)] pointer-events-none" />
 
       <motion.div
         className="relative z-10 w-full max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-14"
@@ -44,28 +43,26 @@ export function Hero() {
         initial="hidden"
         animate="visible"
       >
-        {/* Avatar with neon ring */}
+        {/* Avatar — single-color thin ring, subtle shadow. No rainbow. */}
         <motion.div className="relative shrink-0" variants={scaleIn}>
           <motion.div
-            className="w-40 h-40 sm:w-52 sm:h-52 md:w-60 md:h-60 rounded-full glow-ring p-[3px] bg-gradient-to-br from-indigo-500 via-violet-400 to-fuchsia-500"
-            whileHover={{ scale: 1.03 }}
+            className="w-40 h-40 sm:w-52 sm:h-52 md:w-60 md:h-60 rounded-full glow-ring ring-1 ring-indigo-200 dark:ring-indigo-400/30 overflow-hidden bg-slate-50 dark:bg-black"
+            whileHover={{ scale: 1.02 }}
             transition={{ type: 'spring', stiffness: 300, damping: 20 }}
           >
-            <div className="w-full h-full rounded-full overflow-hidden bg-slate-50 dark:bg-black ring-1 ring-white/20 dark:ring-indigo-400/20">
-              <img
-                src="/avatar.jpg"
-                alt={personal.name}
-                className="w-full h-full object-cover" style={{ objectPosition: '50% 20%' }}
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement
-                  target.style.display = 'none'
-                  target.parentElement!.innerHTML = `<div class="w-full h-full flex items-center justify-center text-5xl font-bold gradient-text">MK</div>`
-                }}
-              />
-            </div>
+            <img
+              src="/avatar.jpg"
+              alt={personal.name}
+              className="w-full h-full object-cover" style={{ objectPosition: '50% 20%' }}
+              onError={(e) => {
+                const target = e.target as HTMLImageElement
+                target.style.display = 'none'
+                target.parentElement!.innerHTML = `<div class="w-full h-full flex items-center justify-center text-5xl font-bold gradient-text">MK</div>`
+              }}
+            />
           </motion.div>
           <motion.div
-            className="absolute -bottom-1 -right-1 w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center border-[3px] border-white dark:border-black neon-btn-primary"
+            className="absolute -bottom-1 -right-1 w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center border-[3px] border-[#faf9f6] dark:border-black neon-btn-primary"
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.8, type: 'spring', stiffness: 500 }}
@@ -79,7 +76,7 @@ export function Hero() {
           {/* Availability pill */}
           <motion.div
             variants={fadeUp}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/70 dark:bg-indigo-500/10 border border-indigo-200/70 dark:border-indigo-400/30 backdrop-blur-sm text-xs font-medium text-indigo-700 dark:text-indigo-300 mb-6"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white dark:bg-indigo-500/10 border border-slate-200 dark:border-indigo-400/30 text-xs font-medium text-slate-600 dark:text-indigo-300 mb-6 shadow-sm"
           >
             <span className="relative flex h-1.5 w-1.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75" />
@@ -108,12 +105,12 @@ export function Hero() {
           {/* Tagline */}
           <motion.p
             variants={fadeUp}
-            className="text-base sm:text-lg text-indigo-600/90 dark:text-indigo-300/90 mb-8 leading-relaxed max-w-xl mx-auto md:mx-0"
+            className="text-base sm:text-lg text-slate-600 dark:text-slate-400 mb-8 leading-relaxed max-w-xl mx-auto md:mx-0"
           >
             Shipping production AI, agentic workflows, and data platforms for Fortune 100 enterprises.
           </motion.p>
 
-          {/* Neon CTAs */}
+          {/* CTAs */}
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8">
             <motion.a
               href="#about"
@@ -128,7 +125,7 @@ export function Hero() {
               href={`mailto:${personal.email}`}
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.97 }}
-              className="neon-tile flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm tracking-wide text-slate-800 dark:text-slate-100 bg-white/60 dark:bg-black/40 backdrop-blur-md"
+              className="neon-tile flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm tracking-wide text-slate-800 dark:text-slate-100"
             >
               <Mail size={16} />
               Get in Touch
@@ -150,7 +147,7 @@ export function Hero() {
                 rel="noopener"
                 whileHover={{ y: -3 }}
                 whileTap={{ scale: 0.95 }}
-                className="neon-tile w-11 h-11 rounded-xl flex items-center justify-center text-slate-600 dark:text-indigo-200 bg-white/60 dark:bg-black/40 backdrop-blur-md hover:text-indigo-600 dark:hover:text-white"
+                className="neon-tile w-11 h-11 rounded-xl flex items-center justify-center text-slate-600 dark:text-indigo-200 hover:text-indigo-600 dark:hover:text-white"
                 aria-label={label}
               >
                 {icon}

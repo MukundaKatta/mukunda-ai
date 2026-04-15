@@ -6,11 +6,11 @@ import { blogPosts } from '../../data/blog'
 
 export function Blog() {
   return (
-    <section id="blog" className="relative py-28 px-6 bg-slate-50/50 dark:bg-[#08070f] overflow-hidden">
+    <section id="blog" className="relative py-28 px-6 bg-[#f5f3ec] dark:bg-[#08070f] overflow-hidden">
       <div className="absolute inset-0 dot-grid opacity-40" />
 
       <div className="relative max-w-5xl mx-auto">
-        <SectionHeading icon="✍️" title="Writing & Insights" />
+        <SectionHeading kicker="07" title="Writing & Insights" />
 
         <ScrollReveal>
           <p className="text-center text-slate-500 dark:text-slate-400 mb-14 max-w-2xl mx-auto text-lg">

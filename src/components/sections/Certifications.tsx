@@ -5,9 +5,9 @@ import { certGroups } from '../../data/certifications'
 
 export function Certifications() {
   return (
-    <section id="certifications" className="relative py-28 px-6 bg-white dark:bg-black">
+    <section id="certifications" className="relative py-28 px-6 bg-[#faf9f6] dark:bg-black">
       <div className="max-w-5xl mx-auto">
-        <SectionHeading icon="🏅" title="Certifications" />
+        <SectionHeading kicker="04" title="Certifications" />
 
         <ScrollReveal>
           <p className="text-center text-slate-500 dark:text-slate-400 mb-12 max-w-2xl mx-auto">

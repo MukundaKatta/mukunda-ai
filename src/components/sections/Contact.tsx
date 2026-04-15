@@ -7,9 +7,9 @@ import { personal } from '../../data/personal'
 export function Contact() {
   return (
     <section id="contact" className="relative py-32 px-6 overflow-hidden">
-      {/* Gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-indigo-50/50 to-white dark:from-black dark:via-indigo-950/30 dark:to-black" />
-      <div className="absolute inset-0 dot-grid opacity-20" />
+      {/* Warm background */}
+      <div className="absolute inset-0 bg-[#f5f3ec] dark:bg-gradient-to-br dark:from-black dark:via-indigo-950/30 dark:to-black" />
+      <div className="absolute inset-0 dot-grid opacity-30 dark:opacity-20" />
 
       {/* Floating orbs */}
       <div className="orb w-[400px] h-[400px] bg-indigo-400 top-[-10%] right-[-5%]" style={{ animation: 'float-slow 20s ease-in-out infinite' }} />

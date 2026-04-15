@@ -21,12 +21,12 @@ const statusLabels: Record<string, string> = {
 
 export function Projects() {
   return (
-    <section id="projects" className="relative py-28 px-6 bg-slate-50/50 dark:bg-[#08070f] overflow-hidden">
+    <section id="projects" className="relative py-28 px-6 bg-[#f5f3ec] dark:bg-[#08070f] overflow-hidden">
       <div className="absolute inset-0 dot-grid opacity-40" />
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/[0.03] rounded-full blur-[100px] -translate-y-1/4 translate-x-1/4 pointer-events-none" />
 
       <div className="relative max-w-6xl mx-auto">
-        <SectionHeading icon="🛠" title="Featured Projects" />
+        <SectionHeading kicker="03" title="Featured Projects" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {projects.map((project, i) => (
             <ScrollReveal key={project.name} delay={i * 0.06}>

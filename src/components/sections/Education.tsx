@@ -20,11 +20,11 @@ const education = [
 
 export function Education() {
   return (
-    <section id="education" className="relative py-28 px-6 bg-slate-50/50 dark:bg-[#08070f] overflow-hidden">
+    <section id="education" className="relative py-28 px-6 bg-[#f5f3ec] dark:bg-[#08070f] overflow-hidden">
       <div className="absolute inset-0 dot-grid opacity-40" />
 
       <div className="relative max-w-5xl mx-auto">
-        <SectionHeading icon="🎓" title="Education" />
+        <SectionHeading kicker="05" title="Education" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {education.map((edu, i) => (
             <ScrollReveal key={edu.school} delay={i * 0.1}>
