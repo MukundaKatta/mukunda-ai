@@ -3,7 +3,7 @@ import { ExternalLink, ArrowUpRight } from 'lucide-react'
 import { GithubIcon } from '../ui/SocialIcons'
 import { SectionHeading } from '../ui/SectionHeading'
 import { ScrollReveal } from '../ui/ScrollReveal'
-import { NeuralPulse } from '../ui/NeuralPulse'
+import { MatrixRain } from '../ui/MatrixRain'
 import { projects } from '../../data/projects'
 
 const statusStyles: Record<string, string> = {
@@ -24,7 +24,7 @@ export function Projects() {
   return (
     <section id="projects" className="relative py-28 px-6 bg-[#f5f3ec] dark:bg-[#030308] overflow-hidden">
       <div className="absolute inset-0 hidden dark:block">
-        <NeuralPulse intensity="subtle" />
+        <MatrixRain intensity="subtle" />
       </div>
       <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(ellipse_at_center,transparent_55%,rgba(0,0,0,0.55)_100%)] pointer-events-none" />
       <div className="absolute inset-0 dot-grid opacity-40 dark:opacity-0" />
