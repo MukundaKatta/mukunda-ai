@@ -1,10 +1,12 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { SectionHeading } from '../ui/SectionHeading'
 import { ScrollReveal } from '../ui/ScrollReveal'
 import { skillCategories } from '../../data/skills'
 
-// Map skill label -> simple-icons slug. Items without a brand icon
-// (generic concepts like "RAG", "Agents", "CI/CD") render as text only.
+// Verified simple-icons slugs (https://simpleicons.org).
+// Items without a brand icon (generic concepts like RAG/MCP/Agents)
+// render as text only — no forced placeholder.
 const iconSlug: Record<string, string> = {
   // Languages
   TypeScript: 'typescript',
@@ -30,14 +32,14 @@ const iconSlug: Record<string, string> = {
   Snowflake: 'snowflake',
   Redshift: 'amazonredshift',
   BigQuery: 'googlebigquery',
-  SageMaker: 'amazonaws',
-  Bedrock: 'amazonaws',
+  SageMaker: 'amazonwebservices',
+  Bedrock: 'amazonwebservices',
   Airflow: 'apacheairflow',
   dbt: 'dbt',
   Spark: 'apachespark',
   PySpark: 'apachespark',
   // Cloud & DevOps
-  AWS: 'amazonaws',
+  AWS: 'amazonwebservices',
   GCP: 'googlecloud',
   Azure: 'microsoftazure',
   Docker: 'docker',
@@ -52,12 +54,13 @@ const iconSlug: Record<string, string> = {
   DynamoDB: 'amazondynamodb',
   // Observability
   OpenTelemetry: 'opentelemetry',
-  CloudWatch: 'amazonaws',
+  CloudWatch: 'amazonwebservices',
 }
 
 function BrandIcon({ label }: { label: string }) {
   const slug = iconSlug[label]
-  if (!slug) return null
+  const [failed, setFailed] = useState(false)
+  if (!slug || failed) return null
   return (
     <img
       src={`https://cdn.simpleicons.org/${slug}`}
@@ -65,7 +68,8 @@ function BrandIcon({ label }: { label: string }) {
       aria-hidden
       loading="lazy"
       decoding="async"
-      className="w-3.5 h-3.5 shrink-0 opacity-90 group-hover:opacity-100 transition-opacity"
+      onError={() => setFailed(true)}
+      className="w-3.5 h-3.5 shrink-0 opacity-95 group-hover:opacity-100 transition-opacity"
     />
   )
 }
