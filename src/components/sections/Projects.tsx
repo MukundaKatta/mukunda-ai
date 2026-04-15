@@ -3,6 +3,7 @@ import { ExternalLink, ArrowUpRight } from 'lucide-react'
 import { GithubIcon } from '../ui/SocialIcons'
 import { SectionHeading } from '../ui/SectionHeading'
 import { ScrollReveal } from '../ui/ScrollReveal'
+import { MatrixRain } from '../ui/MatrixRain'
 import { projects } from '../../data/projects'
 
 const statusStyles: Record<string, string> = {
@@ -21,8 +22,12 @@ const statusLabels: Record<string, string> = {
 
 export function Projects() {
   return (
-    <section id="projects" className="relative py-28 px-6 bg-[#f5f3ec] dark:bg-[#08070f] overflow-hidden">
-      <div className="absolute inset-0 dot-grid opacity-40" />
+    <section id="projects" className="relative py-28 px-6 bg-[#f5f3ec] dark:bg-[#030308] overflow-hidden">
+      <div className="absolute inset-0 hidden dark:block opacity-45">
+        <MatrixRain density={0.5} opacity={0.1} />
+      </div>
+      <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(0,0,0,0.75)_100%)] pointer-events-none" />
+      <div className="absolute inset-0 dot-grid opacity-40 dark:opacity-0" />
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/[0.03] rounded-full blur-[100px] -translate-y-1/4 translate-x-1/4 pointer-events-none" />
 
       <div className="relative max-w-6xl mx-auto">
@@ -33,7 +38,7 @@ export function Projects() {
               <motion.div
                 whileHover={{ y: -6, scale: 1.01 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-                className="group p-6 md:p-7 rounded-2xl border border-slate-200 dark:border-slate-700/50 bg-white/90 dark:bg-slate-800/50 backdrop-blur-sm h-full flex flex-col relative overflow-hidden"
+                className="group p-6 md:p-7 rounded-2xl border border-slate-200 dark:border-indigo-400/15 bg-white/90 dark:bg-[#0a0a14]/70 backdrop-blur-xl h-full flex flex-col relative overflow-hidden dark:shadow-[0_8px_40px_-12px_rgba(99,102,241,0.15)]"
               >
                 {/* Hover glow */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
