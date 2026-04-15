@@ -14,7 +14,7 @@ const companyLogos: Record<string, string> = {
 
 const companyColors: Record<string, string> = {
   'Southwest Airlines': '#304CB2',
-  'GPS IT Solutions': '#059669',
+  'GPS IT Solutions': '#6366f1',
   'Amazon Web Services (AWS)': '#FF9900',
   'Cigna': '#0075C9',
   'American Express': '#006FCF',
@@ -23,7 +23,7 @@ const companyColors: Record<string, string> = {
 export function Experience() {
   return (
     <section id="experience" className="relative py-28 px-6 bg-white dark:bg-slate-950 overflow-hidden">
-      <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-emerald-500/[0.03] rounded-full blur-[80px] -translate-y-1/2 -translate-x-1/2 pointer-events-none" />
+      <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-indigo-500/[0.03] rounded-full blur-[80px] -translate-y-1/2 -translate-x-1/2 pointer-events-none" />
 
       <div className="relative max-w-5xl mx-auto">
         <SectionHeading icon="🏢" title="Work Experience" />
@@ -38,7 +38,7 @@ export function Experience() {
           {/* Timeline line */}
           <div className="absolute left-6 top-0 bottom-0 w-px hidden md:block overflow-hidden">
             <motion.div
-              className="w-full h-full bg-gradient-to-b from-emerald-500 via-emerald-500/30 to-transparent"
+              className="w-full h-full bg-gradient-to-b from-indigo-500 via-indigo-500/30 to-transparent"
               initial={{ scaleY: 0 }}
               whileInView={{ scaleY: 1 }}
               viewport={{ once: true }}
@@ -50,7 +50,7 @@ export function Experience() {
           <div className="space-y-6">
             {experiences.map((exp, i) => {
               const logo = companyLogos[exp.company] || exp.company[0]
-              const color = companyColors[exp.company] || '#059669'
+              const color = companyColors[exp.company] || '#6366f1'
               return (
                 <ScrollReveal key={exp.company} delay={i * 0.08}>
                   <div className="relative md:pl-16">
@@ -64,7 +64,7 @@ export function Experience() {
                       transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                       className={`group p-6 md:p-7 rounded-2xl border bg-white dark:bg-slate-800/40 backdrop-blur-sm card-hover ${
                         exp.featured
-                          ? 'border-emerald-200 dark:border-emerald-800/50 gradient-border'
+                          ? 'border-indigo-200 dark:border-indigo-800/50 gradient-border'
                           : 'border-slate-200 dark:border-slate-700/50'
                       }`}
                     >
@@ -81,7 +81,7 @@ export function Experience() {
                             <h3 className="text-xl font-bold text-slate-900 dark:text-white leading-tight">
                               {exp.company}
                             </h3>
-                            <p className="text-emerald-600 dark:text-emerald-400 font-semibold text-sm mt-0.5">{exp.role}</p>
+                            <p className="text-indigo-600 dark:text-indigo-400 font-semibold text-sm mt-0.5">{exp.role}</p>
                           </div>
                         </div>
                         <div className="flex items-center gap-2 sm:mt-1">
@@ -94,7 +94,7 @@ export function Experience() {
                       <ul className="space-y-3">
                         {exp.highlights.map((h, j) => (
                           <li key={j} className="text-sm text-slate-600 dark:text-slate-300 flex gap-2.5 leading-relaxed">
-                            <ChevronRight size={14} className="text-emerald-500 mt-1 shrink-0" />
+                            <ChevronRight size={14} className="text-indigo-500 mt-1 shrink-0" />
                             <span>{h}</span>
                           </li>
                         ))}

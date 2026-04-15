@@ -28,19 +28,19 @@ export function Blog() {
               >
                 {/* Hover glow */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                  <div className="absolute -top-20 -left-20 w-40 h-40 bg-emerald-500/[0.05] rounded-full blur-[40px]" />
+                  <div className="absolute -top-20 -left-20 w-40 h-40 bg-indigo-500/[0.05] rounded-full blur-[40px]" />
                 </div>
 
                 <div className="relative">
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-3">
                     <div className="flex-1">
-                      <h3 className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors flex items-center gap-2">
+                      <h3 className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors flex items-center gap-2">
                         {post.title}
                         <ArrowUpRight size={16} className="opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
                       </h3>
                     </div>
                     {post.featured && (
-                      <span className="text-xs px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 font-medium border border-emerald-200 dark:border-emerald-800/50 whitespace-nowrap">
+                      <span className="text-xs px-3 py-1 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-400 font-medium border border-indigo-200 dark:border-indigo-800/50 whitespace-nowrap">
                         Featured
                       </span>
                     )}

@@ -42,7 +42,7 @@ export function Header() {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'glass shadow-sm' : 'bg-transparent'}`}>
       {/* Scroll progress bar */}
       <motion.div
-        className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-emerald-500 to-emerald-400"
+        className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-indigo-500 to-indigo-400"
         style={{ width: `${scrollProgress}%` }}
       />
 
@@ -64,14 +64,14 @@ export function Header() {
               href={item.href}
               className={`relative px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${
                 active === item.href.slice(1)
-                  ? 'text-emerald-600 dark:text-emerald-400'
+                  ? 'text-indigo-600 dark:text-indigo-400'
                   : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
               {active === item.href.slice(1) && (
                 <motion.span
                   layoutId="nav-pill"
-                  className="absolute inset-0 bg-emerald-50 dark:bg-emerald-900/30 rounded-full"
+                  className="absolute inset-0 bg-indigo-50 dark:bg-indigo-900/30 rounded-full"
                   transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                 />
               )}
@@ -104,7 +104,7 @@ export function Header() {
                   onClick={() => setMobileOpen(false)}
                   className={`block px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                     active === item.href.slice(1)
-                      ? 'text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/30'
+                      ? 'text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/30'
                       : 'text-slate-600 dark:text-slate-400'
                   }`}
                 >

@@ -33,14 +33,14 @@ export function Education() {
                 transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                 className="p-6 md:p-7 rounded-2xl border border-slate-200 dark:border-slate-700/50 bg-white/90 dark:bg-slate-800/50 backdrop-blur-sm flex items-start gap-4 h-full group"
               >
-                <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-900/30 flex items-center justify-center shrink-0 group-hover:bg-emerald-100 dark:group-hover:bg-emerald-900/50 transition-colors duration-300 group-hover:scale-110">
-                  <GraduationCap size={24} className="text-emerald-600 dark:text-emerald-400" />
+                <div className="w-12 h-12 rounded-xl bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center shrink-0 group-hover:bg-indigo-100 dark:group-hover:bg-indigo-900/50 transition-colors duration-300 group-hover:scale-110">
+                  <GraduationCap size={24} className="text-indigo-600 dark:text-indigo-400" />
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white">{edu.school}</h3>
                   <p className="text-sm text-slate-600 dark:text-slate-300 font-medium mt-0.5">{edu.degree}</p>
                   <p className="text-xs text-slate-400 dark:text-slate-500 mt-1">{edu.focus}</p>
-                  <p className="text-sm text-emerald-600 dark:text-emerald-400 font-semibold mt-2">{edu.period}</p>
+                  <p className="text-sm text-indigo-600 dark:text-indigo-400 font-semibold mt-2">{edu.period}</p>
                 </div>
               </motion.div>
             </ScrollReveal>
