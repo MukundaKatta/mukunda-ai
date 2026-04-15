@@ -16,7 +16,7 @@ const fadeUp = {
 
 export function Hero() {
   return (
-    <section className="relative flex items-center justify-start px-5 sm:px-6 pt-28 pb-20 overflow-hidden bg-[#faf9f6] dark:bg-black min-h-[88vh]">
+    <section className="relative flex items-center justify-start px-5 sm:px-6 pt-28 pb-10 overflow-hidden bg-[#faf9f6] dark:bg-black">
       {/* Matrix rain — dark only */}
       <div className="absolute inset-0 hidden dark:block">
         <MatrixRain intensity="normal" />
