@@ -128,7 +128,7 @@ export function Hero() {
                 key={label}
                 href={href}
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 whileHover={{ y: -3 }}
                 whileTap={{ scale: 0.95 }}
                 className="neon-tile w-10 h-10 rounded-lg flex items-center justify-center text-slate-600 dark:text-indigo-200 hover:text-indigo-600 dark:hover:text-white"

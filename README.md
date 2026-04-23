@@ -28,13 +28,13 @@ The codebase is organised into `public/`, `src/`. The primary entry point is `sr
 
 ```bash
 pnpm install
-npm run dev
+pnpm dev
 ```
 
 ## Usage
 
 ```bash
-npm run dev
+pnpm dev
 # Application starts on its configured port
 ```
 
