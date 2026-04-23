@@ -29,8 +29,17 @@ export function Blog() {
               <motion.article
                 whileHover={{ x: 6 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                className="group p-6 md:p-7 rounded-2xl border border-slate-200 dark:border-indigo-400/15 bg-white/90 dark:bg-[#0a0a14]/70 backdrop-blur-xl cursor-pointer relative overflow-hidden dark:shadow-[0_8px_40px_-12px_rgba(99,102,241,0.15)]"
+                className={`group p-6 md:p-7 rounded-2xl border border-slate-200 dark:border-indigo-400/15 bg-white/90 dark:bg-[#0a0a14]/70 backdrop-blur-xl relative overflow-hidden dark:shadow-[0_8px_40px_-12px_rgba(99,102,241,0.15)] ${post.url ? 'cursor-pointer' : 'cursor-default'}`}
               >
+                {post.url && (
+                  <a
+                    href={post.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute inset-0 z-10"
+                    aria-label={`Read: ${post.title}`}
+                  />
+                )}
                 {/* Hover glow */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
                   <div className="absolute -top-20 -left-20 w-40 h-40 bg-indigo-500/[0.05] rounded-full blur-[40px]" />
@@ -41,7 +50,7 @@ export function Blog() {
                     <div className="flex-1">
                       <h3 className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors flex items-center gap-2">
                         {post.title}
-                        <ArrowUpRight size={16} className="opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
+                        {post.url && <ArrowUpRight size={16} className="opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />}
                       </h3>
                     </div>
                     {post.featured && (

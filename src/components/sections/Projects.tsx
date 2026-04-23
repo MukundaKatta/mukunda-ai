@@ -71,12 +71,12 @@ export function Projects() {
 
                 <div className="relative flex gap-4 pt-3 border-t border-slate-100 dark:border-slate-700/50">
                   {project.github && (
-                    <a href={project.github} target="_blank" rel="noopener" className="flex items-center gap-1.5 text-sm text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium">
+                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-sm text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium">
                       <GithubIcon size={16} /> Code
                     </a>
                   )}
                   {project.live && (
-                    <a href={project.live} target="_blank" rel="noopener" className="flex items-center gap-1.5 text-sm text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium">
+                    <a href={project.live} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-sm text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium">
                       <ExternalLink size={16} /> Live Demo
                     </a>
                   )}
