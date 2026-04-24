@@ -49,20 +49,24 @@ export function Hero() {
         initial="hidden"
         animate="visible"
       >
-        <div className="grid items-center gap-10 md:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+        <div className="grid items-center gap-10 md:grid-cols-[0.82fr_1.18fr] lg:gap-18">
           {/* GitHub profile portrait */}
           <motion.div
             variants={fadeUp}
-            className="relative mx-auto w-full max-w-[280px] sm:max-w-[340px] md:mx-0 md:max-w-[390px]"
+            className="relative mx-auto flex w-full max-w-[250px] flex-col items-center md:mx-0 md:max-w-[310px]"
           >
-            <div className="absolute -inset-4 rounded-[2rem] bg-indigo-400/15 blur-2xl" />
-            <div className="relative overflow-hidden rounded-[1.75rem] border border-indigo-200/25 bg-black/35 shadow-[0_30px_120px_-35px_rgba(129,140,248,0.95)] backdrop-blur-sm">
+            <div className="absolute -inset-8 rounded-full bg-indigo-400/20 blur-3xl" />
+            <div className="absolute -inset-2 rounded-full border border-indigo-200/15" />
+            <div className="relative aspect-square w-full overflow-hidden rounded-full border border-white/18 bg-black/20 shadow-[0_26px_90px_-38px_rgba(167,139,250,0.95)] backdrop-blur-sm">
               <img
                 src="/github-profile.png"
                 alt="Mukunda Rao Katta"
-                className="aspect-square w-full object-cover"
+                className="h-full w-full scale-[1.06] object-cover"
               />
-              <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(0,0,0,0.02)_0%,rgba(0,0,0,0.28)_100%)]" />
+              <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(0,0,0,0)_0%,rgba(0,0,0,0.22)_100%)]" />
+            </div>
+            <div className="relative mt-5 rounded-full border border-indigo-200/15 bg-black/25 px-4 py-1.5 text-xs font-medium text-indigo-100/85 shadow-[0_18px_60px_-30px_rgba(129,140,248,0.9)] backdrop-blur-md">
+              GitHub @MukundaKatta
             </div>
           </motion.div>
 
