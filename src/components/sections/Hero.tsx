@@ -49,39 +49,20 @@ export function Hero() {
         initial="hidden"
         animate="visible"
       >
-        <div className="grid items-center gap-10 md:grid-cols-[0.82fr_1.18fr] lg:gap-18">
-          {/* GitHub profile portrait */}
-          <motion.div
-            variants={fadeUp}
-            className="relative mx-auto flex w-full max-w-[250px] flex-col items-center md:mx-0 md:max-w-[310px]"
-          >
-            <div className="absolute -inset-8 rounded-full bg-indigo-400/20 blur-3xl" />
-            <div className="absolute -inset-2 rounded-full border border-indigo-200/15" />
-            <div className="relative aspect-square w-full overflow-hidden rounded-full border border-white/18 bg-black/20 shadow-[0_26px_90px_-38px_rgba(167,139,250,0.95)] backdrop-blur-sm">
-              <img
-                src="/github-profile.png"
-                alt="Mukunda Rao Katta"
-                className="h-full w-full scale-[1.06] object-cover"
-              />
-              <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(0,0,0,0)_0%,rgba(0,0,0,0.22)_100%)]" />
-            </div>
-            <div className="relative mt-5 rounded-full border border-indigo-200/15 bg-black/25 px-4 py-1.5 text-xs font-medium text-indigo-100/85 shadow-[0_18px_60px_-30px_rgba(129,140,248,0.9)] backdrop-blur-md">
-              GitHub @MukundaKatta
-            </div>
-          </motion.div>
-
-          {/* Text column */}
-          <div className="text-center md:text-left">
+        <div className="max-w-[92%] sm:max-w-[70%] md:max-w-[58%]">
           {/* Availability pill */}
           <motion.div
             variants={fadeUp}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/8 border border-indigo-300/25 text-xs font-medium text-indigo-100 mb-6 shadow-[0_0_20px_-6px_rgba(99,102,241,0.45)] backdrop-blur-md"
+            className="mb-6 inline-flex items-center gap-3 rounded-full border border-indigo-300/25 bg-white/8 py-1 pl-1 pr-4 text-xs font-medium text-indigo-100 shadow-[0_0_20px_-6px_rgba(99,102,241,0.45)] backdrop-blur-md"
           >
-            <span className="relative flex h-1.5 w-1.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-indigo-500" />
+            <span className="relative h-8 w-8 overflow-hidden rounded-full border border-white/20 bg-black/30">
+              <img src="/github-profile.png" alt="" aria-hidden className="h-full w-full object-cover" />
             </span>
-            Available
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-indigo-400 opacity-75" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-indigo-500" />
+            </span>
+            Available · @MukundaKatta
           </motion.div>
 
           {/* Display name */}
@@ -110,7 +91,7 @@ export function Hero() {
           </motion.p>
 
           {/* CTAs — stack on mobile, row on sm+ */}
-          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-3 mb-7 justify-center md:justify-start">
+          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-3 mb-7">
             <motion.a
               href="#about"
               whileHover={{ y: -2 }}
@@ -132,7 +113,7 @@ export function Hero() {
           </motion.div>
 
           {/* Social tiles */}
-          <motion.div variants={fadeUp} className="flex gap-2.5 justify-center md:justify-start">
+          <motion.div variants={fadeUp} className="flex gap-2.5">
             {[
               { href: personal.github, icon: <GithubIcon size={17} />, label: 'GitHub' },
               { href: personal.linkedin, icon: <LinkedinIcon size={17} />, label: 'LinkedIn' },
@@ -153,7 +134,6 @@ export function Hero() {
               </motion.a>
             ))}
           </motion.div>
-          </div>
         </div>
       </motion.div>
     </section>
