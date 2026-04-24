@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import { Activity, GitBranch, PackageCheck, Radio, Rocket, ShieldCheck } from 'lucide-react'
 
 const signals = [
@@ -19,10 +20,12 @@ const toneClasses: Record<string, string> = {
 }
 
 export function LiveSignals() {
+  const tickerSignals = [...signals, ...signals]
+
   return (
-    <section className="relative overflow-hidden border-y border-white/10 bg-black px-6 py-8 text-white">
+    <section className="relative overflow-hidden border-y border-white/10 bg-black py-8 text-white">
       <div className="absolute inset-0 line-grid opacity-25" />
-      <div className="relative mx-auto max-w-6xl">
+      <div className="relative mx-auto max-w-6xl px-6">
         <div className="mb-5 flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-cyan-200/80">Live Signals</p>
@@ -46,6 +49,24 @@ export function LiveSignals() {
             </div>
           ))}
         </div>
+      </div>
+
+      <div className="relative mt-6 overflow-hidden border-y border-white/10 bg-white/[0.025] py-3">
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-black to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-black to-transparent" />
+        <motion.div
+          className="flex w-max gap-3 px-6"
+          animate={{ x: ['0%', '-50%'] }}
+          transition={{ duration: 34, repeat: Infinity, ease: 'linear' }}
+        >
+          {tickerSignals.map(({ label, value }, index) => (
+            <div key={`${label}-${index}`} className="flex items-center gap-3 rounded-full border border-white/10 bg-black/35 px-4 py-2 text-xs text-slate-300">
+              <span className="h-1.5 w-1.5 rounded-full bg-cyan-200 shadow-[0_0_18px_rgba(103,232,249,0.8)]" />
+              <span className="font-semibold uppercase tracking-[0.16em] text-slate-500">{label}</span>
+              <span className="text-slate-200">{value}</span>
+            </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   )

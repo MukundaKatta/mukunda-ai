@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Mail, ArrowRight, Activity, ShieldCheck, Workflow } from 'lucide-react'
+import { Mail, ArrowRight, Activity, ShieldCheck, Workflow, Cpu, DatabaseZap, Gauge, Terminal } from 'lucide-react'
 import { GithubIcon, LinkedinIcon, TwitterIcon } from '../ui/SocialIcons'
 import { personal } from '../../data/personal'
 
@@ -18,6 +18,17 @@ export function Hero() {
     { label: 'Production AI', value: 'RAG · Agents · Evals', icon: Activity },
     { label: 'Enterprise Scale', value: 'AWS · Bedrock · OpenSearch', icon: ShieldCheck },
     { label: 'Builder Mode', value: 'Open source systems live', icon: Workflow },
+  ]
+  const liveChecks = [
+    { label: 'Retrieval grounding', value: 'validated', width: '92%' },
+    { label: 'Model risk gates', value: 'armed', width: '78%' },
+    { label: 'Agent tool reliability', value: 'tracking', width: '84%' },
+  ]
+  const pipelineNodes = [
+    { icon: DatabaseZap, label: 'Ingest' },
+    { icon: Cpu, label: 'Reason' },
+    { icon: ShieldCheck, label: 'Verify' },
+    { icon: Gauge, label: 'Ship' },
   ]
 
   return (
@@ -47,7 +58,8 @@ export function Hero() {
         initial="hidden"
         animate="visible"
       >
-        <div className="max-w-[92%] sm:max-w-[72%] md:max-w-[62%] lg:max-w-[58%]">
+        <div className="grid items-center gap-10 lg:grid-cols-[0.98fr_0.82fr]">
+        <div className="max-w-[92%] sm:max-w-[72%] md:max-w-[62%] lg:max-w-none">
           {/* Availability pill */}
           <motion.div
             variants={fadeUp}
@@ -145,6 +157,71 @@ export function Hero() {
               </div>
             ))}
           </motion.div>
+        </div>
+
+        <motion.div
+          variants={fadeUp}
+          className="hidden lg:block"
+        >
+          <div className="premium-console relative ml-auto max-w-[430px] p-5">
+            <div className="mb-5 flex items-center justify-between border-b border-white/10 pb-4">
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-cyan-200/15 bg-cyan-300/10 text-cyan-100">
+                  <Terminal size={18} />
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-white">AI Ops Console</p>
+                  <p className="mt-1 text-xs text-slate-400">Mukunda production stack</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 rounded-full border border-emerald-300/20 bg-emerald-400/10 px-3 py-1 text-xs font-semibold text-emerald-200">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-300" />
+                live
+              </div>
+            </div>
+
+            <div className="relative mb-5 grid grid-cols-4 gap-2">
+              <div className="absolute left-[12%] right-[12%] top-5 h-px bg-gradient-to-r from-cyan-200/10 via-cyan-200/45 to-cyan-200/10" />
+              {pipelineNodes.map(({ icon: Icon, label }, index) => (
+                <motion.div
+                  key={label}
+                  className="relative flex flex-col items-center gap-2"
+                  animate={{ y: [0, -4, 0] }}
+                  transition={{ duration: 3.2, delay: index * 0.22, repeat: Infinity, ease: 'easeInOut' }}
+                >
+                  <div className="relative z-10 flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-black/55 text-cyan-100 shadow-[0_0_36px_-18px_rgba(34,211,238,0.9)]">
+                    <Icon size={17} />
+                  </div>
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400">{label}</p>
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="space-y-3">
+              {liveChecks.map((check, index) => (
+                <div key={check.label} className="rounded-lg border border-white/10 bg-white/[0.045] p-3">
+                  <div className="mb-2 flex items-center justify-between gap-3">
+                    <p className="text-xs font-semibold text-slate-200">{check.label}</p>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-cyan-200">{check.value}</p>
+                  </div>
+                  <div className="h-1.5 overflow-hidden rounded-full bg-white/8">
+                    <motion.div
+                      className="h-full rounded-full bg-gradient-to-r from-cyan-300 to-indigo-300"
+                      initial={{ width: 0 }}
+                      animate={{ width: check.width }}
+                      transition={{ duration: 1.2, delay: 0.7 + index * 0.16, ease: [0.16, 1, 0.3, 1] }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-4 rounded-lg border border-white/10 bg-black/40 p-4 font-mono text-xs leading-relaxed text-slate-300">
+              <p><span className="text-cyan-200">$</span> deploy --evals --guardrails --observability</p>
+              <p className="mt-2 text-emerald-200">Ready: grounded agent workflow online</p>
+            </div>
+          </div>
+        </motion.div>
         </div>
       </motion.div>
     </section>

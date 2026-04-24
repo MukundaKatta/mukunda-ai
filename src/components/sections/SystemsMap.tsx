@@ -61,7 +61,13 @@ export function SystemsMap() {
         </ScrollReveal>
 
         <ScrollReveal delay={0.12}>
-          <div className="premium-panel relative p-5 md:p-6">
+          <div className="premium-panel relative overflow-hidden p-5 md:p-6">
+            <motion.div
+              aria-hidden
+              className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-cyan-300/12 to-transparent"
+              animate={{ y: ['-100%', '420%'] }}
+              transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut' }}
+            />
             <div className="mb-5 flex items-center justify-between border-b border-white/10 pb-4">
               <div>
                 <p className="text-sm font-semibold text-white">AI Delivery Control Plane</p>
@@ -79,13 +85,19 @@ export function SystemsMap() {
                   key={label}
                   whileHover={{ y: -3 }}
                   transition={{ type: 'spring', stiffness: 360, damping: 28 }}
-                  className="rounded-lg border border-white/10 bg-white/[0.045] p-4"
+                  className="relative overflow-hidden rounded-lg border border-white/10 bg-white/[0.045] p-4"
                 >
+                  <motion.div
+                    aria-hidden
+                    className="absolute left-0 top-0 h-full w-px bg-cyan-200/50"
+                    animate={{ opacity: [0.2, 0.85, 0.2] }}
+                    transition={{ duration: 2.4, delay: index * 0.2, repeat: Infinity, ease: 'easeInOut' }}
+                  />
                   <div className="mb-4 flex items-center justify-between">
                     <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-cyan-200/15 bg-cyan-300/10 text-cyan-100">
                       <Icon size={19} />
                     </div>
-                    <span className="font-mono text-xs text-slate-500">0{index + 1}</span>
+                    <span className="font-mono text-xs text-slate-500">0{index + 1} / live</span>
                   </div>
                   <h3 className="text-base font-bold text-white">{label}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-slate-400">{detail}</p>
