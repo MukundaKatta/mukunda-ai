@@ -47,16 +47,6 @@ export const experiences: Experience[] = [
     featured: true,
   },
   {
-    company: 'Cigna',
-    role: 'Data Engineer',
-    period: 'Jan 2022 — Aug 2022',
-    type: 'Data Engineering',
-    highlights: [
-      'Led end-to-end migration of healthcare data pipelines from on-prem to AWS, redesigning ETL workflows with Glue and PySpark',
-      'Built Python data extraction and transformation frameworks processing large-scale healthcare datasets with automated quality validation',
-    ],
-  },
-  {
     company: 'American Express',
     role: 'Software Engineer',
     period: 'Feb 2017 — Dec 2020',

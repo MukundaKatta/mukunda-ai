@@ -3,6 +3,7 @@ import { GithubIcon, LinkedinIcon, TwitterIcon } from '../ui/SocialIcons'
 import { personal } from '../../data/personal'
 
 const navLinks = [
+  { label: 'Systems', href: '#systems' },
   { label: 'About', href: '#about' },
   { label: 'Experience', href: '#experience' },
   { label: 'Projects', href: '#projects' },

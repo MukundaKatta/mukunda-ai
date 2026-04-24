@@ -3,6 +3,7 @@ import { ThemeToggle } from './components/ui/ThemeToggle'
 import { BackToTop } from './components/ui/BackToTop'
 import { Header } from './components/layout/Header'
 import { Hero } from './components/sections/Hero'
+import { SystemsMap } from './components/sections/SystemsMap'
 import { About } from './components/sections/About'
 import { WhatIDo } from './components/sections/WhatIDo'
 import { Experience } from './components/sections/Experience'
@@ -12,6 +13,7 @@ import { Education } from './components/sections/Education'
 import { Skills } from './components/sections/Skills'
 import { Blog } from './components/sections/Blog'
 import { Contact } from './components/sections/Contact'
+import { LiveSignals } from './components/sections/LiveSignals'
 import { Footer } from './components/layout/Footer'
 
 export default function App() {
@@ -23,6 +25,7 @@ export default function App() {
       <ThemeToggle dark={dark} toggle={toggle} />
       <main>
         <Hero />
+        <SystemsMap />
         <About />
         <div className="section-divider" />
         <WhatIDo />
@@ -40,6 +43,7 @@ export default function App() {
         <Blog />
         <div className="section-divider" />
         <Contact />
+        <LiveSignals />
       </main>
       <Footer />
       <BackToTop />

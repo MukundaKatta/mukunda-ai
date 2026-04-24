@@ -27,7 +27,7 @@
   .font-display {
     font-family: var(--font-display);
     font-weight: 700;
-    letter-spacing: -0.03em;
+    letter-spacing: 0;
   }
 }
 
@@ -91,6 +91,30 @@
   /* Glassmorphism */
   .glass {
     @apply bg-white/70 dark:bg-black/60 backdrop-blur-xl border border-white/20 dark:border-indigo-400/15;
+  }
+
+  .premium-panel {
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 8px;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.035)),
+      rgba(2, 6, 23, 0.76);
+    box-shadow:
+      0 28px 90px -60px rgba(34, 211, 238, 0.7),
+      0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+    backdrop-filter: blur(18px);
+  }
+
+  .premium-signal {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.11);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.045);
+    padding: 0.875rem;
+    box-shadow: 0 20px 80px -55px rgba(99, 102, 241, 0.85);
+    backdrop-filter: blur(14px);
   }
 
   /* ───── Tiles / buttons ─────

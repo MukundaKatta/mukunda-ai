@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 
 const navItems = [
+  { label: 'Systems', href: '#systems' },
   { label: 'About', href: '#about' },
   { label: 'Experience', href: '#experience' },
   { label: 'Projects', href: '#projects' },
@@ -50,7 +51,7 @@ export function Header() {
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <motion.a
           href="#"
-          className="text-lg font-extrabold gradient-text-premium tracking-tight"
+          className="text-lg font-extrabold gradient-text-premium"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
