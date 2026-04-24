@@ -4,6 +4,7 @@ import { BackToTop } from './components/ui/BackToTop'
 import { Header } from './components/layout/Header'
 import { Hero } from './components/sections/Hero'
 import { SystemsMap } from './components/sections/SystemsMap'
+import { ImpactBoard } from './components/sections/ImpactBoard'
 import { About } from './components/sections/About'
 import { WhatIDo } from './components/sections/WhatIDo'
 import { Experience } from './components/sections/Experience'
@@ -26,6 +27,7 @@ export default function App() {
       <main>
         <Hero />
         <SystemsMap />
+        <ImpactBoard />
         <About />
         <div className="section-divider" />
         <WhatIDo />

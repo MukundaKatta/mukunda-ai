@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
-import { Mail, ArrowRight, Activity, ShieldCheck, Workflow, Cpu, DatabaseZap, Gauge, Terminal } from 'lucide-react'
+import { Mail, ArrowRight, Activity, ShieldCheck, Workflow, Cpu, DatabaseZap, Gauge, Terminal, Sparkles } from 'lucide-react'
 import { GithubIcon, LinkedinIcon, TwitterIcon } from '../ui/SocialIcons'
+import { NeuralField } from '../ui/NeuralField'
 import { personal } from '../../data/personal'
 
 const stagger = {
@@ -30,6 +31,12 @@ export function Hero() {
     { icon: ShieldCheck, label: 'Verify' },
     { icon: Gauge, label: 'Ship' },
   ]
+  const consoleEvents = [
+    'rag.eval.groundedness passed',
+    'tool.router.latency stable',
+    'pii.guardrail.clean',
+    'semantic.cache.hit-rate rising',
+  ]
 
   return (
     <section className="relative flex min-h-screen items-center justify-start overflow-hidden bg-black px-5 pb-10 pt-28 sm:px-6">
@@ -47,6 +54,9 @@ export function Hero() {
       </div>
 
       <div className="absolute inset-0 z-[1] opacity-35 line-grid" />
+      <div className="absolute inset-0 z-[1] opacity-80">
+        <NeuralField />
+      </div>
       <div className="absolute inset-x-0 bottom-0 z-[2] h-40 bg-gradient-to-t from-black via-black/60 to-transparent" />
 
       {/* Soft vignette to keep the copy readable */}
@@ -163,7 +173,7 @@ export function Hero() {
           variants={fadeUp}
           className="hidden lg:block"
         >
-          <div className="premium-console relative ml-auto max-w-[430px] p-5">
+          <div className="premium-console relative ml-auto max-w-[450px] p-5">
             <div className="mb-5 flex items-center justify-between border-b border-white/10 pb-4">
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-cyan-200/15 bg-cyan-300/10 text-cyan-100">
@@ -219,6 +229,26 @@ export function Hero() {
             <div className="mt-4 rounded-lg border border-white/10 bg-black/40 p-4 font-mono text-xs leading-relaxed text-slate-300">
               <p><span className="text-cyan-200">$</span> deploy --evals --guardrails --observability</p>
               <p className="mt-2 text-emerald-200">Ready: grounded agent workflow online</p>
+            </div>
+
+            <div className="mt-4 rounded-lg border border-white/10 bg-white/[0.035] p-3">
+              <div className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
+                <Sparkles size={14} className="text-cyan-200" />
+                live event stream
+              </div>
+              <div className="space-y-2">
+                {consoleEvents.map((event, index) => (
+                  <motion.div
+                    key={event}
+                    className="flex items-center justify-between gap-3 font-mono text-xs text-slate-300"
+                    animate={{ opacity: [0.45, 1, 0.45] }}
+                    transition={{ duration: 3.2, delay: index * 0.45, repeat: Infinity, ease: 'easeInOut' }}
+                  >
+                    <span>{event}</span>
+                    <span className="text-emerald-200">ok</span>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
         </motion.div>

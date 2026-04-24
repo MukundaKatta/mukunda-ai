@@ -4,6 +4,7 @@ import { personal } from '../../data/personal'
 
 const navLinks = [
   { label: 'Systems', href: '#systems' },
+  { label: 'Proof', href: '#proof' },
   { label: 'About', href: '#about' },
   { label: 'Experience', href: '#experience' },
   { label: 'Projects', href: '#projects' },
