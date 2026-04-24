@@ -30,6 +30,19 @@ export function Hero() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_25%_50%,rgba(79,70,229,0.22)_0%,transparent_48%)]" />
       </div>
 
+      {/* GitHub profile portrait */}
+      <div className="absolute right-[5%] top-1/2 hidden -translate-y-1/2 pointer-events-none select-none z-[3] md:block">
+        <div className="relative h-[390px] w-[390px] overflow-hidden rounded-[2rem] border border-indigo-200/20 bg-black/30 shadow-[0_30px_120px_-35px_rgba(129,140,248,0.85)] backdrop-blur-sm lg:h-[460px] lg:w-[460px]">
+          <img
+            src="/github-profile.png"
+            alt=""
+            aria-hidden
+            className="h-full w-full object-cover opacity-95"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(0,0,0,0.04)_0%,rgba(0,0,0,0.32)_100%)]" />
+        </div>
+      </div>
+
       {/* Matrix rain — dark mode only */}
       <div className="absolute inset-0 hidden dark:block opacity-45 z-[1]">
         <MatrixRain intensity="strong" />
@@ -50,7 +63,7 @@ export function Hero() {
         animate="visible"
       >
         {/* Text column — constrained so it doesn't fight the portrait */}
-        <div className="max-w-[92%] sm:max-w-[66%] md:max-w-[56%]">
+        <div className="max-w-[92%] sm:max-w-[66%] md:max-w-[48%]">
           {/* Availability pill */}
           <motion.div
             variants={fadeUp}
