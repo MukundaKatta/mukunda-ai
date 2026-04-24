@@ -26,21 +26,8 @@ export function Hero() {
           className="w-full h-full object-cover opacity-90"
           style={{ objectPosition: 'center right' }}
         />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.92)_0%,rgba(0,0,0,0.78)_34%,rgba(0,0,0,0.38)_68%,rgba(0,0,0,0.16)_100%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_25%_50%,rgba(79,70,229,0.22)_0%,transparent_48%)]" />
-      </div>
-
-      {/* GitHub profile portrait */}
-      <div className="absolute right-[5%] top-1/2 hidden -translate-y-1/2 pointer-events-none select-none z-[3] md:block">
-        <div className="relative h-[390px] w-[390px] overflow-hidden rounded-[2rem] border border-indigo-200/20 bg-black/30 shadow-[0_30px_120px_-35px_rgba(129,140,248,0.85)] backdrop-blur-sm lg:h-[460px] lg:w-[460px]">
-          <img
-            src="/github-profile.png"
-            alt=""
-            aria-hidden
-            className="h-full w-full object-cover opacity-95"
-          />
-          <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(0,0,0,0.04)_0%,rgba(0,0,0,0.32)_100%)]" />
-        </div>
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.78)_0%,rgba(0,0,0,0.58)_42%,rgba(0,0,0,0.78)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_25%_50%,rgba(79,70,229,0.28)_0%,transparent_42%),radial-gradient(ellipse_at_74%_50%,rgba(167,139,250,0.16)_0%,transparent_48%)]" />
       </div>
 
       {/* Matrix rain — dark mode only */}
@@ -53,17 +40,34 @@ export function Hero() {
       <div className="orb w-[460px] h-[460px] bg-indigo-500 top-[-15%] left-[-25%] z-[1]" style={{ animation: 'float-slow 22s ease-in-out infinite' }} />
       <div className="orb w-[400px] h-[400px] bg-violet-500 bottom-[-15%] right-[-25%] z-[1]" style={{ animation: 'float-slower 28s ease-in-out infinite' }} />
 
-      {/* Soft vignette to pool readability on the left where text lives */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_25%_50%,rgba(0,0,0,0.42)_0%,transparent_70%)] pointer-events-none z-[2]" />
+      {/* Soft vignette to keep the portrait and copy readable */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_25%_50%,rgba(0,0,0,0.18)_0%,transparent_58%),radial-gradient(ellipse_at_72%_50%,rgba(0,0,0,0.34)_0%,transparent_64%)] pointer-events-none z-[2]" />
 
       <motion.div
-        className="relative z-10 w-full max-w-5xl mx-auto"
+        className="relative z-10 w-full max-w-6xl mx-auto"
         variants={stagger}
         initial="hidden"
         animate="visible"
       >
-        {/* Text column — constrained so it doesn't fight the portrait */}
-        <div className="max-w-[92%] sm:max-w-[66%] md:max-w-[48%]">
+        <div className="grid items-center gap-10 md:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+          {/* GitHub profile portrait */}
+          <motion.div
+            variants={fadeUp}
+            className="relative mx-auto w-full max-w-[280px] sm:max-w-[340px] md:mx-0 md:max-w-[390px]"
+          >
+            <div className="absolute -inset-4 rounded-[2rem] bg-indigo-400/15 blur-2xl" />
+            <div className="relative overflow-hidden rounded-[1.75rem] border border-indigo-200/25 bg-black/35 shadow-[0_30px_120px_-35px_rgba(129,140,248,0.95)] backdrop-blur-sm">
+              <img
+                src="/github-profile.png"
+                alt="Mukunda Rao Katta"
+                className="aspect-square w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(0,0,0,0.02)_0%,rgba(0,0,0,0.28)_100%)]" />
+            </div>
+          </motion.div>
+
+          {/* Text column */}
+          <div className="text-center md:text-left">
           {/* Availability pill */}
           <motion.div
             variants={fadeUp}
@@ -102,7 +106,7 @@ export function Hero() {
           </motion.p>
 
           {/* CTAs — stack on mobile, row on sm+ */}
-          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-3 mb-7">
+          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-3 mb-7 justify-center md:justify-start">
             <motion.a
               href="#about"
               whileHover={{ y: -2 }}
@@ -124,7 +128,7 @@ export function Hero() {
           </motion.div>
 
           {/* Social tiles */}
-          <motion.div variants={fadeUp} className="flex gap-2.5">
+          <motion.div variants={fadeUp} className="flex gap-2.5 justify-center md:justify-start">
             {[
               { href: personal.github, icon: <GithubIcon size={17} />, label: 'GitHub' },
               { href: personal.linkedin, icon: <LinkedinIcon size={17} />, label: 'LinkedIn' },
@@ -145,8 +149,8 @@ export function Hero() {
               </motion.a>
             ))}
           </motion.div>
+          </div>
         </div>
-
       </motion.div>
     </section>
   )
