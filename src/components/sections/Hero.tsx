@@ -209,7 +209,7 @@ export function Hero() {
 
             <div className="space-y-3">
               {liveChecks.map((check, index) => (
-                <div key={check.label} className="rounded-lg border border-white/10 bg-white/[0.045] p-3">
+                <div key={check.label} className="rounded-lg border border-white/12 bg-white/[0.025] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
                   <div className="mb-2 flex items-center justify-between gap-3">
                     <p className="text-xs font-semibold text-slate-200">{check.label}</p>
                     <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-cyan-200">{check.value}</p>
@@ -226,12 +226,12 @@ export function Hero() {
               ))}
             </div>
 
-            <div className="mt-4 rounded-lg border border-white/10 bg-black/40 p-4 font-mono text-xs leading-relaxed text-slate-300">
+            <div className="mt-4 rounded-lg border border-white/12 bg-black/[0.22] p-4 font-mono text-xs leading-relaxed text-slate-300">
               <p><span className="text-cyan-200">$</span> deploy --evals --guardrails --observability</p>
               <p className="mt-2 text-emerald-200">Ready: grounded agent workflow online</p>
             </div>
 
-            <div className="mt-4 rounded-lg border border-white/10 bg-white/[0.035] p-3">
+            <div className="mt-4 rounded-lg border border-white/12 bg-white/[0.02] p-3">
               <div className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
                 <Sparkles size={14} className="text-cyan-200" />
                 live event stream
