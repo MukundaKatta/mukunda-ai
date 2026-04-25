@@ -38,9 +38,17 @@ const operatingPrinciples = [
 
 export function ImpactBoard() {
   return (
-    <section id="proof" className="relative overflow-hidden bg-[#05060d] px-6 py-20 text-white">
-      <div className="absolute inset-0 line-grid opacity-25" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(34,211,238,0.11),transparent_44%),linear-gradient(180deg,rgba(0,0,0,0.18),rgba(0,0,0,0.76))]" />
+    <section id="proof" className="relative overflow-hidden bg-[#05060d] px-6 py-24 text-white">
+      <img
+        src="/proof-cinematic.png"
+        alt=""
+        aria-hidden
+        className="absolute inset-0 h-full w-full object-cover opacity-70"
+        style={{ objectPosition: 'center 56%' }}
+      />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.88)_0%,rgba(0,0,0,0.66)_42%,rgba(0,0,0,0.84)_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_12%,rgba(34,211,238,0.18),transparent_42%),radial-gradient(ellipse_at_50%_88%,rgba(167,139,250,0.16),transparent_48%)]" />
+      <div className="absolute inset-0 line-grid opacity-20" />
 
       <div className="relative mx-auto max-w-6xl">
         <ScrollReveal>
@@ -48,8 +56,11 @@ export function ImpactBoard() {
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-cyan-200/80">Proof Of Work</p>
               <h2 className="font-display mt-3 max-w-3xl text-4xl leading-tight md:text-5xl">
-                The page should feel like the work: measurable, calm, and impossible to fake.
+                Proof framed like a command room, not a resume block.
               </h2>
+              <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-300">
+                A cinematic proof layer gives the portfolio a grander moment while keeping the actual evidence measurable, specific, and engineering-led.
+              </p>
             </div>
             <a
               href="#projects"
@@ -63,7 +74,7 @@ export function ImpactBoard() {
 
         <div className="grid gap-4 lg:grid-cols-[1fr_0.68fr]">
           <ScrollReveal delay={0.08}>
-            <div className="premium-panel p-4">
+            <div className="premium-panel bg-black/55 p-4">
               <div className="grid gap-3 md:grid-cols-2">
                 {impactRows.map(({ icon: Icon, label, value, detail }, index) => (
                   <motion.div
@@ -96,7 +107,7 @@ export function ImpactBoard() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.16}>
-            <div className="h-full rounded-lg border border-white/10 bg-black/40 p-5 backdrop-blur-xl">
+            <div className="h-full rounded-lg border border-white/10 bg-black/55 p-5 backdrop-blur-xl">
               <div className="mb-5 flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-indigo-200/15 bg-indigo-300/10 text-indigo-100">
                   <BadgeCheck size={18} />
