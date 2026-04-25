@@ -56,10 +56,10 @@ export function ImpactBoard() {
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-cyan-200/80">Proof Of Work</p>
               <h2 className="font-display mt-3 max-w-3xl text-4xl leading-tight md:text-5xl">
-                Proof framed like a command room, not a resume block.
+                Systems that move from prototype to production.
               </h2>
               <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-300">
-                A cinematic proof layer gives the portfolio a grander moment while keeping the actual evidence measurable, specific, and engineering-led.
+                I build AI platforms, retrieval pipelines, and governance layers with measurable impact across cost, latency, reliability, and trust.
               </p>
             </div>
             <a
