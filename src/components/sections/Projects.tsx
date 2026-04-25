@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ExternalLink, ArrowUpRight, Gauge } from 'lucide-react'
+import { ExternalLink, ArrowUpRight, Gauge, Activity, Boxes, ShieldCheck, Terminal } from 'lucide-react'
 import { GithubIcon } from '../ui/SocialIcons'
 import { SectionHeading } from '../ui/SectionHeading'
 import { ScrollReveal } from '../ui/ScrollReveal'
@@ -21,6 +21,12 @@ const statusLabels: Record<string, string> = {
 }
 
 export function Projects() {
+  const commandStats = [
+    { icon: Boxes, label: 'Systems shipped', value: '8', detail: 'agents, RAG, security, platforms' },
+    { icon: Activity, label: 'Delivery mode', value: 'Live', detail: 'production-minded build loops' },
+    { icon: ShieldCheck, label: 'Trust posture', value: 'Evals', detail: 'grounding, privacy, risk controls' },
+  ]
+
   return (
     <section id="projects" className="relative overflow-hidden bg-[#f7f6f1] px-6 py-28 dark:bg-[#030308]">
       <div className="absolute inset-0 hidden dark:block">
@@ -31,17 +37,62 @@ export function Projects() {
 
       <div className="relative max-w-6xl mx-auto">
         <SectionHeading kicker="03" title="Featured Projects" />
-        <div className="mb-8 grid gap-3 md:grid-cols-3">
-          {[
-            ['Agentic AI', 'Runtimes, tools, memory, routing'],
-            ['Grounded RAG', 'Retrieval, evals, reranking, cache'],
-            ['Production Edge', 'Security, scale, observability'],
-          ].map(([label, detail]) => (
-            <div key={label} className="rounded-lg border border-slate-200 bg-white/80 p-4 shadow-sm dark:border-white/10 dark:bg-white/[0.04]">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-indigo-600 dark:text-cyan-200/80">{label}</p>
-              <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{detail}</p>
+
+        <div className="premium-project-board mb-8 grid gap-4 p-4 lg:grid-cols-[0.85fr_1.15fr]">
+          <div className="rounded-lg border border-white/10 bg-black/45 p-5 text-white">
+            <div className="mb-5 flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-cyan-200/15 bg-cyan-300/10 text-cyan-100">
+                <Terminal size={18} />
+              </div>
+              <div>
+                <p className="text-sm font-bold">Project Command Board</p>
+                <p className="mt-1 text-xs text-slate-500">AI systems portfolio telemetry</p>
+              </div>
             </div>
-          ))}
+            <div className="space-y-3">
+              {commandStats.map(({ icon: Icon, label, value, detail }, index) => (
+                <motion.div
+                  key={label}
+                  className="rounded-lg border border-white/10 bg-white/[0.045] p-4"
+                  animate={{ opacity: [0.72, 1, 0.72] }}
+                  transition={{ duration: 3.6, delay: index * 0.35, repeat: Infinity, ease: 'easeInOut' }}
+                >
+                  <div className="flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-3">
+                      <Icon size={17} className="text-cyan-200" />
+                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">{label}</p>
+                    </div>
+                    <p className="text-lg font-extrabold text-white">{value}</p>
+                  </div>
+                  <p className="mt-2 text-sm text-slate-400">{detail}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid gap-3 md:grid-cols-3">
+            {[
+              ['Agentic AI', 'Runtimes, tools, memory, routing'],
+              ['Grounded RAG', 'Retrieval, evals, reranking, cache'],
+              ['Production Edge', 'Security, scale, observability'],
+            ].map(([label, detail], index) => (
+              <motion.div
+                key={label}
+                className="relative overflow-hidden rounded-lg border border-slate-200 bg-white/80 p-4 shadow-sm dark:border-white/10 dark:bg-white/[0.04]"
+                whileHover={{ y: -4 }}
+                transition={{ type: 'spring', stiffness: 360, damping: 28 }}
+              >
+                <motion.div
+                  aria-hidden
+                  className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-200/70 to-transparent"
+                  animate={{ x: ['-100%', '100%'] }}
+                  transition={{ duration: 3.8, delay: index * 0.34, repeat: Infinity, ease: 'easeInOut' }}
+                />
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-indigo-600 dark:text-cyan-200/80">{label}</p>
+                <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{detail}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -50,7 +101,12 @@ export function Projects() {
               <motion.div
                 whileHover={{ y: -5 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-                className="group relative flex h-full flex-col overflow-hidden rounded-lg border border-slate-200 bg-white/[0.92] p-5 shadow-[0_22px_70px_-50px_rgba(15,23,42,0.45)] backdrop-blur-xl dark:border-white/10 dark:bg-[#080914]/[0.82] dark:shadow-[0_18px_70px_-42px_rgba(99,102,241,0.45)]"
+                onMouseMove={(event) => {
+                  const rect = event.currentTarget.getBoundingClientRect()
+                  event.currentTarget.style.setProperty('--mx', `${event.clientX - rect.left}px`)
+                  event.currentTarget.style.setProperty('--my', `${event.clientY - rect.top}px`)
+                }}
+                className="group premium-project-card relative flex h-full flex-col overflow-hidden rounded-lg border border-slate-200 bg-white/[0.92] p-5 shadow-[0_22px_70px_-50px_rgba(15,23,42,0.45)] backdrop-blur-xl dark:border-white/10 dark:bg-[#080914]/[0.82] dark:shadow-[0_18px_70px_-42px_rgba(99,102,241,0.45)]"
               >
                 <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-indigo-400/50 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 

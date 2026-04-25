@@ -1,6 +1,8 @@
 import { useTheme } from './hooks/useTheme'
 import { ThemeToggle } from './components/ui/ThemeToggle'
 import { BackToTop } from './components/ui/BackToTop'
+import { GlobalDynamics } from './components/ui/GlobalDynamics'
+import { CinematicDivider } from './components/ui/CinematicDivider'
 import { Header } from './components/layout/Header'
 import { Hero } from './components/sections/Hero'
 import { SystemsMap } from './components/sections/SystemsMap'
@@ -23,27 +25,28 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#faf9f6] dark:bg-black text-slate-900 dark:text-slate-100 transition-colors">
       <Header />
+      <GlobalDynamics />
       <ThemeToggle dark={dark} toggle={toggle} />
       <main>
         <Hero />
         <SystemsMap />
         <ImpactBoard />
         <About />
-        <div className="section-divider" />
+        <CinematicDivider />
         <WhatIDo />
-        <div className="section-divider" />
+        <CinematicDivider />
         <Experience />
-        <div className="section-divider" />
+        <CinematicDivider />
         <Projects />
-        <div className="section-divider" />
+        <CinematicDivider />
         <Certifications />
-        <div className="section-divider" />
+        <CinematicDivider />
         <Education />
-        <div className="section-divider" />
+        <CinematicDivider />
         <Skills />
-        <div className="section-divider" />
+        <CinematicDivider />
         <Blog />
-        <div className="section-divider" />
+        <CinematicDivider />
         <Contact />
         <LiveSignals />
       </main>
