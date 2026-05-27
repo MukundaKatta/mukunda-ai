@@ -26,6 +26,7 @@ INDEX_FILE = ROOT / "index.html"
 LLMS_FILE = ROOT / "public" / "llms.txt"
 LLMS_FULL_FILE = ROOT / "public" / "llms-full.txt"
 PACKAGES_HTML_FILE = ROOT / "public" / "packages.html"
+PROJECTS_TSX_FILE = ROOT / "src" / "components" / "sections" / "Projects.tsx"
 
 GH_USER = "MukundaKatta"
 NPM_USER = "mukundakatta"
@@ -475,6 +476,33 @@ def build_rules(stats: dict[str, int]) -> list[tuple[Path, str, str]]:
             LLMS_FILE,
             r"mcp-stack\): (\d+) MCP servers \(",
             f"mcp-stack): {stats['mcp_stack']} MCP servers (",
+        ),
+        # src/components/sections/Projects.tsx — CTA button counts.
+        # data-* attrs are stable anchors that don't render visually.
+        (
+            PROJECTS_TSX_FILE,
+            r'data-package-total>(\d+)<',
+            f'data-package-total>{stats["npm"] + stats["pypi"] + stats["crates"] + stats["mcp_registry"]}<',
+        ),
+        (
+            PROJECTS_TSX_FILE,
+            r'data-npm-count>(\d+)<',
+            f'data-npm-count>{stats["npm"]}<',
+        ),
+        (
+            PROJECTS_TSX_FILE,
+            r'data-pypi-count>(\d+)<',
+            f'data-pypi-count>{stats["pypi"]}<',
+        ),
+        (
+            PROJECTS_TSX_FILE,
+            r'data-crates-count>(\d+)<',
+            f'data-crates-count>{stats["crates"]}<',
+        ),
+        (
+            PROJECTS_TSX_FILE,
+            r'data-mcp-count>(\d+)<',
+            f'data-mcp-count>{stats["mcp_registry"]}<',
         ),
     ]
 
