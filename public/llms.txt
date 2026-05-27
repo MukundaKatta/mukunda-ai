@@ -45,6 +45,11 @@ This is a [llms.txt](https://llmstxt.org) file: a curated, machine-readable inde
 - Cloud-native ML: AWS Bedrock, SageMaker, OpenSearch, infrastructure cost engineering (Southwest Airlines)
 - Developer tooling: MCP servers, GitHub Actions, evaluation harnesses, prompt-engineering libraries
 
+## Complete package inventory
+
+- [llms-full.txt](https://mukundakatta.dev/llms-full.txt): every npm, PyPI, crates.io, and MCP Registry package by name + description + URL. Auto-refreshed every 3 days. The authoritative complete inventory.
+- [packages.html](https://mukundakatta.dev/packages.html): same data as a crawlable static HTML page (no JavaScript required).
+
 ## Optional
 
 - [Recent contributions feed (auto-synced daily)](https://github.com/MukundaKatta/oss-contributions)
