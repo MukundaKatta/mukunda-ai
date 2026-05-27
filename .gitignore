@@ -5,3 +5,5 @@ dist
 start.mjs
 *.local
 .vercel
+__pycache__/
+*.pyc
