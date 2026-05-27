@@ -1,0 +1,20 @@
+/* TEAM */
+Author: Mukunda Rao Katta
+Site: https://mukundakatta.dev
+GitHub: @MukundaKatta
+LinkedIn: https://linkedin.com/in/mukunda-katta-728155220
+Contact: mukunda.vjcs6 [at] gmail.com
+From: Las Vegas, NV, USA
+
+/* THANKS */
+Open-source maintainers everywhere who keep the LLM ecosystem moving:
+the Anthropic SDK + MCP teams, OpenAI, Google AI, PrefectHQ FastMCP,
+LangChain, the npm/PyPI/crates.io infrastructure, and every reviewer
+who has merged one of my 167+ upstream PRs.
+
+/* SITE */
+Last update: see mukundakatta.dev (stats refresh every 3 days)
+Language: English
+Doctype: HTML5
+Standards: HTML5, CSS3, JSON-LD
+Components: React 19, Vite 8, TailwindCSS 4, Framer Motion
