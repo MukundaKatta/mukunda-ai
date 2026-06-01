@@ -61,7 +61,7 @@ export function Footer() {
                 key={label}
                 href={href}
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 whileHover={{ y: -2 }}
                 className="neon-tile w-9 h-9 rounded-lg flex items-center justify-center text-slate-400 dark:text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-300"
                 aria-label={label}

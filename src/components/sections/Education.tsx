@@ -36,7 +36,7 @@ export function Education() {
               <motion.div
                 whileHover={{ y: -4 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                className="p-6 md:p-7 rounded-2xl border border-slate-200 dark:border-indigo-400/15 bg-white/90 dark:bg-[#0a0a14]/70 backdrop-blur-xl flex items-start gap-4 h-full group dark:shadow-[0_8px_40px_-12px_rgba(99,102,241,0.15)]"
+                className="p-6 md:p-7 rounded-2xl border border-slate-200 dark:border-indigo-400/15 bg-white dark:bg-[#0a0a14]/70 backdrop-blur-xl flex items-start gap-4 h-full group dark:shadow-[0_8px_40px_-12px_rgba(99,102,241,0.15)]"
               >
                 <div className="icon-tile w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110">
                   <GraduationCap size={24} className="text-indigo-600 dark:text-indigo-300" />

@@ -60,20 +60,20 @@ export function Contact() {
             <motion.a
               href={personal.linkedin}
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.97 }}
-              className="neon-tile flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm text-slate-800 dark:text-white"
+              className="neon-tile flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm text-slate-700 dark:text-white"
             >
               <LinkedinIcon size={16} /> LinkedIn
             </motion.a>
             <motion.a
               href={personal.github}
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.97 }}
-              className="neon-tile flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm text-slate-800 dark:text-white"
+              className="neon-tile flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm text-slate-700 dark:text-white"
             >
               <GithubIcon size={16} /> GitHub
             </motion.a>

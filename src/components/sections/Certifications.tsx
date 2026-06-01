@@ -38,7 +38,7 @@ function ProviderLogo({ provider, color }: { provider: string; color: string }) 
   if (provider === 'IBM') {
     return (
       <div
-        className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 bg-white dark:bg-white"
+        className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 bg-[#faf9f6] dark:bg-white"
         style={{ boxShadow: `0 0 0 1px ${color}30, 0 4px 12px -4px ${color}40` }}
       >
         <IBMMark color={color} />
@@ -60,7 +60,7 @@ function ProviderLogo({ provider, color }: { provider: string; color: string }) 
 
   return (
     <div
-      className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 bg-white dark:bg-white"
+      className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 bg-[#faf9f6] dark:bg-white"
       style={{ boxShadow: `0 0 0 1px ${color}30, 0 4px 12px -4px ${color}40` }}
     >
       <Icon size={20} style={{ color }} />
