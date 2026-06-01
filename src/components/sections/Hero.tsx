@@ -123,7 +123,7 @@ export function Hero() {
               <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
             </motion.a>
             <motion.a
-              href={`mailto:${personal.email}`}
+              href={`mailto:${personal.email}?subject=Let's%20work%20together`}
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.97 }}
               className="neon-tile flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold tracking-wide text-slate-100"

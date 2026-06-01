@@ -48,7 +48,7 @@ export function Contact() {
 
           <div className="flex flex-wrap gap-3 justify-center">
             <motion.a
-              href={`mailto:${personal.email}`}
+              href={`mailto:${personal.email}?subject=Let's%20work%20together`}
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.97 }}
               className="neon-btn-primary flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm tracking-wide group"

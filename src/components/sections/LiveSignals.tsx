@@ -22,7 +22,7 @@ export function LiveSignals() {
   const tickerSignals = [...signals, ...signals]
 
   return (
-    <section className="relative overflow-hidden border-y border-white/10 bg-black py-8 text-white">
+    <section id="live-signals" className="relative overflow-hidden border-y border-white/10 bg-black py-8 text-white">
       <div className="absolute inset-0 line-grid opacity-25" />
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="mb-5 flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
