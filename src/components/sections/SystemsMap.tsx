@@ -73,8 +73,8 @@ export function SystemsMap() {
                 <p className="text-sm font-semibold text-white">AI Delivery Control Plane</p>
                 <p className="mt-1 text-xs text-slate-400">Research → Build → Evaluate → Deploy</p>
               </div>
-              <div className="flex items-center gap-2 rounded-full border border-emerald-300/20 bg-emerald-400/10 px-3 py-1 text-xs font-semibold text-emerald-200">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-300" />
+              <div className="flex items-center gap-2 rounded-full border border-indigo-300/20 bg-indigo-400/10 px-3 py-1 text-xs font-semibold text-indigo-200">
+                <span className="h-1.5 w-1.5 rounded-full bg-indigo-300" />
                 online
               </div>
             </div>

@@ -184,8 +184,8 @@ export function Hero() {
                   <p className="mt-1 text-xs text-slate-400">Mukunda production stack</p>
                 </div>
               </div>
-              <div className="flex items-center gap-2 rounded-full border border-emerald-300/20 bg-emerald-400/10 px-3 py-1 text-xs font-semibold text-emerald-200">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-300" />
+              <div className="flex items-center gap-2 rounded-full border border-indigo-300/20 bg-indigo-400/10 px-3 py-1 text-xs font-semibold text-indigo-200">
+                <span className="h-1.5 w-1.5 rounded-full bg-indigo-300" />
                 live
               </div>
             </div>
@@ -228,7 +228,7 @@ export function Hero() {
 
             <div className="mt-4 rounded-lg border border-white/12 bg-black/[0.22] p-4 font-mono text-xs leading-relaxed text-slate-300">
               <p><span className="text-cyan-200">$</span> deploy --evals --guardrails --observability</p>
-              <p className="mt-2 text-emerald-200">Ready: grounded agent workflow online</p>
+              <p className="mt-2 text-indigo-200">Ready: grounded agent workflow online</p>
             </div>
 
             <div className="mt-4 rounded-lg border border-white/12 bg-white/[0.02] p-3">
@@ -245,7 +245,7 @@ export function Hero() {
                     transition={{ duration: 3.2, delay: index * 0.45, repeat: Infinity, ease: 'easeInOut' }}
                   >
                     <span>{event}</span>
-                    <span className="text-emerald-200">ok</span>
+                    <span className="text-indigo-200">ok</span>
                   </motion.div>
                 ))}
               </div>
