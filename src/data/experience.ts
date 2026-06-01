@@ -47,7 +47,7 @@ export const experiences: Experience[] = [
     featured: true,
   },
   {
-    company: 'Cigna',
+    company: 'GPS IT Solutions',
     role: 'Data Engineer',
     period: 'Jan 2022 — Aug 2022',
     type: 'Data Engineering',

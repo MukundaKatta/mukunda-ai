@@ -27,7 +27,7 @@
   .font-display {
     font-family: var(--font-display);
     font-weight: 700;
-    letter-spacing: -0.03em;
+    letter-spacing: 0;
   }
 }
 
@@ -91,6 +91,86 @@
   /* Glassmorphism */
   .glass {
     @apply bg-white/70 dark:bg-black/60 backdrop-blur-xl border border-white/20 dark:border-indigo-400/15;
+  }
+
+  .premium-panel {
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 8px;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.035)),
+      rgba(2, 6, 23, 0.76);
+    box-shadow:
+      0 28px 90px -60px rgba(34, 211, 238, 0.7),
+      0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+    backdrop-filter: blur(18px);
+  }
+
+  .premium-console {
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 8px;
+    background:
+      linear-gradient(180deg, rgba(15, 23, 42, 0.34), rgba(2, 6, 23, 0.42)),
+      radial-gradient(circle at 15% 10%, rgba(34, 211, 238, 0.08), transparent 34%);
+    box-shadow:
+      0 30px 100px -76px rgba(129, 140, 248, 0.72),
+      0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+    backdrop-filter: blur(9px);
+  }
+
+  .premium-console::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(to right, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 42px 42px;
+    opacity: 0.18;
+  }
+
+  .premium-project-board {
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 8px;
+    background:
+      linear-gradient(135deg, rgba(15, 23, 42, 0.06), rgba(255, 255, 255, 0.72)),
+      rgba(255, 255, 255, 0.52);
+    box-shadow: 0 30px 100px -70px rgba(15, 23, 42, 0.55);
+    backdrop-filter: blur(18px);
+  }
+  html.dark .premium-project-board {
+    background:
+      radial-gradient(circle at 18% 20%, rgba(34, 211, 238, 0.09), transparent 32%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.025)),
+      rgba(2, 6, 23, 0.62);
+    box-shadow:
+      0 34px 120px -76px rgba(34, 211, 238, 0.85),
+      0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+  }
+
+  .premium-project-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    background: radial-gradient(circle at var(--mx, 50%) var(--my, 0%), rgba(34, 211, 238, 0.12), transparent 36%);
+    transition: opacity 0.35s ease;
+  }
+  .premium-project-card:hover::before {
+    opacity: 1;
+  }
+
+  .premium-signal {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.11);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.045);
+    padding: 0.875rem;
+    box-shadow: 0 20px 80px -55px rgba(99, 102, 241, 0.85);
+    backdrop-filter: blur(14px);
   }
 
   /* ───── Tiles / buttons ─────

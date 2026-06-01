@@ -1,12 +1,12 @@
-# mukunda-ai — Personal portfolio — mukunda.dev | AI/ML Engineer
+# mukunda-ai — Personal portfolio — mukundakatta.dev | AI/ML Engineer
 
-**Live:** <https://mukunda-ai.vercel.app>
+**Live:** <https://mukundakatta.dev>
 
-Personal portfolio — mukunda.dev | AI/ML Engineer.
+Personal portfolio — mukundakatta.dev | AI/ML Engineer.
 
 ## Why mukunda-ai
 
-mukunda-ai exists to make this workflow practical. Personal portfolio — mukunda.dev | ai/ml engineer. It favours a small, inspectable surface over sprawling configuration.
+mukunda-ai exists to make this workflow practical. Personal portfolio — mukundakatta.dev | ai/ml engineer. It favours a small, inspectable surface over sprawling configuration.
 
 ## Features
 
@@ -28,13 +28,13 @@ The codebase is organised into `public/`, `src/`. The primary entry point is `sr
 
 ```bash
 pnpm install
-npm run dev
+pnpm dev
 ```
 
 ## Usage
 
 ```bash
-npm run dev
+pnpm dev
 # Application starts on its configured port
 ```
 

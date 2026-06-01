@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ExternalLink, ArrowUpRight } from 'lucide-react'
+import { ExternalLink, ArrowUpRight, Gauge, Activity, Boxes, ShieldCheck, Terminal, Package } from 'lucide-react'
 import { GithubIcon } from '../ui/SocialIcons'
 import { SectionHeading } from '../ui/SectionHeading'
 import { ScrollReveal } from '../ui/ScrollReveal'
@@ -21,62 +21,138 @@ const statusLabels: Record<string, string> = {
 }
 
 export function Projects() {
+  const commandStats = [
+    { icon: Boxes, label: 'Systems shipped', value: '8', detail: 'agents, RAG, security, platforms' },
+    { icon: Activity, label: 'Delivery mode', value: 'Live', detail: 'production-minded build loops' },
+    { icon: ShieldCheck, label: 'Trust posture', value: 'Evals', detail: 'grounding, privacy, risk controls' },
+  ]
+
   return (
-    <section id="projects" className="relative py-28 px-6 bg-[#f5f3ec] dark:bg-[#030308] overflow-hidden">
+    <section id="projects" className="relative overflow-hidden bg-[#f7f6f1] px-6 py-28 dark:bg-[#030308]">
       <div className="absolute inset-0 hidden dark:block">
         <MatrixRain intensity="subtle" />
       </div>
       <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(ellipse_at_center,transparent_55%,rgba(0,0,0,0.55)_100%)] pointer-events-none" />
       <div className="absolute inset-0 dot-grid opacity-40 dark:opacity-0" />
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/[0.03] rounded-full blur-[100px] -translate-y-1/4 translate-x-1/4 pointer-events-none" />
 
       <div className="relative max-w-6xl mx-auto">
         <SectionHeading kicker="03" title="Featured Projects" />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+        <div className="premium-project-board mb-8 grid gap-4 p-4 lg:grid-cols-[0.85fr_1.15fr]">
+          <div className="rounded-lg border border-white/10 bg-black/45 p-5 text-white">
+            <div className="mb-5 flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-cyan-200/15 bg-cyan-300/10 text-cyan-100">
+                <Terminal size={18} />
+              </div>
+              <div>
+                <p className="text-sm font-bold">Project Command Board</p>
+                <p className="mt-1 text-xs text-slate-500">AI systems portfolio telemetry</p>
+              </div>
+            </div>
+            <div className="space-y-3">
+              {commandStats.map(({ icon: Icon, label, value, detail }, index) => (
+                <motion.div
+                  key={label}
+                  className="rounded-lg border border-white/10 bg-white/[0.045] p-4"
+                  animate={{ opacity: [0.72, 1, 0.72] }}
+                  transition={{ duration: 3.6, delay: index * 0.35, repeat: Infinity, ease: 'easeInOut' }}
+                >
+                  <div className="flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-3">
+                      <Icon size={17} className="text-cyan-200" />
+                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">{label}</p>
+                    </div>
+                    <p className="text-lg font-extrabold text-white">{value}</p>
+                  </div>
+                  <p className="mt-2 text-sm text-slate-400">{detail}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid gap-3 md:grid-cols-3">
+            {[
+              ['Agentic AI', 'Runtimes, tools, memory, routing'],
+              ['Grounded RAG', 'Retrieval, evals, reranking, cache'],
+              ['Production Edge', 'Security, scale, observability'],
+            ].map(([label, detail], index) => (
+              <motion.div
+                key={label}
+                className="relative overflow-hidden rounded-lg border border-slate-200 bg-white/80 p-4 shadow-sm dark:border-white/10 dark:bg-white/[0.04]"
+                whileHover={{ y: -4 }}
+                transition={{ type: 'spring', stiffness: 360, damping: 28 }}
+              >
+                <motion.div
+                  aria-hidden
+                  className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-200/70 to-transparent"
+                  animate={{ x: ['-100%', '100%'] }}
+                  transition={{ duration: 3.8, delay: index * 0.34, repeat: Infinity, ease: 'easeInOut' }}
+                />
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-indigo-600 dark:text-cyan-200/80">{label}</p>
+                <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{detail}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {projects.map((project, i) => (
             <ScrollReveal key={project.name} delay={i * 0.06}>
               <motion.div
-                whileHover={{ y: -6, scale: 1.01 }}
+                whileHover={{ y: -5 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-                className="group p-6 md:p-7 rounded-2xl border border-slate-200 dark:border-indigo-400/15 bg-white dark:bg-[#0a0a14]/70 backdrop-blur-xl h-full flex flex-col relative overflow-hidden dark:shadow-[0_8px_40px_-12px_rgba(99,102,241,0.15)]"
+                onMouseMove={(event) => {
+                  const rect = event.currentTarget.getBoundingClientRect()
+                  event.currentTarget.style.setProperty('--mx', `${event.clientX - rect.left}px`)
+                  event.currentTarget.style.setProperty('--my', `${event.clientY - rect.top}px`)
+                }}
+                className="group premium-project-card relative flex h-full flex-col overflow-hidden rounded-lg border border-slate-200 bg-white/[0.92] p-5 shadow-[0_22px_70px_-50px_rgba(15,23,42,0.45)] backdrop-blur-xl dark:border-white/10 dark:bg-[#080914]/[0.82] dark:shadow-[0_18px_70px_-42px_rgba(99,102,241,0.45)]"
               >
-                {/* Hover glow */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                  <div className="absolute -top-20 -right-20 w-40 h-40 bg-indigo-500/[0.06] rounded-full blur-[40px]" />
-                </div>
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-indigo-400/50 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
-                <div className="relative flex items-start justify-between mb-3">
+                <div className="relative mb-4 flex items-start justify-between gap-4">
                   <div>
-                    <h3 className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors flex items-center gap-1.5">
+                    <h3 className="flex items-center gap-1.5 text-lg font-bold text-slate-950 transition-colors group-hover:text-indigo-600 dark:text-white dark:group-hover:text-cyan-200">
                       {project.name}
                       <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                     </h3>
-                    <p className="text-sm text-indigo-600 dark:text-indigo-400 font-medium">{project.tagline}</p>
+                    <p className="mt-1 text-sm font-medium text-indigo-600 dark:text-indigo-300">{project.tagline}</p>
                   </div>
-                  <span className={`text-xs px-3 py-1 rounded-full font-medium whitespace-nowrap ml-3 border ${statusStyles[project.status]}`}>
+                  <span className={`whitespace-nowrap rounded-full border px-3 py-1 text-xs font-medium ${statusStyles[project.status]}`}>
                     {project.status === 'live' && <span className="inline-block w-1.5 h-1.5 rounded-full bg-blue-500 mr-1.5 animate-pulse" />}
                     {statusLabels[project.status]}
                   </span>
                 </div>
 
-                <p className="relative text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4 flex-1">{project.description}</p>
+                <div className="relative mb-4 rounded-lg border border-slate-200 bg-slate-50/80 p-4 dark:border-white/10 dark:bg-black/[0.24]">
+                  <div className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-500">
+                    <Gauge size={14} />
+                    proof signal
+                  </div>
+                  <p className="text-sm leading-relaxed text-slate-700 dark:text-slate-200">{project.proof}</p>
+                  <div className="mt-4 inline-flex rounded-md border border-indigo-200 bg-indigo-50 px-2.5 py-1 text-xs font-bold text-indigo-700 dark:border-cyan-200/15 dark:bg-cyan-300/10 dark:text-cyan-100">
+                    {project.metric}
+                  </div>
+                </div>
+
+                <p className="relative mb-4 flex-1 text-sm leading-relaxed text-slate-600 dark:text-slate-400">{project.description}</p>
 
                 <div className="relative flex flex-wrap gap-1.5 mb-4">
                   {project.tags.map((tag) => (
-                    <span key={tag} className="text-xs px-2.5 py-1 rounded-md bg-slate-50 dark:bg-white/[0.03] text-slate-600 dark:text-slate-300 border border-slate-200/70 dark:border-white/[0.06] font-medium">
+                    <span key={tag} className="rounded-md border border-slate-200/70 bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600 dark:border-white/10 dark:bg-white/[0.045] dark:text-slate-300">
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                <div className="relative flex gap-4 pt-3 border-t border-slate-100 dark:border-slate-700/50">
+                <div className="relative flex gap-4 border-t border-slate-100 pt-3 dark:border-white/10">
                   {project.github && (
-                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-sm text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium">
+                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-sm font-medium text-slate-500 transition-colors hover:text-indigo-600 dark:text-slate-400 dark:hover:text-cyan-200">
                       <GithubIcon size={16} /> Code
                     </a>
                   )}
                   {project.live && (
-                    <a href={project.live} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-sm text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium">
+                    <a href={project.live} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-sm font-medium text-slate-500 transition-colors hover:text-indigo-600 dark:text-slate-400 dark:hover:text-cyan-200">
                       <ExternalLink size={16} /> Live Demo
                     </a>
                   )}
@@ -85,6 +161,24 @@ export function Projects() {
             </ScrollReveal>
           ))}
         </div>
+
+        <ScrollReveal>
+          <div className="mt-10 flex flex-col items-center gap-3">
+            <a
+              href="/packages.html"
+              className="group inline-flex items-center gap-3 rounded-xl border border-indigo-200 bg-white px-6 py-4 text-base font-semibold text-indigo-700 shadow-[0_18px_50px_-32px_rgba(99,102,241,0.55)] transition-all hover:-translate-y-0.5 hover:border-indigo-300 hover:shadow-[0_22px_60px_-30px_rgba(99,102,241,0.75)] dark:border-cyan-200/20 dark:bg-white/[0.04] dark:text-cyan-200 dark:hover:border-cyan-200/40 dark:hover:bg-white/[0.07]"
+            >
+              <Package size={18} className="text-indigo-600 dark:text-cyan-300" />
+              <span>
+                See all <span data-package-total>392</span> open-source packages
+              </span>
+              <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-slate-500 dark:text-slate-500">
+              <span data-npm-count>144</span> npm · <span data-pypi-count>52</span> PyPI · <span data-crates-count>176</span> crates.io · <span data-mcp-count>20</span> MCP Registry
+            </p>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   )

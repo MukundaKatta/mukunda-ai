@@ -13,7 +13,6 @@ const companyLogos: Record<string, string> = {
   'Southwest Airlines': 'SW',
   'GPS IT Solutions': 'GP',
   'Amazon Web Services (AWS)': 'AWS',
-  'Cigna': 'CI',
   'American Express': 'AE',
 }
 
@@ -21,7 +20,6 @@ const companyColors: Record<string, string> = {
   'Southwest Airlines': '#304CB2',
   'GPS IT Solutions': '#6366f1',
   'Amazon Web Services (AWS)': '#FF9900',
-  'Cigna': '#0075C9',
   'American Express': '#006FCF',
 }
 
