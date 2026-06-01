@@ -63,7 +63,7 @@ export function Projects() {
 
                 <div className="relative flex flex-wrap gap-1.5 mb-4">
                   {project.tags.map((tag) => (
-                    <span key={tag} className="text-xs px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-700/50 text-slate-600 dark:text-slate-300 border border-slate-200/50 dark:border-slate-600/50 font-medium">
+                    <span key={tag} className="text-xs px-2.5 py-1 rounded-md bg-slate-50 dark:bg-white/[0.03] text-slate-600 dark:text-slate-300 border border-slate-200/70 dark:border-white/[0.06] font-medium">
                       {tag}
                     </span>
                   ))}

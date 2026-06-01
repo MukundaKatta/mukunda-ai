@@ -24,21 +24,13 @@ export default function App() {
       <main>
         <Hero />
         <About />
-        <div className="section-divider" />
         <WhatIDo />
-        <div className="section-divider" />
         <Experience />
-        <div className="section-divider" />
         <Projects />
-        <div className="section-divider" />
         <Certifications />
-        <div className="section-divider" />
         <Education />
-        <div className="section-divider" />
         <Skills />
-        <div className="section-divider" />
         <Blog />
-        <div className="section-divider" />
         <Contact />
       </main>
       <Footer />

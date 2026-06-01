@@ -39,12 +39,12 @@ export function WhatIDo() {
                 <motion.div
                   whileHover={{ y: -6, scale: 1.02 }}
                   transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-                  className="group p-7 rounded-2xl border border-slate-200 dark:border-indigo-400/15 bg-white/90 dark:bg-[#0a0a14]/70 backdrop-blur-xl h-full relative overflow-hidden dark:shadow-[0_8px_40px_-12px_rgba(99,102,241,0.15)]"
+                  className="group p-7 rounded-2xl border border-slate-200 dark:border-indigo-400/15 bg-white dark:bg-[#0a0a14]/70 backdrop-blur-xl h-full relative overflow-hidden dark:shadow-[0_8px_40px_-12px_rgba(99,102,241,0.15)] text-center"
                 >
                   {/* Gradient accent on hover */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${cardColors[i]} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
 
-                  <div className="relative">
+                  <div className="relative flex flex-col items-center">
                     <div className="icon-tile w-14 h-14 rounded-2xl flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110">
                       {Icon && <Icon size={26} className="text-indigo-600 dark:text-indigo-300" />}
                     </div>

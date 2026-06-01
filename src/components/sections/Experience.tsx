@@ -1,8 +1,13 @@
 import { motion } from 'framer-motion'
 import { ChevronRight } from 'lucide-react'
+import type { ComponentType } from 'react'
+
+import { FaAws } from 'react-icons/fa6'
 import { SectionHeading } from '../ui/SectionHeading'
 import { ScrollReveal } from '../ui/ScrollReveal'
 import { experiences } from '../../data/experience'
+
+type IconT = ComponentType<{ size?: number; className?: string; style?: React.CSSProperties }>
 
 const companyLogos: Record<string, string> = {
   'Southwest Airlines': 'SW',
@@ -18,6 +23,10 @@ const companyColors: Record<string, string> = {
   'Amazon Web Services (AWS)': '#FF9900',
   'Cigna': '#0075C9',
   'American Express': '#006FCF',
+}
+
+const companyIcons: Record<string, IconT> = {
+  'Amazon Web Services (AWS)': FaAws,
 }
 
 export function Experience() {
@@ -49,39 +58,42 @@ export function Experience() {
 
           <div className="space-y-6">
             {experiences.map((exp, i) => {
-              const logo = companyLogos[exp.company] || exp.company[0]
+              const logo = companyLogos[exp.company] || exp.company.slice(0, 2)
               const color = companyColors[exp.company] || '#6366f1'
+              const BrandIcon = companyIcons[exp.company]
               return (
                 <ScrollReveal key={exp.company} delay={i * 0.08}>
                   <div className="relative md:pl-16">
                     {/* Timeline dot */}
                     <div className="absolute left-[14px] top-8 hidden md:block z-10">
-                      <div className="w-6 h-6 rounded-full border-4 border-white dark:border-slate-950 shadow-sm timeline-dot" style={{ backgroundColor: color }} />
+                      <div className="w-6 h-6 rounded-full border-4 border-[#faf9f6] dark:border-black shadow-sm timeline-dot" style={{ backgroundColor: color }} />
                     </div>
 
                     <motion.div
                       whileHover={{ x: 4 }}
                       transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                      className={`group p-6 md:p-7 rounded-2xl border bg-white dark:bg-slate-800/40 backdrop-blur-sm card-hover ${
+                      className={`group p-6 md:p-7 rounded-2xl border bg-white dark:bg-[#0a0a14]/70 backdrop-blur-sm card-hover ${
                         exp.featured
-                          ? 'border-indigo-200 dark:border-indigo-800/50 gradient-border'
-                          : 'border-slate-200 dark:border-slate-700/50'
+                          ? 'border-indigo-200 dark:border-indigo-400/25 gradient-border'
+                          : 'border-slate-200 dark:border-indigo-400/10'
                       }`}
                     >
                       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-5">
                         <div className="flex items-start gap-3">
-                          {/* Company mini badge */}
+                          {/* Company badge — brand icon when available, fallback to initials */}
                           <div
-                            className="w-11 h-11 rounded-xl flex items-center justify-center text-white text-xs font-bold shrink-0 shadow-sm"
-                            style={{ backgroundColor: color }}
+                            className="w-11 h-11 rounded-xl flex items-center justify-center text-white shrink-0 shadow-sm"
+                            style={{ backgroundColor: color, boxShadow: `0 4px 14px -4px ${color}60` }}
                           >
-                            {logo}
+                            {BrandIcon
+                              ? <BrandIcon size={20} className="text-white" />
+                              : <span className="text-xs font-bold">{logo}</span>}
                           </div>
                           <div>
-                            <h3 className="text-xl font-bold text-slate-900 dark:text-white leading-tight">
+                            <h3 className="text-lg font-bold text-slate-900 dark:text-white leading-tight">
                               {exp.company}
                             </h3>
-                            <p className="text-indigo-600 dark:text-indigo-400 font-semibold text-sm mt-0.5">{exp.role}</p>
+                            <p className="text-indigo-600 dark:text-indigo-300 font-semibold text-sm mt-0.5">{exp.role}</p>
                           </div>
                         </div>
                         <div className="flex items-center gap-2 sm:mt-1">
@@ -91,10 +103,10 @@ export function Experience() {
                           <span className="text-sm text-slate-400 dark:text-slate-500 whitespace-nowrap font-medium">{exp.period}</span>
                         </div>
                       </div>
-                      <ul className="space-y-3">
+                      <ul className="space-y-2.5">
                         {exp.highlights.map((h, j) => (
                           <li key={j} className="text-sm text-slate-600 dark:text-slate-300 flex gap-2.5 leading-relaxed">
-                            <ChevronRight size={14} className="text-indigo-500 mt-1 shrink-0" />
+                            <ChevronRight size={14} className="text-indigo-500 dark:text-indigo-400 mt-1 shrink-0" />
                             <span>{h}</span>
                           </li>
                         ))}

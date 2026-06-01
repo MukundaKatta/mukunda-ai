@@ -33,7 +33,7 @@ export function Blog() {
               >
                 {/* Hover glow */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                  <div className="absolute -top-20 -left-20 w-40 h-40 bg-indigo-500/[0.05] rounded-full blur-[40px]" />
+                  <div className="absolute -top-20 -left-20 w-40 h-40 bg-indigo-500/[0.04] rounded-full blur-[40px]" />
                 </div>
 
                 <div className="relative">
@@ -58,7 +58,7 @@ export function Blog() {
                   <div className="flex items-center justify-between">
                     <div className="flex flex-wrap gap-1.5">
                       {post.tags.map((tag) => (
-                        <span key={tag} className="text-xs px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-700/50 text-slate-600 dark:text-slate-300 border border-slate-200/50 dark:border-slate-600/50 font-medium">
+                        <span key={tag} className="text-xs px-2.5 py-1 rounded-md bg-slate-50 dark:bg-white/[0.03] text-slate-600 dark:text-slate-300 border border-slate-200/70 dark:border-white/[0.06] font-medium">
                           {tag}
                         </span>
                       ))}
