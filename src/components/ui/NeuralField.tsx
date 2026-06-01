@@ -18,10 +18,14 @@ export function NeuralField() {
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (reduceMotion) return
+
     let width = 0
     let height = 0
     let frame = 0
     let animation = 0
+    let paused = false
     let nodes: Node[] = []
     const pointer = { x: 0.72, y: 0.34 }
 
@@ -100,18 +104,30 @@ export function NeuralField() {
       ctx.fillStyle = glow
       ctx.fillRect(0, 0, width, height)
 
-      animation = requestAnimationFrame(draw)
+      if (!paused) animation = requestAnimationFrame(draw)
+    }
+
+    const onVisibilityChange = () => {
+      if (document.hidden) {
+        paused = true
+        cancelAnimationFrame(animation)
+      } else {
+        paused = false
+        animation = requestAnimationFrame(draw)
+      }
     }
 
     resize()
     draw()
     window.addEventListener('resize', resize)
     window.addEventListener('pointermove', onPointerMove)
+    document.addEventListener('visibilitychange', onVisibilityChange)
 
     return () => {
       cancelAnimationFrame(animation)
       window.removeEventListener('resize', resize)
       window.removeEventListener('pointermove', onPointerMove)
+      document.removeEventListener('visibilitychange', onVisibilityChange)
     }
   }, [])
 
