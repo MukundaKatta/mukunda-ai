@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { Activity, GitBranch, PackageCheck, Radio, Rocket, ShieldCheck } from 'lucide-react'
 
 const signals = [
-  { icon: Radio, label: 'Availability', value: 'Open to AI platform roles', tone: 'emerald' },
+  { icon: Radio, label: 'Availability', value: 'Open to AI platform roles', tone: 'indigo' },
   { icon: GitBranch, label: 'Build Stream', value: 'Agentic systems + RAG tooling', tone: 'cyan' },
   { icon: PackageCheck, label: 'Open Source', value: 'Karna · MCPForge · AgentRAG', tone: 'indigo' },
   { icon: ShieldCheck, label: 'Operating Mode', value: 'Production trust, evals, governance', tone: 'violet' },
@@ -11,7 +11,6 @@ const signals = [
 ]
 
 const toneClasses: Record<string, string> = {
-  emerald: 'text-indigo-200 bg-indigo-300/10 border-indigo-200/15',
   cyan: 'text-cyan-200 bg-cyan-300/10 border-cyan-200/15',
   indigo: 'text-indigo-200 bg-indigo-300/10 border-indigo-200/15',
   violet: 'text-violet-200 bg-violet-300/10 border-violet-200/15',
