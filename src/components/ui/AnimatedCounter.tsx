@@ -1,5 +1,21 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 
+/**
+ * Count-up number that animates from `0` to `end` the first time it scrolls into view.
+ *
+ * Uses an `IntersectionObserver` to start the animation only once the element is
+ * visible, with a timeout fallback for elements already on screen at mount. The
+ * count eases out cubically over `duration` milliseconds and animates exactly once.
+ *
+ * @param props.end - Target value to count up to.
+ * @param props.suffix - Optional text appended after the number (e.g. `"+"`, `"%"`). Defaults to `""`.
+ * @param props.duration - Animation length in milliseconds. Defaults to `2000`.
+ *
+ * @example
+ * ```tsx
+ * <AnimatedCounter end={50} suffix="+" />
+ * ```
+ */
 export function AnimatedCounter({ end, suffix = '', duration = 2000 }: { end: number; suffix?: string; duration?: number }) {
   const [count, setCount] = useState(0)
   const ref = useRef<HTMLSpanElement>(null)
