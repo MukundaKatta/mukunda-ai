@@ -1,5 +1,15 @@
 import { Moon, Sun } from 'lucide-react'
 
+/**
+ * Fixed-position button for switching between light and dark themes.
+ *
+ * Renders a sun icon while in dark mode and a moon icon while in light mode, and
+ * calls `toggle` on click. Pair it with {@link useTheme}, which owns the actual
+ * theme state and persistence.
+ *
+ * @param props.dark - Whether dark mode is currently active (controls which icon shows).
+ * @param props.toggle - Callback invoked when the button is pressed.
+ */
 export function ThemeToggle({ dark, toggle }: { dark: boolean; toggle: () => void }) {
   return (
     <button

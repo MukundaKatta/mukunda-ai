@@ -1,5 +1,21 @@
 import { motion } from 'framer-motion'
 
+/**
+ * Animated, centered section heading with an optional kicker label.
+ *
+ * The `title` is split on the first space so the first word renders in the
+ * foreground color and the remainder in the premium gradient, giving section
+ * titles a consistent two-tone treatment. The heading fades and slides in once
+ * when scrolled into view.
+ *
+ * @param props.kicker - Optional uppercase eyebrow text shown above the title.
+ * @param props.title - The heading text. The first word is styled separately from the rest.
+ *
+ * @example
+ * ```tsx
+ * <SectionHeading kicker="Work" title="Selected Experience" />
+ * ```
+ */
 export function SectionHeading({
   kicker,
   title,

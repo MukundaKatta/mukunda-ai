@@ -1,6 +1,13 @@
 import { useState, useEffect } from 'react'
 import { ArrowUp } from 'lucide-react'
 
+/**
+ * Floating "scroll to top" button.
+ *
+ * Stays hidden until the page has been scrolled more than 500px, then fades in.
+ * Clicking it smooth-scrolls back to the top of the document. The scroll listener
+ * is registered passively and cleaned up on unmount.
+ */
 export function BackToTop() {
   const [show, setShow] = useState(false)
 
