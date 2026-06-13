@@ -435,6 +435,13 @@ def build_rules(stats: dict[str, int]) -> list[tuple[Path, str, str]]:
             r"(\d+)\+ merged upstream PRs across (\d+)\+ external repos",
             f"{stats['ext_merged']}+ merged upstream PRs across {stats['ext_merged_repos']}+ external repos",
         ),
+        # index.html — og:description uses a shorter "N+ merged upstream PRs."
+        # variant (no "across … repos" clause), so it needs its own rule.
+        (
+            INDEX_FILE,
+            r"HuggingFace\. (\d+)\+ merged upstream PRs\.",
+            f"HuggingFace. {stats['ext_merged']}+ merged upstream PRs.",
+        ),
         # index.html — JSON-LD mcp-stack project description
         (
             INDEX_FILE,
@@ -517,7 +524,10 @@ def apply_rules(rules: list[tuple[Path, str, str]]) -> dict[str, int]:
         text = path.read_text(encoding="utf-8")
         new_text = text
         for pat, repl in edits:
-            updated, n = re.subn(pat, repl, new_text, count=1)
+            # Replace every occurrence: some phrases (e.g. the merged-PR counts)
+            # are repeated verbatim across the meta description, og/twitter cards,
+            # and JSON-LD, and all copies must stay in sync.
+            updated, n = re.subn(pat, repl, new_text)
             if n:
                 summary["rules_applied"] += 1
                 summary["matched"] += n

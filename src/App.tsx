@@ -1,3 +1,4 @@
+import { MotionConfig } from 'framer-motion'
 import { useTheme } from './hooks/useTheme'
 import { ThemeToggle } from './components/ui/ThemeToggle'
 import { BackToTop } from './components/ui/BackToTop'
@@ -23,35 +24,43 @@ export default function App() {
   const { dark, toggle } = useTheme()
 
   return (
-    <div className="min-h-screen bg-[#faf9f6] dark:bg-black text-slate-900 dark:text-slate-100 transition-colors">
-      <Header />
-      <GlobalDynamics />
-      <ThemeToggle dark={dark} toggle={toggle} />
-      <main>
-        <Hero />
-        <SystemsMap />
-        <ImpactBoard />
-        <About />
-        <CinematicDivider />
-        <WhatIDo />
-        <CinematicDivider />
-        <Experience />
-        <CinematicDivider />
-        <Projects />
-        <CinematicDivider />
-        <Certifications />
-        <CinematicDivider />
-        <Education />
-        <CinematicDivider />
-        <Skills />
-        <CinematicDivider />
-        <Blog />
-        <CinematicDivider />
-        <Contact />
-        <LiveSignals />
-      </main>
-      <Footer />
-      <BackToTop />
-    </div>
+    <MotionConfig reducedMotion="user">
+      <div className="min-h-screen bg-[#faf9f6] dark:bg-black text-slate-900 dark:text-slate-100 transition-colors">
+        <a
+          href="#systems"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-indigo-600 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
+        >
+          Skip to content
+        </a>
+        <Header />
+        <GlobalDynamics />
+        <ThemeToggle dark={dark} toggle={toggle} />
+        <main>
+          <Hero />
+          <SystemsMap />
+          <ImpactBoard />
+          <About />
+          <CinematicDivider />
+          <WhatIDo />
+          <CinematicDivider />
+          <Experience />
+          <CinematicDivider />
+          <Projects />
+          <CinematicDivider />
+          <Certifications />
+          <CinematicDivider />
+          <Education />
+          <CinematicDivider />
+          <Skills />
+          <CinematicDivider />
+          <Blog />
+          <CinematicDivider />
+          <Contact />
+          <LiveSignals />
+        </main>
+        <Footer />
+        <BackToTop />
+      </div>
+    </MotionConfig>
   )
 }
