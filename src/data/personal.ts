@@ -15,9 +15,9 @@ export const personal = {
   linkedin: 'https://linkedin.com/in/mukunda-katta-728155220',
   twitter: 'https://x.com/katta_mukunda',
   availableFor: ['Senior AI/ML Engineer', 'GenAI Engineer', 'Data Engineer', 'Platform Engineer'],
-  about: 'Senior AI/ML Engineer with 8+ years building and operating production systems at Fortune 100 scale. Former SDE at Amazon Web Services, shipping features for AWS Systems Manager used by enterprise customers globally. At Southwest Airlines, I architected ML prediction systems and agentic RAG pipelines, driving 78% cost reduction and 600x retrieval speedup. Previously built GPT-4 + RAG platforms with automated compliance validation and AI model risk governance frameworks. Deep expertise in distributed systems, cloud-native architectures, and full-stack engineering across React/TypeScript, Python, and Java.',
+  about: 'Senior AI/ML Engineer with 9+ years building and operating production systems at Fortune 100 scale. Former SDE at Amazon Web Services, shipping features for AWS Systems Manager used by enterprise customers globally. At Southwest Airlines, I architected ML prediction systems and agentic RAG pipelines, driving 78% cost reduction and 600x retrieval speedup. Previously built GPT-4 + RAG platforms with automated compliance validation and AI model risk governance frameworks. Deep expertise in distributed systems, cloud-native architectures, and full-stack engineering across React/TypeScript, Python, and Java.',
   stats: [
-    { label: 'Years Experience', value: 8, suffix: '+' },
+    { label: 'Years Experience', value: 9, suffix: '+' },
     { label: 'Projects Shipped', value: 15, suffix: '+' },
     { label: 'Certifications', value: 40, suffix: '+' },
     { label: 'Open Source Repos', value: 50, suffix: '+' },
