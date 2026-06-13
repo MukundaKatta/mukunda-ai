@@ -1,6 +1,5 @@
 import { MotionConfig } from 'framer-motion'
 import { useTheme } from './hooks/useTheme'
-import { ThemeToggle } from './components/ui/ThemeToggle'
 import { BackToTop } from './components/ui/BackToTop'
 import { GlobalDynamics } from './components/ui/GlobalDynamics'
 import { CinematicDivider } from './components/ui/CinematicDivider'
@@ -32,9 +31,8 @@ export default function App() {
         >
           Skip to content
         </a>
-        <Header />
+        <Header dark={dark} toggle={toggle} />
         <GlobalDynamics />
-        <ThemeToggle dark={dark} toggle={toggle} />
         <main>
           <Hero />
           <SystemsMap />

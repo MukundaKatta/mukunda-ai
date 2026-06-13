@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
+import { ThemeToggle } from '../ui/ThemeToggle'
 
 const navItems = [
   { label: 'Systems', href: '#systems' },
@@ -12,7 +13,7 @@ const navItems = [
   { label: 'Contact', href: '#contact' },
 ]
 
-export function Header() {
+export function Header({ dark, toggle }: { dark: boolean; toggle: () => void }) {
   const [scrolled, setScrolled] = useState(false)
   const [active, setActive] = useState('')
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -58,38 +59,46 @@ export function Header() {
           MK
         </motion.a>
 
-        {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-1">
-          {navItems.map(item => (
-            <a
-              key={item.href}
-              href={item.href}
-              className={`relative px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${
-                active === item.href.slice(1)
-                  ? 'text-indigo-600 dark:text-indigo-300'
-                  : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-              }`}
-            >
-              {active === item.href.slice(1) && (
-                <motion.span
-                  layoutId="nav-pill"
-                  className="absolute inset-0 bg-indigo-50 dark:bg-indigo-500/10 rounded-full ring-1 ring-indigo-200/50 dark:ring-indigo-400/20"
-                  transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                />
-              )}
-              <span className="relative z-10">{item.label}</span>
-            </a>
-          ))}
-        </div>
+        {/* Right cluster — nav, theme toggle, and mobile menu share one flex
+            row so they can never overlap regardless of viewport width */}
+        <div className="flex items-center gap-2">
+          {/* Desktop nav */}
+          <div className="hidden md:flex items-center gap-1">
+            {navItems.map(item => (
+              <a
+                key={item.href}
+                href={item.href}
+                className={`relative px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${
+                  active === item.href.slice(1)
+                    ? 'text-indigo-600 dark:text-indigo-300'
+                    : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                }`}
+              >
+                {active === item.href.slice(1) && (
+                  <motion.span
+                    layoutId="nav-pill"
+                    className="absolute inset-0 bg-indigo-50 dark:bg-indigo-500/10 rounded-full ring-1 ring-indigo-200/50 dark:ring-indigo-400/20"
+                    transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                  />
+                )}
+                <span className="relative z-10">{item.label}</span>
+              </a>
+            ))}
+          </div>
 
-        {/* Mobile toggle */}
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden neon-tile w-10 h-10 rounded-lg flex items-center justify-center text-slate-600 dark:text-slate-300 cursor-pointer"
-          aria-label="Menu"
-        >
-          {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
+          {/* Theme toggle — inline so it sits beside the nav/menu, never on top */}
+          <ThemeToggle dark={dark} toggle={toggle} />
+
+          {/* Mobile menu toggle */}
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="md:hidden neon-tile w-10 h-10 rounded-lg flex items-center justify-center text-slate-600 dark:text-slate-300 cursor-pointer"
+            aria-label="Menu"
+            aria-expanded={mobileOpen}
+          >
+            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile menu */}
