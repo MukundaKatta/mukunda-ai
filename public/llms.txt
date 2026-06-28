@@ -19,7 +19,7 @@ This is a [llms.txt](https://llmstxt.org) file: a curated, machine-readable inde
 - [MCP Registry servers](https://registry.modelcontextprotocol.io): 20 servers under `io.github.MukundaKatta/*`
 - [GitHub Marketplace Actions](https://github.com/marketplace?query=publisher%3AMukundaKatta): 7 published Actions
 - [HuggingFace mukunda1729](https://huggingface.co/mukunda1729): 21 Spaces, 16 Datasets, 1 Model
-- [Upstream PR contributions](https://github.com/pulls?q=is%3Apr+author%3AMukundaKatta+is%3Amerged+-user%3AMukundaKatta): 181+ merged across 134+ external repos (MCP SDKs, FastMCP, Anthropic Agent SDK, OpenAI, Google, AWS CDK, Apache projects)
+- [Upstream PR contributions](https://github.com/pulls?q=is%3Apr+author%3AMukundaKatta+is%3Amerged+-user%3AMukundaKatta): 182+ merged across 135+ external repos (MCP SDKs, FastMCP, Anthropic Agent SDK, OpenAI, Google, AWS CDK, Apache projects)
 
 ## Featured projects
 
