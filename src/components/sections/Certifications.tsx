@@ -38,7 +38,7 @@ function ProviderLogo({ provider, color }: { provider: string; color: string }) 
   if (provider === 'IBM') {
     return (
       <div
-        className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 bg-[#faf9f6] dark:bg-white"
+        className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 bg-[#faf9f6] dark:bg-white transition-transform duration-300 group-hover:scale-105"
         style={{ boxShadow: `0 0 0 1px ${color}30, 0 4px 12px -4px ${color}40` }}
       >
         <IBMMark color={color} />
@@ -50,7 +50,7 @@ function ProviderLogo({ provider, color }: { provider: string; color: string }) 
     // Academic providers (Stanford / Wharton)
     return (
       <div
-        className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0"
+        className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-105"
         style={{ backgroundColor: `${color}18`, border: `1px solid ${color}35` }}
       >
         <GraduationCap size={18} style={{ color }} />
@@ -60,7 +60,7 @@ function ProviderLogo({ provider, color }: { provider: string; color: string }) 
 
   return (
     <div
-      className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 bg-[#faf9f6] dark:bg-white"
+      className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 bg-[#faf9f6] dark:bg-white transition-transform duration-300 group-hover:scale-105"
       style={{ boxShadow: `0 0 0 1px ${color}30, 0 4px 12px -4px ${color}40` }}
     >
       <Icon size={20} style={{ color }} />
@@ -76,7 +76,7 @@ export function Certifications() {
 
         <ScrollReveal>
           <p className="text-center text-slate-500 dark:text-slate-400 mb-12 max-w-2xl mx-auto">
-            <span className="text-3xl font-extrabold gradient-text">{certGroups.reduce((a, g) => a + g.certs.length, 0)}+</span>
+            <span className="text-3xl font-extrabold gradient-text glow-text nums-tabular">{certGroups.reduce((a, g) => a + g.certs.length, 0)}+</span>
             <span className="ml-2">professional certifications across AI, cloud, and data</span>
           </p>
         </ScrollReveal>
@@ -87,13 +87,13 @@ export function Certifications() {
               <motion.div
                 whileHover={{ y: -3 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                className="p-6 md:p-7 rounded-2xl border border-slate-200 dark:border-indigo-400/15 bg-white dark:bg-[#0a0a14]/70 backdrop-blur-sm group"
+                className="p-6 md:p-7 rounded-2xl border border-slate-200 dark:border-indigo-400/15 bg-white dark:bg-[#0a0a14]/70 backdrop-blur-sm group transition-colors duration-300 hover:border-slate-300 dark:hover:border-indigo-400/30 hover:shadow-lg hover:shadow-slate-200/50 dark:hover:shadow-indigo-500/5"
               >
                 <div className="flex items-center gap-3 mb-5">
                   <ProviderLogo provider={group.provider} color={group.color} />
-                  <h3 className="text-lg font-bold text-slate-900 dark:text-white">
+                  <h3 className="text-lg font-bold tracking-tight text-slate-900 dark:text-white">
                     {group.provider}
-                    <span className="ml-2 text-sm font-normal text-slate-400 dark:text-slate-500">({group.certs.length})</span>
+                    <span className="ml-2 text-sm font-normal text-slate-400 dark:text-slate-500 nums-tabular">({group.certs.length})</span>
                   </h3>
                 </div>
                 <div className="flex flex-wrap gap-2">
@@ -104,8 +104,9 @@ export function Certifications() {
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.04 + j * 0.02 }}
-                      whileHover={{ scale: 1.06 }}
-                      className="text-xs px-3 py-1.5 rounded-full border font-medium transition-all duration-200 cursor-default"
+                      whileHover={{ scale: 1.06, y: -1 }}
+                      whileTap={{ scale: 0.97 }}
+                      className="text-xs px-3 py-1.5 rounded-full border font-medium transition-all duration-200 cursor-default hover:shadow-sm"
                       style={{
                         borderColor: `${group.color}25`,
                         color: group.color,

@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion'
+import { useMemo, useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { ExternalLink, ArrowUpRight, Gauge, Activity, Boxes, ShieldCheck, Terminal, Package } from 'lucide-react'
 import { GithubIcon } from '../ui/SocialIcons'
 import { SectionHeading } from '../ui/SectionHeading'
@@ -27,6 +28,17 @@ export function Projects() {
     { icon: Activity, label: 'Delivery mode', value: 'Live', detail: 'production-minded build loops' },
     { icon: ShieldCheck, label: 'Trust posture', value: 'Evals', detail: 'grounding, privacy, risk controls' },
   ]
+
+  // Interactive filter — derive options from the statuses actually present
+  const filters = useMemo(() => {
+    const present = Array.from(new Set(projects.map(p => p.status)))
+    return [
+      { key: 'all', label: 'All', count: projects.length },
+      ...present.map(s => ({ key: s, label: statusLabels[s] ?? s, count: projects.filter(p => p.status === s).length })),
+    ]
+  }, [])
+  const [filter, setFilter] = useState('all')
+  const filtered = filter === 'all' ? projects : projects.filter(p => p.status === filter)
 
   return (
     <section id="projects" className="relative overflow-hidden bg-[#f7f6f1] px-6 py-28 dark:bg-[#030308]">
@@ -96,9 +108,38 @@ export function Projects() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {projects.map((project, i) => (
-            <ScrollReveal key={project.name} delay={i * 0.06}>
+        <ScrollReveal>
+          <div className="mb-8 flex flex-wrap items-center justify-center gap-2">
+            {filters.map(f => (
+              <button
+                key={f.key}
+                onClick={() => setFilter(f.key)}
+                aria-pressed={filter === f.key}
+                className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-all duration-300 cursor-pointer ${
+                  filter === f.key
+                    ? 'border-indigo-300 bg-indigo-50 text-indigo-700 shadow-sm dark:border-cyan-200/40 dark:bg-cyan-300/10 dark:text-cyan-200'
+                    : 'border-slate-200 bg-white/70 text-slate-600 hover:-translate-y-0.5 hover:border-indigo-300 hover:text-indigo-600 dark:border-white/10 dark:bg-white/[0.03] dark:text-slate-400 dark:hover:border-cyan-200/30 dark:hover:text-cyan-200'
+                }`}
+              >
+                {f.label}
+                <span className="nums-tabular rounded-full bg-slate-100 px-1.5 py-0.5 text-[11px] font-semibold text-slate-500 dark:bg-white/10 dark:text-slate-400">{f.count}</span>
+              </button>
+            ))}
+          </div>
+        </ScrollReveal>
+
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <AnimatePresence mode="popLayout">
+          {filtered.map((project) => (
+            <motion.div
+              key={project.name}
+              layout
+              initial={{ opacity: 0, scale: 0.95, y: 16 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="h-full"
+            >
               <TiltCard className="h-full" glow={false}>
               <motion.div
                 whileHover={{ y: -5 }}
@@ -161,9 +202,10 @@ export function Projects() {
                 </div>
               </motion.div>
               </TiltCard>
-            </ScrollReveal>
+            </motion.div>
           ))}
-        </div>
+          </AnimatePresence>
+        </motion.div>
 
         <ScrollReveal>
           <div className="mt-10 flex flex-col items-center gap-3">

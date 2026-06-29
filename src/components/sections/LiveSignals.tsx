@@ -27,21 +27,27 @@ export function LiveSignals() {
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="mb-5 flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-cyan-200/80">Live Signals</p>
-            <h2 className="mt-2 text-xl font-bold text-white">Current operating posture</h2>
+            <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.28em] text-cyan-200/80">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-300 opacity-75" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-cyan-300" />
+              </span>
+              Live Signals
+            </p>
+            <h2 className="mt-2 text-xl font-bold tracking-tight text-white">Current operating posture</h2>
           </div>
           <p className="text-sm text-slate-400">Updated from the live portfolio surface</p>
         </div>
 
         <div className="grid gap-3 md:grid-cols-3">
           {signals.map(({ icon: Icon, label, value, tone }) => (
-            <div key={label} className="group rounded-lg border border-white/10 bg-white/[0.04] p-4 transition-colors hover:bg-white/[0.07]">
+            <div key={label} className="group rounded-lg border border-white/10 bg-white/[0.04] p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.07]">
               <div className="flex items-start gap-3">
-                <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border ${toneClasses[tone]}`}>
+                <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border transition-transform duration-300 group-hover:scale-110 ${toneClasses[tone]}`}>
                   <Icon size={17} />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">{label}</p>
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500 transition-colors group-hover:text-slate-400">{label}</p>
                   <p className="mt-1 text-sm font-medium leading-snug text-slate-100">{value}</p>
                 </div>
               </div>
@@ -59,8 +65,8 @@ export function LiveSignals() {
           transition={{ duration: 34, repeat: Infinity, ease: 'linear' }}
         >
           {tickerSignals.map(({ label, value }, index) => (
-            <div key={`${label}-${index}`} className="flex items-center gap-3 rounded-full border border-white/10 bg-black/35 px-4 py-2 text-xs text-slate-300">
-              <span className="h-1.5 w-1.5 rounded-full bg-cyan-200 shadow-[0_0_18px_rgba(103,232,249,0.8)]" />
+            <div key={`${label}-${index}`} className="flex items-center gap-3 rounded-full border border-white/10 bg-black/35 px-4 py-2 text-xs text-slate-300 transition-colors hover:border-cyan-200/25">
+              <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-200 shadow-[0_0_18px_rgba(103,232,249,0.8)]" />
               <span className="font-semibold uppercase tracking-[0.16em] text-slate-400">{label}</span>
               <span className="text-slate-200">{value}</span>
             </div>

@@ -72,7 +72,7 @@ const iconFor: Record<string, IconT> = {
 function BrandIcon({ label }: { label: string }) {
   const Icon = iconFor[label]
   if (!Icon) return null
-  return <Icon size={14} className="shrink-0 opacity-95 text-slate-700 dark:text-slate-200" />
+  return <Icon size={14} className="shrink-0 opacity-80 group-hover/pill:opacity-100 text-slate-700 dark:text-slate-200 transition-opacity duration-200" />
 }
 
 export function Skills() {
@@ -89,7 +89,7 @@ export function Skills() {
                 className="group relative ring-conic p-6 rounded-2xl border border-slate-200/80 dark:border-indigo-400/15 bg-white dark:bg-black/40 backdrop-blur-sm hover:border-indigo-300 dark:hover:border-indigo-400/40 transition-all duration-300 h-full"
               >
                 <div className="flex items-center gap-2 mb-4">
-                  <div className="w-1.5 h-1.5 rounded-full bg-indigo-500 dark:bg-indigo-400" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-indigo-500 dark:bg-indigo-400 transition-transform duration-300 group-hover:scale-150 shadow-[0_0_10px_rgba(99,102,241,0.7)]" />
                   <h3 className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-indigo-600 dark:text-indigo-300">
                     {cat.title}
                   </h3>
@@ -102,7 +102,9 @@ export function Skills() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.04 + j * 0.02, duration: 0.3 }}
-                      className="inline-flex items-center gap-1.5 text-sm px-2.5 py-1 rounded-md font-medium text-slate-700 dark:text-slate-200 bg-slate-50 dark:bg-white/[0.03] border border-slate-200/70 dark:border-white/[0.06] cursor-default"
+                      whileHover={{ y: -2, scale: 1.04 }}
+                      whileTap={{ scale: 0.97 }}
+                      className="group/pill inline-flex items-center gap-1.5 text-sm px-2.5 py-1 rounded-md font-medium text-slate-700 dark:text-slate-200 bg-slate-50 dark:bg-white/[0.03] border border-slate-200/70 dark:border-white/[0.06] cursor-default transition-colors duration-200 hover:bg-white hover:border-indigo-300/70 dark:hover:bg-white/[0.07] dark:hover:border-indigo-400/30 hover:text-slate-900 dark:hover:text-white"
                     >
                       <BrandIcon label={item} />
                       {item}

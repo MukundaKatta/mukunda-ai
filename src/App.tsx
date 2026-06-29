@@ -3,6 +3,7 @@ import { useTheme } from './hooks/useTheme'
 import { Intro } from './components/ui/Intro'
 import { CustomCursor } from './components/ui/CustomCursor'
 import { CommandPalette } from './components/ui/CommandPalette'
+import { ScrollSpyNav } from './components/ui/ScrollSpyNav'
 import { BackToTop } from './components/ui/BackToTop'
 import { GlobalDynamics } from './components/ui/GlobalDynamics'
 import { CinematicDivider } from './components/ui/CinematicDivider'
@@ -39,6 +40,7 @@ export default function App() {
         </a>
         <Header dark={dark} toggle={toggle} />
         <GlobalDynamics />
+        <ScrollSpyNav />
         <main>
           <Hero />
           <SystemsMap />

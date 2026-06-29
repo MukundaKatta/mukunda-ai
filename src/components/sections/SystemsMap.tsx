@@ -41,7 +41,7 @@ export function SystemsMap() {
         <ScrollReveal>
           <div>
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-cyan-200/80">Production AI Architecture</p>
-            <h2 className="font-display max-w-2xl text-4xl leading-tight text-white md:text-5xl">
+            <h2 className="font-display max-w-2xl text-4xl leading-tight tracking-tight text-white md:text-5xl">
               A portfolio built around systems, not screenshots.
             </h2>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-300">
@@ -50,8 +50,8 @@ export function SystemsMap() {
 
             <div className="mt-8 grid grid-cols-3 gap-3">
               {proofPoints.map((point) => (
-                <div key={point.label} className="border-l border-cyan-200/25 pl-4">
-                  <p className="nums-tabular text-3xl font-extrabold text-white">{point.value}</p>
+                <div key={point.label} className="group border-l border-cyan-200/25 pl-4 transition-colors duration-300 hover:border-cyan-200/60">
+                  <p className="nums-tabular text-3xl font-extrabold tracking-tight text-white">{point.value}</p>
                   <p className="mt-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">{point.label}</p>
                   <p className="mt-1 text-xs text-slate-300">{point.caption}</p>
                 </div>
@@ -73,8 +73,11 @@ export function SystemsMap() {
                 <p className="text-sm font-semibold text-white">AI Delivery Control Plane</p>
                 <p className="mt-1 text-xs text-slate-400">Research → Build → Evaluate → Deploy</p>
               </div>
-              <div className="flex items-center gap-2 rounded-full border border-indigo-300/20 bg-indigo-400/10 px-3 py-1 text-xs font-semibold text-indigo-200">
-                <span className="h-1.5 w-1.5 rounded-full bg-indigo-300" />
+              <div className="flex items-center gap-2 rounded-full border border-indigo-300/20 bg-indigo-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-indigo-200">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-indigo-300 opacity-70" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-indigo-300" />
+                </span>
                 online
               </div>
             </div>
@@ -85,7 +88,7 @@ export function SystemsMap() {
                   key={label}
                   whileHover={{ y: -3 }}
                   transition={{ type: 'spring', stiffness: 360, damping: 28 }}
-                  className="relative overflow-hidden rounded-lg border border-white/10 bg-white/[0.045] p-4"
+                  className="group relative overflow-hidden rounded-lg border border-white/10 bg-white/[0.045] p-4 transition-colors duration-300 hover:border-cyan-200/30"
                 >
                   <motion.div
                     aria-hidden
@@ -94,10 +97,10 @@ export function SystemsMap() {
                     transition={{ duration: 2.4, delay: index * 0.2, repeat: Infinity, ease: 'easeInOut' }}
                   />
                   <div className="mb-4 flex items-center justify-between">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-cyan-200/15 bg-cyan-300/10 text-cyan-100">
-                      <Icon size={19} />
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-cyan-200/15 bg-cyan-300/10 text-cyan-100 transition-colors duration-300 group-hover:border-cyan-200/40">
+                      <Icon size={19} className="transition-transform duration-300 group-hover:scale-110" />
                     </div>
-                    <span className="font-mono text-xs text-slate-500">0{index + 1} / live</span>
+                    <span className="nums-tabular font-mono text-xs text-slate-500">0{index + 1} / live</span>
                   </div>
                   <h3 className="text-base font-bold text-white">{label}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-slate-400">{detail}</p>

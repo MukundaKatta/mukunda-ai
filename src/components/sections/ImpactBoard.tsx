@@ -55,7 +55,7 @@ export function ImpactBoard() {
           <div className="mb-8 flex flex-col justify-between gap-5 md:flex-row md:items-end">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-cyan-200/80">Proof Of Work</p>
-              <h2 className="font-display mt-3 max-w-3xl text-4xl leading-tight md:text-5xl">
+              <h2 className="font-display mt-3 max-w-3xl text-4xl leading-tight tracking-tight md:text-5xl">
                 Systems that move from prototype to production.
               </h2>
               <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-300">
@@ -64,10 +64,10 @@ export function ImpactBoard() {
             </div>
             <a
               href="#projects"
-              className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/[0.045] px-4 py-3 text-sm font-semibold text-slate-100 transition-colors hover:bg-white/[0.08]"
+              className="group lift inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/[0.045] px-4 py-3 text-sm font-semibold text-slate-100 transition-colors hover:border-cyan-200/30 hover:bg-white/[0.08]"
             >
               Inspect projects
-              <ArrowUpRight size={15} />
+              <ArrowUpRight size={15} className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </a>
           </div>
         </ScrollReveal>
@@ -79,7 +79,7 @@ export function ImpactBoard() {
                 {impactRows.map(({ icon: Icon, label, value, detail }, index) => (
                   <motion.div
                     key={label}
-                    className="relative overflow-hidden rounded-lg border border-white/10 bg-white/[0.045] p-5"
+                    className="group relative overflow-hidden rounded-lg border border-white/10 bg-white/[0.045] p-5 transition-colors duration-300 hover:border-cyan-200/30"
                     whileHover={{ y: -4 }}
                     transition={{ type: 'spring', stiffness: 360, damping: 28 }}
                   >
@@ -90,15 +90,16 @@ export function ImpactBoard() {
                       transition={{ duration: 3.6, delay: index * 0.28, repeat: Infinity, ease: 'easeInOut' }}
                     />
                     <div className="mb-5 flex items-center justify-between gap-3">
-                      <div className="flex h-11 w-11 items-center justify-center rounded-lg border border-cyan-200/15 bg-cyan-300/10 text-cyan-100">
-                        <Icon size={20} />
+                      <div className="flex h-11 w-11 items-center justify-center rounded-lg border border-cyan-200/15 bg-cyan-300/10 text-cyan-100 transition-colors duration-300 group-hover:border-cyan-200/40">
+                        <Icon size={20} className="transition-transform duration-300 group-hover:scale-110" />
                       </div>
-                      <span className="rounded-full border border-indigo-300/20 bg-indigo-400/10 px-3 py-1 text-xs font-semibold text-indigo-200">
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-indigo-300/20 bg-indigo-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-indigo-200">
+                        <BadgeCheck size={12} />
                         verified
                       </span>
                     </div>
                     <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{label}</p>
-                    <p className="nums-tabular mt-2 text-4xl font-extrabold text-white">{value}</p>
+                    <p className="nums-tabular mt-2 text-4xl font-extrabold tracking-tight text-white">{value}</p>
                     <p className="mt-3 text-sm leading-relaxed text-slate-400">{detail}</p>
                   </motion.div>
                 ))}
@@ -122,7 +123,8 @@ export function ImpactBoard() {
                 {operatingPrinciples.map((principle, index) => (
                   <motion.div
                     key={principle}
-                    className="flex items-center justify-between rounded-lg border border-white/10 bg-white/[0.04] px-4 py-3"
+                    whileHover={{ x: 3 }}
+                    className="flex items-center justify-between rounded-lg border border-white/10 bg-white/[0.04] px-4 py-3 transition-colors duration-300 hover:border-cyan-200/25"
                     animate={{ opacity: [0.75, 1, 0.75] }}
                     transition={{ duration: 3.4, delay: index * 0.35, repeat: Infinity, ease: 'easeInOut' }}
                   >

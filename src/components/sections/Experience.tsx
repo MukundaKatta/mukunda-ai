@@ -36,7 +36,7 @@ export function Experience() {
         <SectionHeading kicker="02" title="Work Experience" />
 
         <ScrollReveal>
-          <p className="text-center text-slate-500 dark:text-slate-400 mb-14 max-w-2xl mx-auto text-lg">
+          <p className="text-center text-slate-500 dark:text-slate-400 mb-14 max-w-2xl mx-auto text-lg leading-relaxed">
             End-to-end ownership across <span className="font-semibold text-slate-700 dark:text-slate-200">discovery → development → deployment → scale</span>
           </p>
         </ScrollReveal>
@@ -61,10 +61,10 @@ export function Experience() {
               const BrandIcon = companyIcons[exp.company]
               return (
                 <ScrollReveal key={exp.company} delay={i * 0.08}>
-                  <div className="relative md:pl-16">
+                  <div className="group relative md:pl-16">
                     {/* Timeline dot */}
                     <div className="absolute left-[14px] top-8 hidden md:block z-10">
-                      <div className="w-6 h-6 rounded-full border-4 border-[#faf9f6] dark:border-black shadow-sm timeline-dot" style={{ backgroundColor: color }} />
+                      <div className="w-6 h-6 rounded-full border-4 border-[#faf9f6] dark:border-black shadow-sm timeline-dot transition-transform duration-300 group-hover:scale-125" style={{ backgroundColor: color }} />
                     </div>
 
                     <motion.div
@@ -80,7 +80,7 @@ export function Experience() {
                         <div className="flex items-start gap-3">
                           {/* Company badge — brand icon when available, fallback to initials */}
                           <div
-                            className="w-11 h-11 rounded-xl flex items-center justify-center text-white shrink-0 shadow-sm"
+                            className="w-11 h-11 rounded-xl flex items-center justify-center text-white shrink-0 shadow-sm transition-transform duration-300 group-hover:scale-105 group-hover:-rotate-3"
                             style={{ backgroundColor: color, boxShadow: `0 4px 14px -4px ${color}60` }}
                           >
                             {BrandIcon
@@ -88,23 +88,23 @@ export function Experience() {
                               : <span className="text-xs font-bold">{logo}</span>}
                           </div>
                           <div>
-                            <h3 className="text-lg font-bold text-slate-900 dark:text-white leading-tight">
+                            <h3 className="text-lg font-bold tracking-tight text-slate-900 dark:text-white leading-tight">
                               {exp.company}
                             </h3>
-                            <p className="text-indigo-600 dark:text-indigo-300 font-semibold text-sm mt-0.5">{exp.role}</p>
+                            <p className="text-indigo-600 dark:text-indigo-300 font-semibold text-sm mt-0.5 tracking-wide">{exp.role}</p>
                           </div>
                         </div>
                         <div className="flex items-center gap-2 sm:mt-1">
-                          <span className="text-xs px-3 py-1 rounded-full font-medium border" style={{ borderColor: `${color}30`, color, backgroundColor: `${color}08` }}>
+                          <span className="text-xs px-3 py-1 rounded-full font-semibold border tracking-wide transition-transform duration-300 group-hover:scale-105" style={{ borderColor: `${color}30`, color, backgroundColor: `${color}08` }}>
                             {exp.type}
                           </span>
-                          <span className="text-sm text-slate-400 dark:text-slate-500 whitespace-nowrap font-medium">{exp.period}</span>
+                          <span className="text-sm text-slate-400 dark:text-slate-500 whitespace-nowrap font-medium nums-tabular">{exp.period}</span>
                         </div>
                       </div>
                       <ul className="space-y-2.5">
                         {exp.highlights.map((h, j) => (
                           <li key={j} className="text-sm text-slate-600 dark:text-slate-300 flex gap-2.5 leading-relaxed">
-                            <ChevronRight size={14} className="text-indigo-500 dark:text-indigo-400 mt-1 shrink-0" />
+                            <ChevronRight size={14} className="text-indigo-500 dark:text-indigo-400 mt-1 shrink-0 transition-transform duration-300 group-hover:translate-x-0.5" />
                             <span>{h}</span>
                           </li>
                         ))}

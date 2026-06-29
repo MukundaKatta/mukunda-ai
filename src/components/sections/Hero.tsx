@@ -95,7 +95,7 @@ export function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-indigo-400 opacity-75" />
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-indigo-500" />
             </span>
-            Available · @MukundaKatta
+            <span className="nums-tabular">Available · @MukundaKatta</span>
           </motion.div>
 
           {/* Display name */}
@@ -105,7 +105,7 @@ export function Hero() {
           >
             <span>Building AI</span>
             <span className="block text-slate-300">that survives</span>
-            <span className="block gradient-text-premium mt-1">production.</span>
+            <span className="block gradient-text-premium glow-text mt-1 tracking-tight">production.</span>
           </motion.h1>
 
           {/* Role */}
@@ -177,13 +177,18 @@ export function Hero() {
 
           <motion.div variants={fadeUp} className="mt-10 grid max-w-3xl grid-cols-1 gap-3 sm:grid-cols-3">
             {commandSignals.map(({ label, value, icon: Icon }) => (
-              <div key={label} className="premium-signal">
-                <Icon size={16} className="text-cyan-200" />
+              <motion.div
+                key={label}
+                whileHover={{ y: -3 }}
+                transition={{ type: 'spring', stiffness: 360, damping: 28 }}
+                className="premium-signal group"
+              >
+                <Icon size={16} className="text-cyan-200 transition-transform duration-300 group-hover:-translate-y-0.5" />
                 <div>
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-400">{label}</p>
-                  <p className="mt-1 text-xs font-medium text-slate-100">{value}</p>
+                  <p className="nums-tabular text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-400">{label}</p>
+                  <p className="nums-tabular mt-1 text-xs font-medium text-slate-100">{value}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </motion.div>
         </div>
@@ -203,8 +208,11 @@ export function Hero() {
                   <p className="mt-1 text-xs text-slate-400">Mukunda production stack</p>
                 </div>
               </div>
-              <div className="flex items-center gap-2 rounded-full border border-indigo-300/20 bg-indigo-400/10 px-3 py-1 text-xs font-semibold text-indigo-200">
-                <span className="h-1.5 w-1.5 rounded-full bg-indigo-300" />
+              <div className="flex items-center gap-2 rounded-full border border-indigo-300/20 bg-indigo-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-indigo-200">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-indigo-300 opacity-70" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-indigo-300" />
+                </span>
                 live
               </div>
             </div>
@@ -218,8 +226,8 @@ export function Hero() {
                   animate={{ y: [0, -4, 0] }}
                   transition={{ duration: 3.2, delay: index * 0.22, repeat: Infinity, ease: 'easeInOut' }}
                 >
-                  <div className="relative z-10 flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-black/55 text-cyan-100 shadow-[0_0_36px_-18px_rgba(34,211,238,0.9)]">
-                    <Icon size={17} />
+                  <div className="group relative z-10 flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-black/55 text-cyan-100 shadow-[0_0_36px_-18px_rgba(34,211,238,0.9)] transition-colors duration-300 hover:border-cyan-200/40">
+                    <Icon size={17} className="transition-transform duration-300 group-hover:scale-110" />
                   </div>
                   <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400">{label}</p>
                 </motion.div>
@@ -245,7 +253,7 @@ export function Hero() {
               ))}
             </div>
 
-            <div className="mt-4 rounded-lg border border-white/12 bg-black/[0.22] p-4 font-mono text-xs leading-relaxed text-slate-300">
+            <div className="mt-4 rounded-lg border border-white/12 bg-black/[0.22] p-4 font-mono text-xs leading-relaxed text-slate-300 nums-tabular">
               <p><span className="text-cyan-200">$</span> deploy --evals --guardrails --observability</p>
               <p className="mt-2 text-indigo-200">Ready: grounded agent workflow online</p>
             </div>
@@ -263,7 +271,7 @@ export function Hero() {
                     animate={{ opacity: [0.45, 1, 0.45] }}
                     transition={{ duration: 3.2, delay: index * 0.45, repeat: Infinity, ease: 'easeInOut' }}
                   >
-                    <span>{event}</span>
+                    <span className="nums-tabular">{event}</span>
                     <span className="text-indigo-200">ok</span>
                   </motion.div>
                 ))}
