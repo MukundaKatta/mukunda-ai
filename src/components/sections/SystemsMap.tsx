@@ -51,7 +51,7 @@ export function SystemsMap() {
             <div className="mt-8 grid grid-cols-3 gap-3">
               {proofPoints.map((point) => (
                 <div key={point.label} className="border-l border-cyan-200/25 pl-4">
-                  <p className="text-3xl font-extrabold text-white">{point.value}</p>
+                  <p className="nums-tabular text-3xl font-extrabold text-white">{point.value}</p>
                   <p className="mt-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">{point.label}</p>
                   <p className="mt-1 text-xs text-slate-300">{point.caption}</p>
                 </div>

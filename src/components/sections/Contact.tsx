@@ -2,9 +2,13 @@ import { motion } from 'framer-motion'
 import { Mail, MapPin, ArrowRight } from 'lucide-react'
 import { GithubIcon, LinkedinIcon } from '../ui/SocialIcons'
 import { ScrollReveal } from '../ui/ScrollReveal'
+import { useMagnetic } from '../ui/Magnetic'
 import { personal } from '../../data/personal'
 
 export function Contact() {
+  const emailMag = useMagnetic<HTMLAnchorElement>(0.4)
+  const linkedinMag = useMagnetic<HTMLAnchorElement>(0.4)
+  const githubMag = useMagnetic<HTMLAnchorElement>(0.4)
   return (
     <section id="contact" className="relative py-32 px-6 overflow-hidden bg-[#f5f3ec] dark:bg-black">
       {/* Subtle single violet glow — replaces the silver orb wash */}
@@ -49,9 +53,12 @@ export function Contact() {
           <div className="flex flex-wrap gap-3 justify-center">
             <motion.a
               href={`mailto:${personal.email}?subject=Let's%20work%20together`}
-              whileHover={{ y: -2 }}
+              ref={emailMag.ref}
+              style={emailMag.style}
+              onPointerMove={emailMag.onPointerMove}
+              onPointerLeave={emailMag.onPointerLeave}
               whileTap={{ scale: 0.97 }}
-              className="neon-btn-primary flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm tracking-wide group"
+              className="neon-btn-primary shine flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm tracking-wide group"
             >
               <Mail size={16} />
               Get in Touch
@@ -61,7 +68,10 @@ export function Contact() {
               href={personal.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ y: -2 }}
+              ref={linkedinMag.ref}
+              style={linkedinMag.style}
+              onPointerMove={linkedinMag.onPointerMove}
+              onPointerLeave={linkedinMag.onPointerLeave}
               whileTap={{ scale: 0.97 }}
               className="neon-tile flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm text-slate-700 dark:text-white"
             >
@@ -71,7 +81,10 @@ export function Contact() {
               href={personal.github}
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ y: -2 }}
+              ref={githubMag.ref}
+              style={githubMag.style}
+              onPointerMove={githubMag.onPointerMove}
+              onPointerLeave={githubMag.onPointerLeave}
               whileTap={{ scale: 0.97 }}
               className="neon-tile flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm text-slate-700 dark:text-white"
             >

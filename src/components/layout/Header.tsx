@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Search } from 'lucide-react'
 import { ThemeToggle } from '../ui/ThemeToggle'
+
+const openPalette = () => window.dispatchEvent(new Event('open-command-palette'))
 
 const navItems = [
   { label: 'Systems', href: '#systems' },
@@ -102,6 +104,24 @@ export function Header({ dark, toggle }: { dark: boolean; toggle: () => void }) 
               </a>
             ))}
           </div>
+
+          {/* Command palette launcher */}
+          <button
+            onClick={openPalette}
+            aria-label="Open command palette"
+            className="neon-tile hidden h-10 items-center gap-2 rounded-lg px-3 text-sm font-medium text-slate-500 dark:text-slate-400 sm:flex cursor-pointer"
+          >
+            <Search size={15} />
+            <span className="hidden md:inline">Search</span>
+            <kbd className="hidden items-center gap-0.5 rounded border border-slate-300/70 px-1.5 py-0.5 text-[10px] font-semibold text-slate-400 dark:border-white/15 dark:text-slate-500 md:flex">⌘K</kbd>
+          </button>
+          <button
+            onClick={openPalette}
+            aria-label="Open command palette"
+            className="neon-tile flex h-10 w-10 items-center justify-center rounded-lg text-slate-600 dark:text-slate-300 sm:hidden cursor-pointer"
+          >
+            <Search size={18} />
+          </button>
 
           {/* Theme toggle — inline so it sits beside the nav/menu, never on top */}
           <ThemeToggle dark={dark} toggle={toggle} />

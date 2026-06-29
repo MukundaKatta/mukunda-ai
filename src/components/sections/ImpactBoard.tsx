@@ -98,7 +98,7 @@ export function ImpactBoard() {
                       </span>
                     </div>
                     <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{label}</p>
-                    <p className="mt-2 text-4xl font-extrabold text-white">{value}</p>
+                    <p className="nums-tabular mt-2 text-4xl font-extrabold text-white">{value}</p>
                     <p className="mt-3 text-sm leading-relaxed text-slate-400">{detail}</p>
                   </motion.div>
                 ))}

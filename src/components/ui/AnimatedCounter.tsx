@@ -46,5 +46,5 @@ export function AnimatedCounter({ end, suffix = '', duration = 2000 }: { end: nu
     }
   }, [animate])
 
-  return <span ref={ref}>{count}{suffix}</span>
+  return <span ref={ref} className="nums-tabular">{count}{suffix}</span>
 }

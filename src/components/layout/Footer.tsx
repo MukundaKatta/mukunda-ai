@@ -34,7 +34,7 @@ export function Footer() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm px-3.5 py-1.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-300 hover:bg-indigo-50 dark:hover:bg-indigo-500/10 transition-all font-medium"
+                className="link-underline text-sm px-1 py-1.5 text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors font-medium"
               >
                 {link.label}
               </a>
