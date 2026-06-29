@@ -147,12 +147,12 @@ export function Projects() {
 
                 <div className="relative flex gap-4 border-t border-slate-100 pt-3 dark:border-white/10">
                   {project.github && (
-                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-sm font-medium text-slate-500 transition-colors hover:text-indigo-600 dark:text-slate-400 dark:hover:text-cyan-200">
+                    <a href={project.github} target="_blank" rel="noopener noreferrer" aria-label={`${project.name} source code on GitHub`} className="flex items-center gap-1.5 text-sm font-medium text-slate-500 transition-colors hover:text-indigo-600 dark:text-slate-400 dark:hover:text-cyan-200">
                       <GithubIcon size={16} /> Code
                     </a>
                   )}
                   {project.live && (
-                    <a href={project.live} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-sm font-medium text-slate-500 transition-colors hover:text-indigo-600 dark:text-slate-400 dark:hover:text-cyan-200">
+                    <a href={project.live} target="_blank" rel="noopener noreferrer" aria-label={`${project.name} live demo`} className="flex items-center gap-1.5 text-sm font-medium text-slate-500 transition-colors hover:text-indigo-600 dark:text-slate-400 dark:hover:text-cyan-200">
                       <ExternalLink size={16} /> Live Demo
                     </a>
                   )}
