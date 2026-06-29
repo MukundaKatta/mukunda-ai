@@ -36,16 +36,16 @@ export function Education() {
               <motion.div
                 whileHover={{ y: -4 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                className="p-6 md:p-7 rounded-2xl border border-slate-200 dark:border-indigo-400/15 bg-white dark:bg-[#0a0a14]/70 backdrop-blur-xl flex items-start gap-4 h-full group dark:shadow-[0_8px_40px_-12px_rgba(99,102,241,0.15)]"
+                className="p-6 md:p-7 rounded-2xl border border-slate-200 dark:border-indigo-400/15 bg-white dark:bg-[#0a0a14]/70 backdrop-blur-xl flex items-start gap-4 h-full group transition-colors duration-300 hover:border-indigo-300/70 dark:hover:border-indigo-400/35 hover:shadow-xl hover:shadow-indigo-200/40 dark:shadow-[0_8px_40px_-12px_rgba(99,102,241,0.15)]"
               >
-                <div className="icon-tile w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110">
+                <div className="icon-tile w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
                   <GraduationCap size={24} className="text-indigo-600 dark:text-indigo-300" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-slate-900 dark:text-white">{edu.school}</h3>
+                  <h3 className="text-lg font-bold tracking-tight text-slate-900 dark:text-white">{edu.school}</h3>
                   <p className="text-sm text-slate-600 dark:text-slate-300 font-medium mt-0.5">{edu.degree}</p>
-                  <p className="text-xs text-slate-400 dark:text-slate-500 mt-1">{edu.focus}</p>
-                  <p className="text-sm text-indigo-600 dark:text-indigo-400 font-semibold mt-2">{edu.period}</p>
+                  <p className="text-xs text-slate-400 dark:text-slate-500 mt-1.5">{edu.focus}</p>
+                  <p className="text-sm text-indigo-600 dark:text-indigo-400 font-semibold mt-2.5 nums-tabular tracking-tight">{edu.period}</p>
                 </div>
               </motion.div>
             </ScrollReveal>

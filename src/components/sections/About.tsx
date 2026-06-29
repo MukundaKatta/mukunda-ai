@@ -29,17 +29,17 @@ export function About() {
                 <motion.div
                   whileHover={{ scale: 1.04, y: -4 }}
                   transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-                  className="relative text-center p-6 md:p-7 rounded-2xl border border-slate-200/80 dark:border-indigo-400/15 bg-white dark:bg-[#0a0a14]/70 stat-glow group"
+                  className="relative text-center p-6 md:p-7 rounded-2xl border border-slate-200/80 dark:border-indigo-400/15 bg-white dark:bg-[#0a0a14]/70 stat-glow group lift ring-conic"
                 >
-                  <div className="flex justify-center mb-3">
-                    <div className="icon-tile w-10 h-10 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                  <div className="flex justify-center mb-3.5">
+                    <div className="icon-tile w-10 h-10 rounded-xl flex items-center justify-center transition-transform duration-300 ease-out group-hover:scale-110 group-hover:-rotate-3">
                       <Icon size={18} className="text-indigo-600 dark:text-indigo-300" />
                     </div>
                   </div>
-                  <div className="text-3xl md:text-4xl font-extrabold gradient-text mb-1.5">
+                  <div className="text-3xl md:text-4xl font-extrabold gradient-text glow-text mb-1.5 nums-tabular tracking-tight">
                     <AnimatedCounter end={stat.value} suffix={stat.suffix} />
                   </div>
-                  <div className="text-[10px] font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-[0.2em]">
+                  <div className="text-[10px] font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-[0.22em]">
                     {stat.label}
                   </div>
                 </motion.div>

@@ -41,16 +41,16 @@ export function WhatIDo() {
                 <motion.div
                   whileHover={{ y: -6, scale: 1.02 }}
                   transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-                  className="group p-7 rounded-2xl border border-slate-200 dark:border-indigo-400/15 bg-white dark:bg-[#0a0a14]/70 backdrop-blur-xl h-full relative overflow-hidden dark:shadow-[0_8px_40px_-12px_rgba(99,102,241,0.15)] text-center"
+                  className="group p-7 rounded-2xl border border-slate-200 dark:border-indigo-400/15 group-hover:border-indigo-300/60 dark:group-hover:border-indigo-400/30 bg-white dark:bg-[#0a0a14]/70 backdrop-blur-xl h-full relative overflow-hidden transition-colors duration-500 dark:shadow-[0_8px_40px_-12px_rgba(99,102,241,0.15)] text-center"
                 >
                   {/* Gradient accent on hover */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${cardColors[i % cardColors.length]} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
 
                   <div className="relative flex flex-col items-center">
-                    <div className="icon-tile w-14 h-14 rounded-2xl flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110">
-                      {Icon && <Icon size={26} className="text-indigo-600 dark:text-indigo-300" />}
+                    <div className="icon-tile w-14 h-14 rounded-2xl flex items-center justify-center mb-5 transition-transform duration-300 ease-out group-hover:scale-110 group-hover:-rotate-3">
+                      {Icon && <Icon size={26} className="text-indigo-600 dark:text-indigo-300 transition-colors duration-300 group-hover:text-indigo-500 dark:group-hover:text-indigo-200" />}
                     </div>
-                    <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">{item.title}</h3>
+                    <h3 className="text-lg font-bold tracking-tight text-slate-900 dark:text-white mb-2">{item.title}</h3>
                     <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">{item.description}</p>
                   </div>
                 </motion.div>
