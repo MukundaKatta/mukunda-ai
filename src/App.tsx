@@ -1,5 +1,8 @@
 import { MotionConfig } from 'framer-motion'
 import { useTheme } from './hooks/useTheme'
+import { Intro } from './components/ui/Intro'
+import { CustomCursor } from './components/ui/CustomCursor'
+import { CommandPalette } from './components/ui/CommandPalette'
 import { BackToTop } from './components/ui/BackToTop'
 import { GlobalDynamics } from './components/ui/GlobalDynamics'
 import { CinematicDivider } from './components/ui/CinematicDivider'
@@ -24,6 +27,9 @@ export default function App() {
 
   return (
     <MotionConfig reducedMotion="user">
+      <Intro />
+      <CustomCursor />
+      <CommandPalette dark={dark} toggle={toggle} />
       <div className="min-h-screen bg-[#faf9f6] dark:bg-black text-slate-900 dark:text-slate-100 transition-colors">
         <a
           href="#systems"

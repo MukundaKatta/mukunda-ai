@@ -86,7 +86,7 @@ export function Skills() {
               <motion.div
                 whileHover={{ y: -4 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                className="group p-6 rounded-2xl border border-slate-200/80 dark:border-indigo-400/15 bg-white dark:bg-black/40 backdrop-blur-sm hover:border-indigo-300 dark:hover:border-indigo-400/40 transition-all duration-300 h-full"
+                className="group relative ring-conic p-6 rounded-2xl border border-slate-200/80 dark:border-indigo-400/15 bg-white dark:bg-black/40 backdrop-blur-sm hover:border-indigo-300 dark:hover:border-indigo-400/40 transition-all duration-300 h-full"
               >
                 <div className="flex items-center gap-2 mb-4">
                   <div className="w-1.5 h-1.5 rounded-full bg-indigo-500 dark:bg-indigo-400" />

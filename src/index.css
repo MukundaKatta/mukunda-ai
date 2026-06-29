@@ -5,12 +5,17 @@
 @theme {
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
   --font-display: 'Space Grotesk', 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
   --color-primary: #6366f1;        /* indigo-500 */
   --color-primary-light: #818cf8;  /* indigo-400 */
   --color-primary-dark: #4f46e5;   /* indigo-600 */
   --color-accent: #a78bfa;         /* violet-400 */
   --color-accent-light: #c4b5fd;   /* violet-300 */
   --color-neon: #22d3ee;           /* cyan-400 — neon glow accent */
+  /* Premium motion + depth tokens */
+  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --shadow-premium: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px -12px rgba(15, 23, 42, 0.12), 0 24px 56px -28px rgba(79, 70, 229, 0.14);
 }
 
 @layer base {
@@ -19,9 +24,17 @@
     scroll-behavior: smooth;
     /* Offset anchor targets to clear the fixed 64px header + a little breathing room */
     scroll-padding-top: 4.5rem;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
   body {
     @apply bg-[#faf9f6] text-slate-900 transition-colors duration-300;
+    /* Premium font rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: 'cv11', 'ss01', 'kern';
+    font-synthesis: none;
   }
   html.dark body {
     @apply bg-black text-slate-100;
@@ -29,7 +42,20 @@
   .font-display {
     font-family: var(--font-display);
     font-weight: 700;
-    letter-spacing: 0;
+    letter-spacing: -0.018em;
+    font-feature-settings: 'ss01', 'kern';
+  }
+  /* Tighter optical tracking on large display headings; balanced wrapping */
+  h1, h2 {
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  /* Tabular, slashed-zero numerals for stats / counters / mono readouts */
+  .nums-tabular {
+    font-variant-numeric: tabular-nums slashed-zero;
+    font-feature-settings: 'tnum', 'zero';
   }
 
   /* Visible keyboard focus — interactive elements only, never on mouse click */
@@ -40,6 +66,14 @@
   }
   html.dark :focus-visible {
     outline-color: var(--color-primary-light);
+  }
+  /* Smooth, consistent theme cross-fade across the whole tree */
+  html.theme-anim *,
+  html.theme-anim *::before,
+  html.theme-anim *::after {
+    transition: background-color 0.4s var(--ease-premium),
+      border-color 0.4s var(--ease-premium),
+      color 0.4s var(--ease-premium) !important;
   }
 }
 
@@ -487,9 +521,137 @@
 ::-webkit-scrollbar-thumb { @apply bg-slate-300 dark:bg-indigo-900/60 rounded-full; }
 ::-webkit-scrollbar-thumb:hover { @apply bg-indigo-500/60; }
 
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.5) transparent;
+}
+html.dark * {
+  scrollbar-color: rgba(99, 102, 241, 0.45) transparent;
+}
+
 ::selection {
-  background: rgba(99, 102, 241, 0.3);
+  background: rgba(99, 102, 241, 0.28);
   color: inherit;
+  text-shadow: none;
+}
+html.dark ::selection {
+  background: rgba(34, 211, 238, 0.3);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Premium UI layer — typographic, depth, and interaction polish.
+   Additive utilities applied across sections.
+   ───────────────────────────────────────────────────────────── */
+@layer utilities {
+  /* Animated underline for inline links */
+  .link-underline {
+    position: relative;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1.5px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.4s var(--ease-premium);
+  }
+  .link-underline:hover {
+    background-size: 100% 1.5px;
+  }
+
+  /* Sheen that sweeps a filled button on hover */
+  .shine {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .shine::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transform: translateX(-150%) skewX(-18deg);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+    transition: transform 0.7s var(--ease-premium);
+    pointer-events: none;
+  }
+  .shine:hover::after {
+    transform: translateX(150%) skewX(-18deg);
+  }
+
+  /* Premium depth shadow + lift on hover */
+  .lift {
+    transition: transform 0.45s var(--ease-premium), box-shadow 0.45s var(--ease-premium);
+  }
+  .lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-premium);
+  }
+
+  /* Soft conic gradient ring border that animates on hover */
+  .ring-conic {
+    position: relative;
+  }
+  .ring-conic::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: conic-gradient(from 180deg, rgba(99, 102, 241, 0.5), rgba(167, 139, 250, 0.45), rgba(34, 211, 238, 0.4), rgba(99, 102, 241, 0.5));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s var(--ease-premium);
+    pointer-events: none;
+  }
+  .ring-conic:hover::before {
+    opacity: 1;
+  }
+
+  /* Text with a subtle glow in dark mode */
+  .glow-text {
+    text-shadow: 0 0 0 transparent;
+  }
+  html.dark .glow-text {
+    text-shadow: 0 0 28px rgba(129, 140, 248, 0.35);
+  }
+
+  /* Premium keyboard hint */
+  .kbd {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    line-height: 1;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.35rem;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 1px 0 rgba(15, 23, 42, 0.06);
+    color: #475569;
+  }
+  html.dark .kbd {
+    border-color: rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+    color: #94a3b8;
+  }
+
+  /* Animated gradient underline accent under section kickers */
+  .accent-rule {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--color-primary), var(--color-accent), transparent);
+    background-size: 200% 100%;
+    animation: accent-pan 6s linear infinite;
+  }
+  @keyframes accent-pan {
+    to { background-position: 200% 0; }
+  }
+
+  /* Smooth image rendering for avatars / hero */
+  .img-crisp {
+    image-rendering: auto;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+  }
 }
 
 /* Honour the OS "reduce motion" setting: stop ambient loops, smooth scroll,

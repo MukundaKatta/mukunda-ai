@@ -13,5 +13,16 @@ export function useTheme() {
     localStorage.setItem('theme', dark ? 'dark' : 'light')
   }, [dark])
 
-  return { dark, toggle: () => setDark(d => !d) }
+  const toggle = () => {
+    // Briefly enable a global color cross-fade for a premium theme switch
+    const root = document.documentElement
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (!reduce) {
+      root.classList.add('theme-anim')
+      window.setTimeout(() => root.classList.remove('theme-anim'), 480)
+    }
+    setDark(d => !d)
+  }
+
+  return { dark, toggle }
 }

@@ -3,6 +3,7 @@ import { Bot, Layers, Database, Cloud, Code, GitBranch } from 'lucide-react'
 import { SectionHeading } from '../ui/SectionHeading'
 import { ScrollReveal } from '../ui/ScrollReveal'
 import { MatrixRain } from '../ui/MatrixRain'
+import { TiltCard } from '../ui/TiltCard'
 import { whatIDo } from '../../data/skills'
 
 const iconMap: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
@@ -36,6 +37,7 @@ export function WhatIDo() {
             const Icon = iconMap[item.icon]
             return (
               <ScrollReveal key={item.title} delay={i * 0.08}>
+                <TiltCard className="h-full" max={6} glow={false}>
                 <motion.div
                   whileHover={{ y: -6, scale: 1.02 }}
                   transition={{ type: 'spring', stiffness: 300, damping: 25 }}
@@ -52,6 +54,7 @@ export function WhatIDo() {
                     <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">{item.description}</p>
                   </div>
                 </motion.div>
+                </TiltCard>
               </ScrollReveal>
             )
           })}

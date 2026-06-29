@@ -4,6 +4,7 @@ import { GithubIcon } from '../ui/SocialIcons'
 import { SectionHeading } from '../ui/SectionHeading'
 import { ScrollReveal } from '../ui/ScrollReveal'
 import { MatrixRain } from '../ui/MatrixRain'
+import { TiltCard } from '../ui/TiltCard'
 import { projects } from '../../data/projects'
 
 const statusStyles: Record<string, string> = {
@@ -98,6 +99,7 @@ export function Projects() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {projects.map((project, i) => (
             <ScrollReveal key={project.name} delay={i * 0.06}>
+              <TiltCard className="h-full" glow={false}>
               <motion.div
                 whileHover={{ y: -5 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 25 }}
@@ -158,6 +160,7 @@ export function Projects() {
                   )}
                 </div>
               </motion.div>
+              </TiltCard>
             </ScrollReveal>
           ))}
         </div>
@@ -166,7 +169,7 @@ export function Projects() {
           <div className="mt-10 flex flex-col items-center gap-3">
             <a
               href="/packages.html"
-              className="group inline-flex items-center gap-3 rounded-xl border border-indigo-200 bg-white px-6 py-4 text-base font-semibold text-indigo-700 shadow-[0_18px_50px_-32px_rgba(99,102,241,0.55)] transition-all hover:-translate-y-0.5 hover:border-indigo-300 hover:shadow-[0_22px_60px_-30px_rgba(99,102,241,0.75)] dark:border-cyan-200/20 dark:bg-white/[0.04] dark:text-cyan-200 dark:hover:border-cyan-200/40 dark:hover:bg-white/[0.07]"
+              className="group shine inline-flex items-center gap-3 rounded-xl border border-indigo-200 bg-white px-6 py-4 text-base font-semibold text-indigo-700 shadow-[0_18px_50px_-32px_rgba(99,102,241,0.55)] transition-all hover:-translate-y-0.5 hover:border-indigo-300 hover:shadow-[0_22px_60px_-30px_rgba(99,102,241,0.75)] dark:border-cyan-200/20 dark:bg-white/[0.04] dark:text-cyan-200 dark:hover:border-cyan-200/40 dark:hover:bg-white/[0.07]"
             >
               <Package size={18} className="text-indigo-600 dark:text-cyan-300" />
               <span>

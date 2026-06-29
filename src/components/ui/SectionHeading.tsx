@@ -20,10 +20,10 @@ export function SectionHeading({
       className="text-center mb-14"
     >
       {kicker && (
-        <div className="inline-flex items-center gap-2 mb-4 text-[11px] font-mono uppercase tracking-[0.3em] text-indigo-500/80 dark:text-indigo-400/80">
-          <span className="h-px w-6 bg-indigo-400/40" />
+        <div className="inline-flex items-center gap-2.5 mb-4 text-[11px] font-mono uppercase tracking-[0.3em] text-indigo-500/80 dark:text-indigo-400/80">
+          <span className="accent-rule w-8 rounded-full" />
           <span>{kicker}</span>
-          <span className="h-px w-6 bg-indigo-400/40" />
+          <span className="accent-rule w-8 rounded-full" />
         </div>
       )}
       <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05]">
@@ -31,7 +31,7 @@ export function SectionHeading({
         {rest && (
           <>
             {' '}
-            <span className="gradient-text-premium">{rest}</span>
+            <span className="gradient-text-premium glow-text">{rest}</span>
           </>
         )}
       </h2>

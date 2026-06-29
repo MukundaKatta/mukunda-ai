@@ -1,7 +1,9 @@
-import { motion } from 'framer-motion'
+import { useRef } from 'react'
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
 import { Mail, ArrowRight, Activity, ShieldCheck, Workflow, Cpu, DatabaseZap, Gauge, Terminal, Sparkles } from 'lucide-react'
 import { GithubIcon, LinkedinIcon, TwitterIcon } from '../ui/SocialIcons'
 import { NeuralField } from '../ui/NeuralField'
+import { useMagnetic } from '../ui/Magnetic'
 import { personal } from '../../data/personal'
 
 const stagger = {
@@ -15,6 +17,14 @@ const fadeUp = {
 }
 
 export function Hero() {
+  const reduce = useReducedMotion()
+  const heroRef = useRef<HTMLElement>(null)
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] })
+  const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '16%'])
+  const bgScale = useTransform(scrollYProgress, [0, 1], [1, 1.08])
+  const sysMag = useMagnetic<HTMLAnchorElement>(0.45)
+  const mailMag = useMagnetic<HTMLAnchorElement>(0.45)
+
   const commandSignals = [
     { label: 'Production AI', value: 'RAG · Agents · Evals', icon: Activity },
     { label: 'Enterprise Scale', value: 'AWS · Bedrock · OpenSearch', icon: ShieldCheck },
@@ -39,9 +49,12 @@ export function Hero() {
   ]
 
   return (
-    <section className="relative flex min-h-screen items-center justify-start overflow-hidden bg-black px-5 pb-10 pt-28 sm:px-6">
-      {/* Cinematic AI systems background */}
-      <div className="absolute inset-0 pointer-events-none select-none z-0">
+    <section ref={heroRef} className="relative flex min-h-screen items-center justify-start overflow-hidden bg-black px-5 pb-10 pt-28 sm:px-6">
+      {/* Cinematic AI systems background — subtle scroll parallax */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none select-none z-0"
+        style={reduce ? undefined : { y: bgY, scale: bgScale }}
+      >
         <img
           src="/hero-background.png"
           alt=""
@@ -51,7 +64,7 @@ export function Hero() {
         />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.92)_0%,rgba(0,0,0,0.7)_42%,rgba(0,0,0,0.82)_100%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_26%_48%,rgba(79,70,229,0.2)_0%,transparent_44%),radial-gradient(ellipse_at_78%_34%,rgba(34,211,238,0.1)_0%,transparent_38%)]" />
-      </div>
+      </motion.div>
 
       <div className="absolute inset-0 z-[1] opacity-35 line-grid" />
       <div className="absolute inset-0 z-[1] opacity-80">
@@ -115,16 +128,22 @@ export function Hero() {
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-3 mb-7">
             <motion.a
               href="#systems"
-              whileHover={{ y: -2 }}
+              ref={sysMag.ref}
+              style={sysMag.style}
+              onPointerMove={sysMag.onPointerMove}
+              onPointerLeave={sysMag.onPointerLeave}
               whileTap={{ scale: 0.97 }}
-              className="neon-btn-primary flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold tracking-wide group"
+              className="neon-btn-primary shine flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold tracking-wide group"
             >
               View Systems
               <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
             </motion.a>
             <motion.a
               href={`mailto:${personal.email}?subject=Let's%20work%20together`}
-              whileHover={{ y: -2 }}
+              ref={mailMag.ref}
+              style={mailMag.style}
+              onPointerMove={mailMag.onPointerMove}
+              onPointerLeave={mailMag.onPointerLeave}
               whileTap={{ scale: 0.97 }}
               className="neon-tile flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold tracking-wide text-slate-100"
             >
