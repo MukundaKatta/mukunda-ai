@@ -59,7 +59,9 @@ export function Hero() {
           src="/hero-background.png"
           alt=""
           aria-hidden
-          className="w-full h-full object-cover opacity-90"
+          fetchPriority="high"
+          decoding="async"
+          className="img-crisp w-full h-full object-cover opacity-90"
           style={{ objectPosition: 'center right' }}
         />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.92)_0%,rgba(0,0,0,0.7)_42%,rgba(0,0,0,0.82)_100%)]" />

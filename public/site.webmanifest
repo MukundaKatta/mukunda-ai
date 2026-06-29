@@ -1,0 +1,16 @@
+{
+  "name": "Mukunda Rao Katta — Senior AI/ML Engineer",
+  "short_name": "Mukunda Katta",
+  "description": "Senior AI/ML Engineer building production AI systems, agents, and open-source LLM tooling.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#000000",
+  "theme_color": "#0a0a14",
+  "categories": ["portfolio", "technology", "developer"],
+  "icons": [
+    { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any", "purpose": "any" },
+    { "src": "/github-profile.png", "type": "image/png", "sizes": "460x460", "purpose": "any" }
+  ]
+}
