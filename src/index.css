@@ -26,6 +26,12 @@
     scroll-padding-top: 4.5rem;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
+    color-scheme: light;
+    accent-color: var(--color-primary);
+  }
+  html.dark {
+    color-scheme: dark;
+    accent-color: var(--color-primary-light);
   }
   body {
     @apply bg-[#faf9f6] text-slate-900 transition-colors duration-300;
@@ -38,6 +44,10 @@
   }
   html.dark body {
     @apply bg-black text-slate-100;
+  }
+  /* Anchored sections get a brief highlight when jumped to */
+  :target {
+    scroll-margin-top: 5rem;
   }
   .font-display {
     font-family: var(--font-display);

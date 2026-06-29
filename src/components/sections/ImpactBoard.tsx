@@ -43,7 +43,9 @@ export function ImpactBoard() {
         src="/proof-cinematic.png"
         alt=""
         aria-hidden
-        className="absolute inset-0 h-full w-full object-cover opacity-70"
+        loading="lazy"
+        decoding="async"
+        className="img-crisp absolute inset-0 h-full w-full object-cover opacity-70"
         style={{ objectPosition: 'center 56%' }}
       />
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.88)_0%,rgba(0,0,0,0.66)_42%,rgba(0,0,0,0.84)_100%)]" />
