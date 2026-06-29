@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { ThemeToggle } from '../ui/ThemeToggle'
@@ -18,6 +18,22 @@ export function Header({ dark, toggle }: { dark: boolean; toggle: () => void }) 
   const [active, setActive] = useState('')
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrollProgress, setScrollProgress] = useState(0)
+  const menuBtnRef = useRef<HTMLButtonElement>(null)
+
+  const closeMenu = () => {
+    setMobileOpen(false)
+    menuBtnRef.current?.focus()
+  }
+
+  // Close the mobile menu on Escape and return focus to its trigger
+  useEffect(() => {
+    if (!mobileOpen) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeMenu()
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [mobileOpen])
 
   useEffect(() => {
     const onScroll = () => {
@@ -68,6 +84,7 @@ export function Header({ dark, toggle }: { dark: boolean; toggle: () => void }) 
               <a
                 key={item.href}
                 href={item.href}
+                aria-current={active === item.href.slice(1) ? 'true' : undefined}
                 className={`relative px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${
                   active === item.href.slice(1)
                     ? 'text-indigo-600 dark:text-indigo-300'
@@ -91,10 +108,12 @@ export function Header({ dark, toggle }: { dark: boolean; toggle: () => void }) 
 
           {/* Mobile menu toggle */}
           <button
-            onClick={() => setMobileOpen(!mobileOpen)}
+            ref={menuBtnRef}
+            onClick={() => setMobileOpen(o => !o)}
             className="md:hidden neon-tile w-10 h-10 rounded-lg flex items-center justify-center text-slate-600 dark:text-slate-300 cursor-pointer"
-            aria-label="Menu"
+            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileOpen}
+            aria-controls="mobile-menu"
           >
             {mobileOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -105,6 +124,9 @@ export function Header({ dark, toggle }: { dark: boolean; toggle: () => void }) 
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
+            id="mobile-menu"
+            role="navigation"
+            aria-label="Mobile"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -116,6 +138,7 @@ export function Header({ dark, toggle }: { dark: boolean; toggle: () => void }) 
                 <a
                   key={item.href}
                   href={item.href}
+                  aria-current={active === item.href.slice(1) ? 'true' : undefined}
                   onClick={() => setMobileOpen(false)}
                   className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
                     active === item.href.slice(1)

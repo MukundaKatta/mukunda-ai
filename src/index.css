@@ -17,8 +17,8 @@
   html {
     font-family: var(--font-sans);
     scroll-behavior: smooth;
-    /* Offset anchor targets so sections don't land under the fixed 64px header */
-    scroll-padding-top: 5rem;
+    /* Offset anchor targets to clear the fixed 64px header + a little breathing room */
+    scroll-padding-top: 4.5rem;
   }
   body {
     @apply bg-[#faf9f6] text-slate-900 transition-colors duration-300;

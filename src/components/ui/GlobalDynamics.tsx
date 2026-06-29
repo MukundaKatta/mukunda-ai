@@ -26,7 +26,9 @@ export function GlobalDynamics() {
       window.removeEventListener('scroll', onScroll)
       window.removeEventListener('pointermove', onPointerMove)
     }
-  }, [pointerX, pointerY])
+    // pointerX/pointerY are stable MotionValue refs — attach listeners once
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <>

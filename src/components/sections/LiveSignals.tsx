@@ -61,7 +61,7 @@ export function LiveSignals() {
           {tickerSignals.map(({ label, value }, index) => (
             <div key={`${label}-${index}`} className="flex items-center gap-3 rounded-full border border-white/10 bg-black/35 px-4 py-2 text-xs text-slate-300">
               <span className="h-1.5 w-1.5 rounded-full bg-cyan-200 shadow-[0_0_18px_rgba(103,232,249,0.8)]" />
-              <span className="font-semibold uppercase tracking-[0.16em] text-slate-500">{label}</span>
+              <span className="font-semibold uppercase tracking-[0.16em] text-slate-400">{label}</span>
               <span className="text-slate-200">{value}</span>
             </div>
           ))}
