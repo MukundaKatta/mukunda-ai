@@ -215,12 +215,12 @@ export function Projects() {
             >
               <Package size={18} className="text-indigo-600 dark:text-cyan-300" />
               <span>
-                See all <span data-package-total>392</span> open-source packages
+                See all <span data-package-total>390</span> open-source packages
               </span>
               <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
             <p className="text-xs font-medium uppercase tracking-[0.18em] text-slate-500 dark:text-slate-500">
-              <span data-npm-count>144</span> npm · <span data-pypi-count>52</span> PyPI · <span data-crates-count>176</span> crates.io · <span data-mcp-count>20</span> MCP Registry
+              <span data-npm-count>144</span> npm · <span data-pypi-count>50</span> PyPI · <span data-crates-count>176</span> crates.io · <span data-mcp-count>20</span> MCP Registry
             </p>
           </div>
         </ScrollReveal>
