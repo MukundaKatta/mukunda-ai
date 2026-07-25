@@ -4,7 +4,7 @@
 > crates.io, and the official Model Context Protocol Registry. Auto-refreshed
 > from registry APIs every 3 days. See /llms.txt for the curated summary.
 
-Totals: 144 npm + 50 PyPI + 176 crates.io + 20 MCP Registry servers
+Totals: 144 npm + 52 PyPI + 176 crates.io + 20 MCP Registry servers
 
 
 ## npm — @mukundakatta (144 packages)
@@ -154,7 +154,7 @@ Totals: 144 npm + 50 PyPI + 176 crates.io + 20 MCP Registry servers
 - [@mukundakatta/xml-mcp](https://www.npmjs.com/package/@mukundakatta/xml-mcp): MCP server: convert between XML and JSON. Attribute-aware, CDATA-safe.
 - [@mukundakatta/yaml-mcp](https://www.npmjs.com/package/@mukundakatta/yaml-mcp): MCP server: convert between YAML and JSON. Preserves keys, arrays, nested structures.
 
-## PyPI (50 packages)
+## PyPI (52 packages)
 
 - [agent-loop-breaker-py](https://pypi.org/project/agent-loop-breaker-py/): Detect repeated agent steps and stop runaway loops. Python port of @mukundakatta/agent-loop-breaker.
 - [agent-regression-lens-py](https://pypi.org/project/agent-regression-lens-py/): Detect regressions between baseline and current AI agent runs. Python port of @mukundakatta/agent-regression-lens.
@@ -168,6 +168,7 @@ Totals: 144 npm + 50 PyPI + 176 crates.io + 20 MCP Registry servers
 - [ai-eval-forge](https://pypi.org/project/ai-eval-forge/): Zero-dependency eval harness for LLM and agent regression testing. Scores outputs with exact, contains, regex, JSON, citation, and token-F1 checks. Compares two runs to flag regressions.
 - [ai-supply-chain-manifest-py](https://pypi.org/project/ai-supply-chain-manifest-py/): Build and validate lightweight AI model / data / tool manifests. Python port of @mukundakatta/ai-supply-chain-manifest.
 - [citation-integrity-check](https://pypi.org/project/citation-integrity-check/): Verify answer citations refer to supplied source ids and that cited sources actually support the claims. Python port of @mukundakatta/citation-integrity-check.
+- [claude-commands-check](https://pypi.org/project/claude-commands-check/): Linter for Claude Code slash-command files (.claude/commands/*.md). Validates YAML frontmatter, allowed-tools shape, description quality, and flags hardcoded secrets.
 - [claude-hooks-check](https://pypi.org/project/claude-hooks-check/): Linter for Claude Code hooks configuration (the 'hooks' block of settings.json). Validates event names, matcher shape, command entries, and flags dangerous commands or hardcoded secrets.
 - [claude-skill-check](https://pypi.org/project/claude-skill-check/): Linter for Claude Code SKILL.md files. Validates YAML frontmatter, required fields, description length, and common secret patterns.
 - [codex-skill-kit](https://pypi.org/project/codex-skill-kit/): Scaffold and validate Codex skills from the command line.
@@ -200,6 +201,7 @@ Totals: 144 npm + 50 PyPI + 176 crates.io + 20 MCP Registry servers
 - [rag-quality-kit](https://pypi.org/project/rag-quality-kit/): Heuristic quality metrics for RAG retrieval and grounded answers. Python port of @mukundakatta/rag-quality-kit.
 - [rag-staleness-auditor-py](https://pypi.org/project/rag-staleness-auditor-py/): Find stale RAG chunks by age, version, and freshness requirements. Python port of @mukundakatta/rag-staleness-auditor.
 - [retrieval-acl-filter-py](https://pypi.org/project/retrieval-acl-filter-py/): Enforce document ACLs after retrieval and before prompting. Python port of @mukundakatta/retrieval-acl-filter.
+- [semantic-cache-key](https://pypi.org/project/semantic-cache-key/): Stable semantic cache keys for LLM requests. Invariant to whitespace, casing, and key ordering; sensitive to model swaps, tool list, and retrieval context. Python port of @mukundakatta/semantic-cache-key.
 - [skillint-py](https://pypi.org/project/skillint-py/): Lint Claude Code SKILL.md files for frontmatter, required fields, descriptions, and hardcoded secrets. Stdlib-only Python port of @mukundakatta/skillint.
 - [system-prompt-leak-scan](https://pypi.org/project/system-prompt-leak-scan/): Detect system prompt leakage in LLM model outputs via known patterns, configured-prompt substring matching, and unique fingerprint phrases. Python port of @mukundakatta/system-prompt-leak-scan.
 - [tool-call-contracts-py](https://pypi.org/project/tool-call-contracts-py/): Validate LLM tool-call payloads with small JSON-like contracts. Python port of @mukundakatta/tool-call-contracts.

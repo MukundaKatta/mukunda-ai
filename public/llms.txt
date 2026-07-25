@@ -14,7 +14,7 @@ This is a [llms.txt](https://llmstxt.org) file: a curated, machine-readable inde
 ## Open-source footprint
 
 - [npm packages — @mukundakatta/*](https://www.npmjs.com/~mukundakatta): 144 published packages (47 MCP servers + 48 libraries + agent reliability stack)
-- [PyPI packages](https://pypi.org/user/mukundakatta/): 50 published Python packages across LLM observability, RAG, agent reliability, prompt safety
+- [PyPI packages](https://pypi.org/user/mukundakatta/): 52 published Python packages across LLM observability, RAG, agent reliability, prompt safety
 - [crates.io crates — MukundaKatta](https://crates.io/users/MukundaKatta): 176 published Rust crates including the rust-llm-stack
 - [MCP Registry servers](https://registry.modelcontextprotocol.io): 20 servers under `io.github.MukundaKatta/*`
 - [GitHub Marketplace Actions](https://github.com/marketplace?query=publisher%3AMukundaKatta): 7 published Actions
