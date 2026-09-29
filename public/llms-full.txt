@@ -4,7 +4,7 @@
 > crates.io, and the official Model Context Protocol Registry. Auto-refreshed
 > from registry APIs every 3 days. See /llms.txt for the curated summary.
 
-Totals: 144 npm + 52 PyPI + 176 crates.io + 20 MCP Registry servers
+Totals: 144 npm + 51 PyPI + 176 crates.io + 20 MCP Registry servers
 
 
 ## npm — @mukundakatta (144 packages)
@@ -154,7 +154,7 @@ Totals: 144 npm + 52 PyPI + 176 crates.io + 20 MCP Registry servers
 - [@mukundakatta/xml-mcp](https://www.npmjs.com/package/@mukundakatta/xml-mcp): MCP server: convert between XML and JSON. Attribute-aware, CDATA-safe.
 - [@mukundakatta/yaml-mcp](https://www.npmjs.com/package/@mukundakatta/yaml-mcp): MCP server: convert between YAML and JSON. Preserves keys, arrays, nested structures.
 
-## PyPI (52 packages)
+## PyPI (51 packages)
 
 - [agent-loop-breaker-py](https://pypi.org/project/agent-loop-breaker-py/): Detect repeated agent steps and stop runaway loops. Python port of @mukundakatta/agent-loop-breaker.
 - [agent-regression-lens-py](https://pypi.org/project/agent-regression-lens-py/): Detect regressions between baseline and current AI agent runs. Python port of @mukundakatta/agent-regression-lens.
@@ -190,7 +190,6 @@ Totals: 144 npm + 52 PyPI + 176 crates.io + 20 MCP Registry servers
 - [llm-usage-report](https://pypi.org/project/llm-usage-report/): Parse LLM API response logs (Anthropic, OpenAI, Google) and generate token / cost reports. Supports a --alert-at budget alarm that exits non-zero when total cost exceeds a threshold. No framework adoption required.
 - [mcp-config-check](https://pypi.org/project/mcp-config-check/): Linter for MCP (Model Context Protocol) config files used by Claude Desktop, Cursor, Cline, Windsurf, and Zed. CLI + library API.
 - [mcpcheck-py](https://pypi.org/project/mcpcheck-py/): Lint MCP config files for Claude Desktop, Claude Code, Cursor, Cline, Windsurf, and Zed. Stdlib-only Python port of @mukundakatta/mcpcheck.
-- [mk-agentkit](https://pypi.org/project/mk-agentkit/): The agent reliability stack in one install: agentfit + agentguard + agentsnap + agentvet + agentcast (Python ports).
 - [model-fallback-planner-py](https://pypi.org/project/model-fallback-planner-py/): Plan model fallback chains from capability, cost, and health data. Python port of @mukundakatta/model-fallback-planner.
 - [model-router-policy-py](https://pypi.org/project/model-router-policy-py/): Policy-based model routing by capability, cost, latency, and privacy. Python port of @mukundakatta/model-router-policy.
 - [partial-json-stream](https://pypi.org/project/partial-json-stream/): Streaming JSON parser that yields partial valid trees as tokens arrive. For LLM tool calls, structured outputs, and partial recovery.
