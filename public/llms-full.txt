@@ -4,7 +4,7 @@
 > crates.io, and the official Model Context Protocol Registry. Auto-refreshed
 > from registry APIs every 3 days. See /llms.txt for the curated summary.
 
-Totals: 144 npm + 52 PyPI + 176 crates.io + 20 MCP Registry servers
+Totals: 144 npm + 52 PyPI + 176 crates.io + 0 MCP Registry servers
 
 
 ## npm — @mukundakatta (144 packages)
@@ -388,25 +388,6 @@ Totals: 144 npm + 52 PyPI + 176 crates.io + 20 MCP Registry servers
 - [yaml-repair](https://crates.io/crates/yaml-repair): Repair messy YAML emitted by LLMs: strip markdown fences, tabs->spaces, dedent leading whitespace, normalize line endings. Returns cleaned text suitable for any YAML parser. Zero deps.
 - [zero-width-strip](https://crates.io/crates/zero-width-strip): Strip zero-width and bidi-control Unicode characters from text. Defends against invisible-payload prompt injection. Zero deps.
 
-## MCP Registry — io.github.MukundaKatta (20 servers)
+## MCP Registry — io.github.MukundaKatta (0 servers)
 
-- [io.github.MukundaKatta/agentcast](https://github.com/MukundaKatta/agentcast-mcp): Structured-output enforcer: extract and validate JSON from messy LLM text.
-- [io.github.MukundaKatta/agentfit](https://github.com/MukundaKatta/agentfit-mcp): Token-aware message truncation: fit a chat history into your model's context budget.
-- [io.github.MukundaKatta/agentguard](https://github.com/MukundaKatta/agentguard-mcp): Network-egress firewall for agent tools: check URLs against a declarative policy.
-- [io.github.MukundaKatta/agentsnap](https://github.com/MukundaKatta/agentsnap-mcp): Snapshot tests for AI tool-call traces: diff, validate, and catch silent regressions.
-- [io.github.MukundaKatta/agentvet](https://github.com/MukundaKatta/agentvet-mcp): Validate tool-call args before execution. Returns LLM-friendly retry hints.
-- [io.github.MukundaKatta/citecite-mcp](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.MukundaKatta/citecite-mcp): Inject, parse, and strip [N] citation markers in RAG outputs.
-- [io.github.MukundaKatta/csv-tools-mcp](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.MukundaKatta/csv-tools-mcp): Reliable CSV parsing + generation. Handles quotes, embedded commas, BOMs, CRLF.
-- [io.github.MukundaKatta/diff-mcp](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.MukundaKatta/diff-mcp): Character-precise unified diff + patch application + patch parsing.
-- [io.github.MukundaKatta/html-to-markdown-mcp](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.MukundaKatta/html-to-markdown-mcp): Convert HTML to Markdown or strip to plain text. For web-scraping agents.
-- [io.github.MukundaKatta/jmespath-mcp](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.MukundaKatta/jmespath-mcp): Run JMESPath queries against JSON. Pure JS, no native binary needed.
-- [io.github.MukundaKatta/json5-mcp](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.MukundaKatta/json5-mcp): Parse JSON5 (comments, trailing commas, unquoted keys) and emit strict JSON.
-- [io.github.MukundaKatta/promptbudget-mcp](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.MukundaKatta/promptbudget-mcp): Token-budget-aware text handling: count, truncate, and chunk for LLM prompts.
-- [io.github.MukundaKatta/ragdrift-mcp](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.MukundaKatta/ragdrift-mcp): Diagnose RAG drift: interpret scores, recommend thresholds, explain dimensions.
-- [io.github.MukundaKatta/ragmetric-mcp](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.MukundaKatta/ragmetric-mcp): RAG retrieval IR metrics: recall@k, hit@k, MRR, NDCG@k, evaluate_batch.
-- [io.github.MukundaKatta/regex-test-mcp](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.MukundaKatta/regex-test-mcp): Trustworthy JS regex testing. Real offsets, named groups, safe against zero-width loops.
-- [io.github.MukundaKatta/shellquote-mcp](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.MukundaKatta/shellquote-mcp): Safe shell argument escaping for bash, cmd.exe, and PowerShell.
-- [io.github.MukundaKatta/sqlfmt-mcp](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.MukundaKatta/sqlfmt-mcp): Deterministic SQL formatting across 19 dialects (postgres, mysql, snowflake, bigquery, etc.).
-- [io.github.MukundaKatta/streamparse](https://github.com/MukundaKatta/streamparse-mcp): Parse partial / truncated / messy JSON for LLM tool calls and structured outputs.
-- [io.github.MukundaKatta/timezone-mcp](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.MukundaKatta/timezone-mcp): IANA timezone conversions with real DST rules.
-- [io.github.MukundaKatta/toml-yaml-json-mcp](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.MukundaKatta/toml-yaml-json-mcp): Parse, format, and convert configs across TOML, YAML, and JSON.
+- _(none discovered this run)_
